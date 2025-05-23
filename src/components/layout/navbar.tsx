@@ -2,21 +2,78 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Terminal, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
-const ASCII_BORDER = "═══════════════════════════════════════════════";
+const ASCII_BORDER = '═══════════════════════════════════════════════';
 
 // Memecoin pricing data that scrolls across the top
 const memecoinPricing = [
-  { coin: "DOGE", price: "$0.1234", change: "+2.3%", volume: "$1.2B", mcap: "$17.8B", details: "Dogecoin - The original memecoin, started as a joke, now a major player." },
-  { coin: "SHIB", price: "$0.00001234", change: "-1.2%", volume: "$856M", mcap: "$7.2B", details: "Shiba Inu - The Dogecoin killer, with its own ecosystem." },
-  { coin: "PEPE", price: "$0.0000001234", change: "+5.6%", volume: "$234M", mcap: "$1.1B", details: "Pepe - The frog-themed memecoin that took the market by storm." },
-  { coin: "FLOKI", price: "$0.0001234", change: "-0.8%", volume: "$98M", mcap: "$892M", details: "Floki - Named after Elon Musk's dog, with a Viking theme." },
-  { coin: "BONK", price: "$0.0000000234", change: "+3.4%", volume: "$45M", mcap: "$156M", details: "Bonk - Solana's first dog coin, gaining traction in the ecosystem." },
-  { coin: "WOJAK", price: "$0.0000000123", change: "-2.1%", volume: "$12M", mcap: "$89M", details: "Wojak - Based on the popular internet meme character." },
-  { coin: "SAMO", price: "$0.01234", change: "+4.5%", volume: "$34M", mcap: "$445M", details: "Samoyedcoin - The unofficial mascot of Solana." },
-  { coin: "MYRO", price: "$0.0000000345", change: "-1.8%", volume: "$23M", mcap: "$67M", details: "Myro - Another Solana-based dog coin gaining popularity." },
+  {
+    coin: 'DOGE',
+    price: '$0.1234',
+    change: '+2.3%',
+    volume: '$1.2B',
+    mcap: '$17.8B',
+    details:
+      'Dogecoin - The original memecoin, started as a joke, now a major player.',
+  },
+  {
+    coin: 'SHIB',
+    price: '$0.00001234',
+    change: '-1.2%',
+    volume: '$856M',
+    mcap: '$7.2B',
+    details: 'Shiba Inu - The Dogecoin killer, with its own ecosystem.',
+  },
+  {
+    coin: 'PEPE',
+    price: '$0.0000001234',
+    change: '+5.6%',
+    volume: '$234M',
+    mcap: '$1.1B',
+    details: 'Pepe - The frog-themed memecoin that took the market by storm.',
+  },
+  {
+    coin: 'FLOKI',
+    price: '$0.0001234',
+    change: '-0.8%',
+    volume: '$98M',
+    mcap: '$892M',
+    details: "Floki - Named after Elon Musk's dog, with a Viking theme.",
+  },
+  {
+    coin: 'BONK',
+    price: '$0.0000000234',
+    change: '+3.4%',
+    volume: '$45M',
+    mcap: '$156M',
+    details:
+      "Bonk - Solana's first dog coin, gaining traction in the ecosystem.",
+  },
+  {
+    coin: 'WOJAK',
+    price: '$0.0000000123',
+    change: '-2.1%',
+    volume: '$12M',
+    mcap: '$89M',
+    details: 'Wojak - Based on the popular internet meme character.',
+  },
+  {
+    coin: 'SAMO',
+    price: '$0.01234',
+    change: '+4.5%',
+    volume: '$34M',
+    mcap: '$445M',
+    details: 'Samoyedcoin - The unofficial mascot of Solana.',
+  },
+  {
+    coin: 'MYRO',
+    price: '$0.0000000345',
+    change: '-1.8%',
+    volume: '$23M',
+    mcap: '$67M',
+    details: 'Myro - Another Solana-based dog coin gaining popularity.',
+  },
 ];
 
 const Navbar = () => {
@@ -24,8 +81,9 @@ const Navbar = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [tickerOffset, setTickerOffset] = useState(0);
   const [tickerPaused, setTickerPaused] = useState(false);
-  const [coinModal, setCoinModal] = useState<null | typeof memecoinPricing[0]>(null);
-  const pathname = usePathname();
+  const [coinModal, setCoinModal] = useState<
+    null | (typeof memecoinPricing)[0]
+  >(null);
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -35,7 +93,7 @@ const Navbar = () => {
   useEffect(() => {
     if (tickerPaused) return;
     const tickerTimer = setInterval(() => {
-      setTickerOffset(prev => prev - 1);
+      setTickerOffset((prev) => prev - 1);
     }, 50);
     return () => clearInterval(tickerTimer);
   }, [tickerPaused]);
@@ -58,19 +116,19 @@ const Navbar = () => {
   return (
     <>
       {/* Memecoin Pricing Ticker */}
-      <div 
-        className="bg-black text-neon-green font-mono text-xs py-1 overflow-hidden border-b border-neon-green/30"
+      <div
+        className="text-neon-green border-neon-green/30 overflow-hidden border-b bg-black py-1 font-mono text-xs"
         onMouseEnter={handleTickerMouseEnter}
         onMouseLeave={handleTickerMouseLeave}
       >
-        <div 
+        <div
           className="flex whitespace-nowrap"
           style={{ transform: `translateX(${tickerOffset}px)` }}
         >
           {[...memecoinPricing, ...memecoinPricing].map((coin, index) => (
             <button
               key={index}
-              className="flex items-center mr-8 focus:outline-none hover:underline hover:text-neon-cyan bg-transparent"
+              className="hover:text-neon-cyan mr-8 flex items-center bg-transparent hover:underline focus:outline-none"
               style={{ cursor: 'pointer' }}
               onClick={() => setCoinModal(coin)}
               tabIndex={0}
@@ -78,38 +136,55 @@ const Navbar = () => {
             >
               <span className="text-neon-cyan mr-2">{coin.coin}</span>
               <span className="text-neon-green mr-2">{coin.price}</span>
-              <span className={coin.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}>{coin.change}</span>
-              <span className="text-gray-400 mr-2">Vol: {coin.volume}</span>
-              <span className="text-gray-400 mr-2">MCap: {coin.mcap}</span>
-              <span className="text-gray-600 mr-4">|</span>
+              <span
+                className={
+                  coin.change.startsWith('+')
+                    ? 'text-green-500'
+                    : 'text-red-500'
+                }
+              >
+                {coin.change}
+              </span>
+              <span className="mr-2 text-gray-400">Vol: {coin.volume}</span>
+              <span className="mr-2 text-gray-400">MCap: {coin.mcap}</span>
+              <span className="mr-4 text-gray-600">|</span>
             </button>
           ))}
         </div>
       </div>
 
       {/* Main Navigation */}
-      <header className="bg-black/95 backdrop-blur-sm border-b border-neon-green sticky top-0 z-50">
+      <header className="border-neon-green sticky top-0 z-50 border-b bg-black/95 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             {/* Logo/Brand */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="group flex items-center gap-3">
               <div className="relative">
-                <div className="w-8 h-8 border-2 border-neon-green flex items-center justify-center group-hover:border-neon-cyan transition-colors">
-                  <div className="text-neon-green text-sm font-bold group-hover:text-neon-cyan">Λ</div>
+                <div className="border-neon-green group-hover:border-neon-cyan flex h-8 w-8 items-center justify-center border-2 transition-colors">
+                  <div className="text-neon-green group-hover:text-neon-cyan text-sm font-bold">
+                    Λ
+                  </div>
                 </div>
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-neon-green rounded-full animate-ping"></div>
+                <div className="bg-neon-green absolute -top-1 -right-1 h-2 w-2 animate-ping rounded-full"></div>
               </div>
               <div className="font-mono">
-                <div className="text-lg font-bold text-white">PRIME<span className="text-neon-green italic">Intellect</span></div>
+                <div className="text-lg font-bold text-white">
+                  PRIME<span className="text-neon-green italic">Intellect</span>
+                </div>
               </div>
             </Link>
 
             {/* Right side items */}
-            <div className="hidden lg:flex items-center gap-6 font-mono text-sm">
-              <Link href="/login" className="text-white hover:text-neon-green transition-colors">Terminal</Link>
+            <div className="hidden items-center gap-6 font-mono text-sm lg:flex">
+              <Link
+                href="/login"
+                className="hover:text-neon-green text-white transition-colors"
+              >
+                Terminal
+              </Link>
               <Link href="/signup">
-                <button className="bg-white text-black px-4 py-2 font-mono text-sm hover:bg-neon-green transition-colors flex items-center gap-2">
-               Connect Wallet
+                <button className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors">
+                  Connect Wallet
                   <span>→</span>
                 </button>
               </Link>
@@ -117,10 +192,14 @@ const Navbar = () => {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden flex items-center justify-center w-10 h-10 border border-neon-green text-neon-green hover:bg-neon-green hover:text-black transition-all duration-300"
+              className="border-neon-green text-neon-green hover:bg-neon-green flex h-10 w-10 items-center justify-center border transition-all duration-300 hover:text-black lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -129,23 +208,33 @@ const Navbar = () => {
       {/* Memecoin Info Modal */}
       {coinModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="bg-black border-2 border-neon-green rounded-lg p-8 min-w-[320px] max-w-xs font-mono text-white relative">
+          <div className="border-neon-green relative max-w-xs min-w-[320px] rounded-lg border-2 bg-black p-8 font-mono text-white">
             <button
-              className="absolute top-2 right-2 text-neon-green hover:text-white"
+              className="text-neon-green absolute top-2 right-2 hover:text-white"
               onClick={() => setCoinModal(null)}
               aria-label="Close coin info dialog"
             >
-              <X className="w-5 h-5" />
+              <X className="h-5 w-5" />
             </button>
             <div className="mb-4">
-              <div className="text-neon-cyan text-lg font-bold">{coinModal.coin}</div>
-              <div className="text-neon-green text-sm mb-2">{coinModal.price} • {coinModal.change}</div>
-              <div className="text-neon-green text-xs mb-2">Volume: {coinModal.volume}</div>
-              <div className="text-neon-green text-xs mb-2">Market Cap: {coinModal.mcap}</div>
-              <div className="text-gray-300 text-sm mb-2">{coinModal.details}</div>
+              <div className="text-neon-cyan text-lg font-bold">
+                {coinModal.coin}
+              </div>
+              <div className="text-neon-green mb-2 text-sm">
+                {coinModal.price} • {coinModal.change}
+              </div>
+              <div className="text-neon-green mb-2 text-xs">
+                Volume: {coinModal.volume}
+              </div>
+              <div className="text-neon-green mb-2 text-xs">
+                Market Cap: {coinModal.mcap}
+              </div>
+              <div className="mb-2 text-sm text-gray-300">
+                {coinModal.details}
+              </div>
             </div>
             <button
-              className="w-full mt-2 bg-neon-green text-black py-2 rounded font-bold hover:bg-white transition"
+              className="bg-neon-green mt-2 w-full rounded py-2 font-bold text-black transition hover:bg-white"
               onClick={() => setCoinModal(null)}
             >
               Close
@@ -157,32 +246,43 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="absolute inset-0 bg-black/90" onClick={() => setIsMenuOpen(false)}></div>
-          <div className="relative bg-black border-2 border-neon-green m-4 p-6 font-mono">
+          <div
+            className="absolute inset-0 bg-black/90"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+          <div className="border-neon-green relative m-4 border-2 bg-black p-6 font-mono">
             {/* Mobile Menu Header */}
-            <div className="border-b border-neon-green/30 pb-4 mb-6">
-              <div className="text-neon-cyan text-sm mb-2">{ASCII_BORDER.slice(0, 25)}</div>
-              <div className="text-lg font-bold text-neon-green">MOBILE_INTERFACE</div>
-              <div className="text-neon-cyan text-sm mt-2">{ASCII_BORDER.slice(0, 25)}</div>
+            <div className="border-neon-green/30 mb-6 border-b pb-4">
+              <div className="text-neon-cyan mb-2 text-sm">
+                {ASCII_BORDER.slice(0, 25)}
+              </div>
+              <div className="text-neon-green text-lg font-bold">
+                MOBILE_INTERFACE
+              </div>
+              <div className="text-neon-cyan mt-2 text-sm">
+                {ASCII_BORDER.slice(0, 25)}
+              </div>
             </div>
 
             {/* Mobile Auth Buttons */}
-            <div className="space-y-3 border-t border-neon-green/30 pt-4">
+            <div className="border-neon-green/30 space-y-3 border-t pt-4">
               <Link href="/login" onClick={() => setIsMenuOpen(false)}>
-                <button className="w-full border border-neon-green text-neon-green py-3 font-mono uppercase hover:bg-neon-green hover:text-black transition-all">
+                <button className="border-neon-green text-neon-green hover:bg-neon-green w-full border py-3 font-mono uppercase transition-all hover:text-black">
                   LOGIN
                 </button>
               </Link>
               <Link href="/signup" onClick={() => setIsMenuOpen(false)}>
-                <button className="w-full bg-white text-black py-3 font-mono uppercase hover:bg-neon-green transition-all">
+                <button className="hover:bg-neon-green w-full bg-white py-3 font-mono text-black uppercase transition-all">
                   GET STARTED
                 </button>
               </Link>
             </div>
 
             {/* Mobile Status */}
-            <div className="mt-6 pt-4 border-t border-neon-green/30 text-xs text-neon-green">
-              <div>STATUS: MOBILE_MODE | TIME: {currentTime.toLocaleTimeString()}</div>
+            <div className="border-neon-green/30 text-neon-green mt-6 border-t pt-4 text-xs">
+              <div>
+                STATUS: MOBILE_MODE | TIME: {currentTime.toLocaleTimeString()}
+              </div>
             </div>
           </div>
         </div>
