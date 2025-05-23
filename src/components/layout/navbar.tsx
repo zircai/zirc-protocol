@@ -1,29 +1,44 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Terminal, Menu, X } from 'lucide-react';
 
-import { ChevronRight } from 'lucide-react';
+const ASCII_BORDER = "═══════════════════════════════════════════════";
 
-import { ThemeToggle } from '@/components/theme-toggle';
-import { Button } from '@/components/ui/button';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
+// Memecoin pricing data that scrolls across the top
+const memecoinPricing = [
+  { coin: "DOGE", price: "$0.1234", change: "+2.3%", volume: "$1.2B", mcap: "$17.8B", details: "Dogecoin - The original memecoin, started as a joke, now a major player." },
+  { coin: "SHIB", price: "$0.00001234", change: "-1.2%", volume: "$856M", mcap: "$7.2B", details: "Shiba Inu - The Dogecoin killer, with its own ecosystem." },
+  { coin: "PEPE", price: "$0.0000001234", change: "+5.6%", volume: "$234M", mcap: "$1.1B", details: "Pepe - The frog-themed memecoin that took the market by storm." },
+  { coin: "FLOKI", price: "$0.0001234", change: "-0.8%", volume: "$98M", mcap: "$892M", details: "Floki - Named after Elon Musk's dog, with a Viking theme." },
+  { coin: "BONK", price: "$0.0000000234", change: "+3.4%", volume: "$45M", mcap: "$156M", details: "Bonk - Solana's first dog coin, gaining traction in the ecosystem." },
+  { coin: "WOJAK", price: "$0.0000000123", change: "-2.1%", volume: "$12M", mcap: "$89M", details: "Wojak - Based on the popular internet meme character." },
+  { coin: "SAMO", price: "$0.01234", change: "+4.5%", volume: "$34M", mcap: "$445M", details: "Samoyedcoin - The unofficial mascot of Solana." },
+  { coin: "MYRO", price: "$0.0000000345", change: "-1.8%", volume: "$23M", mcap: "$67M", details: "Myro - Another Solana-based dog coin gaining popularity." },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [tickerOffset, setTickerOffset] = useState(0);
+  const [tickerPaused, setTickerPaused] = useState(false);
+  const [coinModal, setCoinModal] = useState<null | typeof memecoinPricing[0]>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (tickerPaused) return;
+    const tickerTimer = setInterval(() => {
+      setTickerOffset(prev => prev - 1);
+    }, 50);
+    return () => clearInterval(tickerTimer);
+  }, [tickerPaused]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -31,258 +46,148 @@ const Navbar = () => {
     } else {
       document.body.classList.remove('overflow-hidden');
     }
-
-    // Cleanup on unmount
     return () => {
       document.body.classList.remove('overflow-hidden');
     };
   }, [isMenuOpen]);
 
-  const ITEMS = [
-    {
-      label: 'Product',
-      href: '#product',
-      dropdownItems: [
-        {
-          title: 'Feature1',
-          href: '/#feature1',
-          description:
-            'Streamline is built on the habits that make the best product teams successful',
-        },
-        {
-          title: 'Feature2',
-          href: '/#feature2',
-          description: 'Streamline your resource allocation and execution',
-        },
-        {
-          title: 'Feature3',
-          href: '/#feature3',
-          description: 'Streamline your feature development',
-        },
-      ],
-    },
-    { label: 'About us', href: '/about' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'FAQ', href: '/faq' },
-    { label: 'Contact', href: '/contact' },
-  ];
-
-  const bgColor =
-    pathname === '/about'
-      ? 'bg-mint-50'
-      : ['/', '/faq', '/signup', '/login'].includes(pathname)
-        ? 'bg-sand-100'
-        : 'bg-background';
+  // Handlers for pausing ticker on menu hover
+  const handleTickerMouseEnter = () => setTickerPaused(true);
+  const handleTickerMouseLeave = () => setTickerPaused(false);
 
   return (
-    <header className={cn('relative z-50', bgColor)}>
-      <div className="max-w-9xl container">
-        <div className="flex items-center justify-between py-3">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/images/layout/logo.svg"
-              alt="logo"
-              width={129}
-              height={32}
-              className="dark:invert"
-            />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <NavigationMenu className="hidden items-center gap-8 lg:flex">
-            <NavigationMenuList>
-              {ITEMS.map((link) =>
-                link.dropdownItems ? (
-                  <NavigationMenuItem key={link.label}>
-                    <NavigationMenuTrigger className="text-primary bg-transparent font-normal lg:text-base">
-                      {link.label}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="w-[400px] p-4">
-                        {link.dropdownItems.map((item) => (
-                          <li key={item.title}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                href={item.href}
-                                className="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex items-center rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none"
-                              >
-                                <div className="space-y-1.5">
-                                  <div className="text-sm leading-none font-medium">
-                                    {item.title}
-                                  </div>
-                                  <p className="text-muted-foreground line-clamp-2 text-sm leading-tight">
-                                    {item.description}
-                                  </p>
-                                </div>
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                ) : (
-                  <NavigationMenuItem key={link.label}>
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        'text-primary p-2 lg:text-base',
-                        pathname === link.href && 'text-muted-foreground',
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  </NavigationMenuItem>
-                ),
-              )}
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          {/* Auth Buttons */}
-          <div className="flex items-center gap-2.5">
-            <Link href="/signup" className="hidden lg:block">
-              <Button variant="ghost" className="text-muted-foreground">
-                Sign up
-              </Button>
-            </Link>
-            <Link
-              href="/login"
-              className={`transition-opacity duration-300 ${isMenuOpen ? 'max-lg:pointer-events-none max-lg:opacity-0' : 'opacity-100'}`}
+    <>
+      {/* Memecoin Pricing Ticker */}
+      <div 
+        className="bg-black text-neon-green font-mono text-xs py-1 overflow-hidden border-b border-neon-green/30"
+        onMouseEnter={handleTickerMouseEnter}
+        onMouseLeave={handleTickerMouseLeave}
+      >
+        <div 
+          className="flex whitespace-nowrap"
+          style={{ transform: `translateX(${tickerOffset}px)` }}
+        >
+          {[...memecoinPricing, ...memecoinPricing].map((coin, index) => (
+            <button
+              key={index}
+              className="flex items-center mr-8 focus:outline-none hover:underline hover:text-neon-cyan bg-transparent"
+              style={{ cursor: 'pointer' }}
+              onClick={() => setCoinModal(coin)}
+              tabIndex={0}
+              aria-label={`Show info for ${coin.coin}`}
             >
-              <Button variant="outline">Login</Button>
+              <span className="text-neon-cyan mr-2">{coin.coin}</span>
+              <span className="text-neon-green mr-2">{coin.price}</span>
+              <span className={coin.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}>{coin.change}</span>
+              <span className="text-gray-400 mr-2">Vol: {coin.volume}</span>
+              <span className="text-gray-400 mr-2">MCap: {coin.mcap}</span>
+              <span className="text-gray-600 mr-4">|</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Navigation */}
+      <header className="bg-black/95 backdrop-blur-sm border-b border-neon-green sticky top-0 z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
+            {/* Logo/Brand */}
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative">
+                <div className="w-8 h-8 border-2 border-neon-green flex items-center justify-center group-hover:border-neon-cyan transition-colors">
+                  <div className="text-neon-green text-sm font-bold group-hover:text-neon-cyan">Λ</div>
+                </div>
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-neon-green rounded-full animate-ping"></div>
+              </div>
+              <div className="font-mono">
+                <div className="text-lg font-bold text-white">PRIME<span className="text-neon-green italic">Intellect</span></div>
+              </div>
             </Link>
-            <div
-              className={`transition-opacity duration-300 ${isMenuOpen ? 'max-lg:pointer-events-none max-lg:opacity-0' : 'opacity-100'}`}
-            >
-              <ThemeToggle />
+
+            {/* Right side items */}
+            <div className="hidden lg:flex items-center gap-6 font-mono text-sm">
+              <Link href="/login" className="text-white hover:text-neon-green transition-colors">Terminal</Link>
+              <Link href="/signup">
+                <button className="bg-white text-black px-4 py-2 font-mono text-sm hover:bg-neon-green transition-colors flex items-center gap-2">
+               Connect Wallet
+                  <span>→</span>
+                </button>
+              </Link>
             </div>
 
-            {/* Hamburger Menu Button (Mobile Only) */}
+            {/* Mobile Menu Toggle */}
             <button
-              className="text-muted-foreground relative flex size-8 lg:hidden"
+              className="lg:hidden flex items-center justify-center w-10 h-10 border border-neon-green text-neon-green hover:bg-neon-green hover:text-black transition-all duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <span className="sr-only">Open main menu</span>
-              <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
-                <span
-                  aria-hidden="true"
-                  className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? 'opacity-0' : ''}`}
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className={`absolute block h-0.5 w-full rounded-full bg-current transition duration-500 ease-in-out ${isMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`}
-                ></span>
-              </div>
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
-      </div>
+      </header>
+
+      {/* Memecoin Info Modal */}
+      {coinModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+          <div className="bg-black border-2 border-neon-green rounded-lg p-8 min-w-[320px] max-w-xs font-mono text-white relative">
+            <button
+              className="absolute top-2 right-2 text-neon-green hover:text-white"
+              onClick={() => setCoinModal(null)}
+              aria-label="Close coin info dialog"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="mb-4">
+              <div className="text-neon-cyan text-lg font-bold">{coinModal.coin}</div>
+              <div className="text-neon-green text-sm mb-2">{coinModal.price} • {coinModal.change}</div>
+              <div className="text-neon-green text-xs mb-2">Volume: {coinModal.volume}</div>
+              <div className="text-neon-green text-xs mb-2">Market Cap: {coinModal.mcap}</div>
+              <div className="text-gray-300 text-sm mb-2">{coinModal.details}</div>
+            </div>
+            <button
+              className="w-full mt-2 bg-neon-green text-black py-2 rounded font-bold hover:bg-white transition"
+              onClick={() => setCoinModal(null)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Menu Overlay */}
-      <div
-        className={cn(
-          'absolute inset-0 top-full container flex h-[calc(100vh-64px)] flex-col transition-all duration-300 ease-in-out lg:hidden',
-          isMenuOpen
-            ? 'visible translate-x-0 opacity-100'
-            : 'invisible translate-x-full opacity-0',
-          bgColor,
-        )}
-      >
-        <div className="mt-8 space-y-2">
-          <Link
-            href="/signup"
-            className="block"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Button size="sm" className="w-full">
-              Sign up
-            </Button>
-          </Link>
-          <Link
-            href="/login"
-            className="block"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Button size="sm" className="w-full" variant="outline">
-              Login
-            </Button>
-          </Link>
-        </div>
-        <nav className="mt-3 flex flex-1 flex-col gap-6">
-          {ITEMS.map((link) =>
-            link.dropdownItems ? (
-              <div key={link.label} className="">
-                <button
-                  onClick={() =>
-                    setOpenDropdown(
-                      openDropdown === link.label ? null : link.label,
-                    )
-                  }
-                  className="text-primary flex w-full items-center justify-between text-lg tracking-[-0.36px]"
-                  aria-label={`${link.label} menu`}
-                  aria-expanded={openDropdown === link.label}
-                >
-                  {link.label}
-                  <ChevronRight
-                    className={cn(
-                      'h-4 w-4 transition-transform',
-                      openDropdown === link.label ? 'rotate-90' : '',
-                    )}
-                    aria-hidden="true"
-                  />
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div className="absolute inset-0 bg-black/90" onClick={() => setIsMenuOpen(false)}></div>
+          <div className="relative bg-black border-2 border-neon-green m-4 p-6 font-mono">
+            {/* Mobile Menu Header */}
+            <div className="border-b border-neon-green/30 pb-4 mb-6">
+              <div className="text-neon-cyan text-sm mb-2">{ASCII_BORDER.slice(0, 25)}</div>
+              <div className="text-lg font-bold text-neon-green">MOBILE_INTERFACE</div>
+              <div className="text-neon-cyan text-sm mt-2">{ASCII_BORDER.slice(0, 25)}</div>
+            </div>
+
+            {/* Mobile Auth Buttons */}
+            <div className="space-y-3 border-t border-neon-green/30 pt-4">
+              <Link href="/login" onClick={() => setIsMenuOpen(false)}>
+                <button className="w-full border border-neon-green text-neon-green py-3 font-mono uppercase hover:bg-neon-green hover:text-black transition-all">
+                  LOGIN
                 </button>
-                <div
-                  className={cn(
-                    'ml-4 space-y-3 overflow-hidden transition-all',
-                    openDropdown === link.label
-                      ? 'mt-3 max-h-[1000px] opacity-100'
-                      : 'max-h-0 opacity-0',
-                  )}
-                >
-                  {link.dropdownItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      className="hover:bg-accent flex items-start gap-3 rounded-md p-2"
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        setOpenDropdown(null);
-                      }}
-                    >
-                      <div>
-                        <div className="text-primary font-medium">
-                          {item.title}
-                        </div>
-                        <p className="text-muted-foreground text-sm">
-                          {item.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={cn(
-                  'text-primary text-lg tracking-[-0.36px]',
-                  pathname === link.href && 'text-muted-foreground',
-                )}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
               </Link>
-            ),
-          )}
-        </nav>
-      </div>
-    </header>
+              <Link href="/signup" onClick={() => setIsMenuOpen(false)}>
+                <button className="w-full bg-white text-black py-3 font-mono uppercase hover:bg-neon-green transition-all">
+                  GET STARTED
+                </button>
+              </Link>
+            </div>
+
+            {/* Mobile Status */}
+            <div className="mt-6 pt-4 border-t border-neon-green/30 text-xs text-neon-green">
+              <div>STATUS: MOBILE_MODE | TIME: {currentTime.toLocaleTimeString()}</div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

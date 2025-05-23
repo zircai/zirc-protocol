@@ -1,4 +1,4 @@
-import { Inter, Inter_Tight } from 'next/font/google';
+import { JetBrains_Mono, Source_Code_Pro } from 'next/font/google';
 
 import type { Metadata } from 'next';
 
@@ -7,36 +7,40 @@ import Navbar from '@/components/layout/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-mono',
+  weight: ['400', '500', '600', '700'],
 });
 
-const interTight = Inter_Tight({
+const sourceCodePro = Source_Code_Pro({
   subsets: ['latin'],
-  variable: '--font-inter-tight',
+  variable: '--font-terminal',
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Streamline - Modern Next.js Template',
-    template: '%s | Streamline',
+    default: 'PRIME Intellect - Decentralized AI Platform',
+    template: '%s | PRIME Intellect',
   },
   description:
-    'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
+    'Scalable, cheap, fast. Develop, train, and scale AI models through decentralized compute infrastructure. Democratizing AI development with collective ownership.',
   keywords: [
-    'Next.js',
-    'React',
-    'JavaScript',
-    'TypeScript',
-    'TailwindCSS',
-    'Template',
-    'Shadcn/UI',
-    'Web Development',
+    'AI',
+    'Machine Learning',
+    'Distributed Computing',
+    'Decentralized AI',
+    'GPU Compute',
+    'Model Training',
+    'Collective Intelligence',
+    'Open Source AI',
+    'Blockchain',
+    'Protocol',
   ],
-  authors: [{ name: 'Streamline Team' }],
-  creator: 'Streamline Team',
-  publisher: 'Streamline',
+  authors: [{ name: 'PRIME Intellect' }],
+  creator: 'PRIME Intellect',
+  publisher: 'PRIME Intellect',
   robots: {
     index: true,
     follow: true,
@@ -53,26 +57,26 @@ export const metadata: Metadata = {
     shortcut: [{ url: '/favicon/favicon.ico' }],
   },
   openGraph: {
-    title: 'Streamline - Modern Next.js Template',
+    title: 'PRIME Intellect - Decentralized AI Platform',
     description:
-      'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
-    siteName: 'Streamline',
+      'Scalable, cheap, fast. Develop, train, and scale AI models through decentralized compute infrastructure. Democratizing AI development with collective ownership.',
+    siteName: 'PRIME Intellect',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Streamline - Modern Next.js Template',
+        alt: 'PRIME Intellect - Decentralized AI Platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Streamline - Modern Next.js Template',
+    title: 'PRIME Intellect - Decentralized AI Platform',
     description:
-      'A modern, fully featured Next.js template built with Shadcn/UI, TailwindCSS and TypeScript, perfect for your next web application.',
+      'Scalable, cheap, fast. Develop, train, and scale AI models through decentralized compute infrastructure. Democratizing AI development with collective ownership.',
     images: ['/og-image.jpg'],
-    creator: '@streamline',
+    creator: '@primeintellect',
   },
 };
 
@@ -84,12 +88,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`h-screen ${inter.variable} ${interTight.variable} antialiased`}
+        className={`min-h-screen ${jetbrainsMono.variable} ${sourceCodePro.variable} antialiased bg-black text-white`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />

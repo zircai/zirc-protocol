@@ -73,10 +73,10 @@ export default function Contact() {
                 <div>
                   <p>Careers</p>
                   <Link
-                    href="mailto:careers@streamline.com"
+                    href="mailto:careers@zchatpumpfun.com"
                     className="text-muted-foreground mt-3 text-lg font-medium tracking-tight"
                   >
-                    careers@streamline.com
+                    careers@ZCHAT_PUMPFUN.com
                   </Link>
                 </div>
                 <div>

@@ -1,101 +1,58 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '../ui/accordion';
+"use client";
+import { useState } from 'react';
 
-const leftQuestions = [
+const FAQS = [
   {
-    question: 'What is Streamline?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
+    q: 'Why no servers?',
+    a: 'The protocol is fully peer-to-peer. Messages are relayed and stored by the network, not by any central server.'
   },
   {
-    question: 'How is Streamline different Linear and Jira?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
+    q: 'How is it encrypted?',
+    a: 'All messages are end-to-end encrypted using modern cryptography. Zero-knowledge: only you and your recipient can read your messages.'
   },
   {
-    question: 'How do I update my account ?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
+    q: 'Will it stay free?',
+    a: 'Yes. The protocol and reference client are open source and free to use, forever.'
   },
   {
-    question: 'Is support free, or do I need to Google everything?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
-  },
-  {
-    question: 'Are you going to be subsumed by AI?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
+    q: 'Can I build on it?',
+    a: 'Absolutely! The protocol is open, extensible, and designed for hackers. Fork it, extend it, or build your own client.'
   },
 ];
 
-const rightQuestions = [
-  {
-    question: 'Are you going to be subsumed by AI?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
-  },
-  {
-    question: 'How do I update my account?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
-  },
-  {
-    question: 'What if I break my laptop using this app?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
-  },
-  {
-    question: 'What is the best metaphor for using LLMs?',
-    answer:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.',
-  },
-];
-
-export const FAQ = () => {
+export function FAQ() {
+  const [open, setOpen] = useState<number | null>(null);
   return (
-    <section className={'pb-16 md:pb-28 lg:pb-32'}>
-      <div className="container mx-auto lg:max-w-5xl">
-        <h2 className="text-center text-2xl font-semibold tracking-tight lg:text-3xl">
-          Frequently Asked Questions
+    <section className="py-16 md:py-28 lg:py-32 bg-black border-b border-neon-green/20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-center text-3xl md:text-5xl font-mono font-bold text-white mb-12">
+          FAQ
         </h2>
-
-        <div className="mt-6 grid gap-x-12 md:mt-10 md:grid-cols-2 lg:mt-14">
-          <Accordion
-            type="single"
-            collapsible
-            className="text-muted-foreground border-t"
-          >
-            {leftQuestions.map((item, i) => (
-              <AccordionItem key={i} value={`left-${i}`}>
-                <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent className="text-foreground">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-
-          <Accordion
-            collapsible
-            type="single"
-            className="text-muted-foreground md:border-t"
-          >
-            {rightQuestions.map((item, i) => (
-              <AccordionItem key={i} value={`right-${i}`}>
-                <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent className="text-foreground">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="max-w-2xl mx-auto">
+          {FAQS.map((item, i) => (
+            <div key={i} className="mb-4 border border-neon-green/30 rounded bg-black/70">
+              <button
+                className="w-full text-left px-6 py-4 font-mono text-neon-green text-lg focus:outline-none flex justify-between items-center"
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                aria-controls={`faq-panel-${i}`}
+              >
+                <span>{item.q}</span>
+                <span className="text-neon-green">{open === i ? '-' : '+'}</span>
+              </button>
+              {open === i && (
+                <div
+                  id={`faq-panel-${i}`}
+                  className="px-6 pb-4 pt-2 text-gray-300 font-mono text-base whitespace-pre-line border-t border-neon-green/20 bg-black"
+                  style={{ fontFamily: 'monospace' }}
+                >
+                  {item.a}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}
