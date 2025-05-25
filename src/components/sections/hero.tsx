@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Terminal, Zap, Database, Cpu } from 'lucide-react';
 
 const HEADLINE_TOP = 'Chat Meets PumpFun.';
 const HEADLINE_BOTTOM = (
@@ -11,8 +10,8 @@ const HEADLINE_BOTTOM = (
   </>
 );
 const SUBHEADLINE =
-  'Fully autonomous. End-to-end encrypted. No servers. No ads. Just raw, retro messaging — for the new web.';
-const CTA = 'Enter the Terminal';
+  'Experience secure, serverless communication with a nostalgic touch. zIRC brings back the essence of IRC with modern privacy.';
+const CTA = 'Launch zIRC';
 
 const Hero = () => {
   useEffect(() => {
@@ -40,7 +39,7 @@ const Hero = () => {
         <p className="text-neon-cyan animate-fade-in-slow mb-10 max-w-2xl font-mono text-xl md:text-2xl">
           {SUBHEADLINE}
         </p>
-        <button className="bg-neon-green rounded-lg px-8 py-4 font-mono text-lg text-black shadow-lg transition hover:bg-white">
+        <button className="bg-neon-green px-8 py-4 font-mono text-lg text-black shadow-lg transition hover:bg-white">
           {CTA}
         </button>
         {/* Simulated terminal window (animated) */}

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import AudioPlayer from '../ui/audio-player';
 
 const ASCII_BORDER = '═══════════════════════════════════════════════';
 
@@ -162,32 +163,27 @@ const Navbar = () => {
               <div className="relative">
                 <div className="border-neon-green group-hover:border-neon-cyan flex h-8 w-8 items-center justify-center border-2 transition-colors">
                   <div className="text-neon-green group-hover:text-neon-cyan text-sm font-bold">
-                    Λ
+                    z
                   </div>
                 </div>
                 <div className="bg-neon-green absolute -top-1 -right-1 h-2 w-2 animate-ping rounded-full"></div>
               </div>
               <div className="font-mono">
                 <div className="text-lg font-bold text-white">
-                  PRIME<span className="text-neon-green italic">Intellect</span>
+                  z<span className="text-neon-green italic">IRC</span>
                 </div>
               </div>
             </Link>
 
             {/* Right side items */}
             <div className="hidden items-center gap-6 font-mono text-sm lg:flex">
-              <Link
-                href="/login"
-                className="hover:text-neon-green text-white transition-colors"
-              >
-                Terminal
-              </Link>
               <Link href="/signup">
                 <button className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors">
-                  Connect Wallet
+                  Launch zIRC
                   <span>→</span>
                 </button>
               </Link>
+              <AudioPlayer />
             </div>
 
             {/* Mobile Menu Toggle */}

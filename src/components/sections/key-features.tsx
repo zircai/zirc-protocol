@@ -1,21 +1,20 @@
-import { ShieldCheck, Network, Terminal, Gamepad2 } from 'lucide-react';
+import { VenetianMask, Network, Terminal, Gamepad2, Coins, MessageSquare, Code } from 'lucide-react';
 
 const FEATURES = [
   {
-    icon: ShieldCheck,
-    title: 'Zero-Knowledge Chat Protocol',
-    description: 'Every line encrypted before it leaves your machine.',
+    icon: Coins,
+    title: 'Built for Degens',
+    description: 'Meme Market Feeds, Shitcoin Scanner, and Degens-Only Watchlist.',
   },
   {
-    icon: Network,
-    title: 'P2P Mesh Network',
-    description:
-      'Decentralised by design. Runs without servers or central points.',
+    icon: MessageSquare,
+    title: 'Alpha Terminal',
+    description: 'Fully Decentralised, Anon Insider Rooms, /leak Command, Bridge Alerts.',
   },
   {
-    icon: Terminal,
-    title: 'Built for Devs',
-    description: 'CLI interface, plugin architecture, fully open source.',
+    icon: VenetianMask,
+    title: 'Anonymity-First Tools',
+    description: 'Pseudonym Rotation, Hidden Wallet Mode, Chat as anon, and many more.',
   },
   {
     icon: Gamepad2,
