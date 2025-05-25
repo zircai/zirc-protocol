@@ -18,43 +18,6 @@ const ASCII_ART = `
 ╚═══════════════════════════════════════════════╝
 `;
 
-const navigation = [
-  {
-    title: 'CORE_MODULES',
-    icon: Terminal,
-    links: [
-      { name: 'ZIRC_CORE', href: '/', status: 'ONLINE' },
-      { name: 'QUANTUM_PROC', href: '/#quantum', status: 'ACTIVE' },
-      { name: 'DATA_MATRIX', href: '/#data', status: 'SECURE' },
-      { name: 'CYBER_NET', href: '/#network', status: 'LINKED' },
-    ],
-  },
-  {
-    title: 'SYSTEM_INFO',
-    icon: Shield,
-    links: [
-      { name: 'PROTOCOLS', href: '/about', status: 'VERIFIED' },
-      { name: 'UPGRADE_PATH', href: '/pricing', status: 'AVAILABLE' },
-    ],
-  },
-  {
-    title: 'INTERFACE',
-    icon: Cpu,
-    links: [
-      { name: 'HELP_MATRIX', href: '/faq', status: 'READY' },
-      { name: 'COMM_CHANNEL', href: '/contact', status: 'OPEN' },
-    ],
-  },
-  {
-    title: 'LEGAL_FRAMEWORK',
-    icon: Database,
-    links: [
-      { name: 'SERVICE_TERMS', href: '/terms', status: 'ACTIVE' },
-      { name: 'PRIVACY_PROTOCOL', href: '/privacy', status: 'SECURED' },
-    ],
-  },
-];
-
 const socialNetworks = [
   {
     icon: Github,
@@ -78,7 +41,10 @@ const socialNetworks = [
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const systemTime = new Date().toLocaleTimeString();
+  const systemTime = new Date().toLocaleString('en-US', {
+    timeZone: 'UTC',
+    hour12: false,
+  });
 
   return (
     <footer className="border-neon-green border-t-2 bg-black">
@@ -119,48 +85,6 @@ export const Footer = () => {
           <pre className="text-neon-green overflow-x-auto text-center font-mono text-xs">
             {ASCII_ART}
           </pre>
-        </div>
-      </div>
-
-      {/* Navigation Grid */}
-      <div className="border-neon-green/30 border-b py-12">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {navigation.map((section) => {
-              const Icon = section.icon;
-              return (
-                <div
-                  key={section.title}
-                  className="border-neon-green/30 border bg-black/30 p-6"
-                >
-                  <div className="mb-6 flex items-center gap-2">
-                    <Icon className="text-neon-cyan h-5 w-5" />
-                    <h3 className="text-neon-green font-mono text-sm font-bold uppercase">
-                      {section.title}
-                    </h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {section.links.map((link) => (
-                      <li
-                        key={link.name}
-                        className="flex items-center justify-between"
-                      >
-                        <Link
-                          href={link.href}
-                          className="text-neon-cyan hover:text-neon-green font-mono text-sm uppercase transition-colors"
-                        >
-                          {link.name}
-                        </Link>
-                        <span className="text-neon-blue font-mono text-xs">
-                          [{link.status}]
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
 
@@ -232,7 +156,7 @@ export const Footer = () => {
       <div className="bg-black py-6">
         <div className="container mx-auto px-6">
           {/* Terminal Output */}
-          <div className="border-neon-green/50 mb-4 border bg-black p-4 font-mono text-sm">
+          <div className="border-neon-green/30 border bg-black/30 p-4">
             <div className="text-neon-green">$ system_info --copyright</div>
             <div className="text-neon-cyan mt-1">
               © {currentYear} ZIRC_CORP - ALL_RIGHTS_RESERVED
