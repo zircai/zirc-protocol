@@ -1,4 +1,3 @@
-import Community from '@/components/sections/community';
 import { FAQ } from '@/components/sections/faq';
 import Hero from '@/components/sections/hero';
 import HowItWorks from '@/components/sections/how-it-works';
@@ -10,7 +9,6 @@ export default function Home() {
       <Hero />
       <KeyFeatures />
       <HowItWorks />
-      <Community />
       <FAQ />
     </>
   );

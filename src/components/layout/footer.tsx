@@ -90,7 +90,7 @@ export const Footer = () => {
               {'>'} SYSTEM_INITIALIZATION_PROMPT
             </div>
             <h2 className="text-neon-green mb-4 font-mono text-4xl font-bold uppercase md:text-6xl">
-              ACTIVATE_ZCHAT_PUMPFUN
+              ACTIVATE_ZIRC_PUMPFUN
             </h2>
             <p className="text-neon-cyan mb-8 font-mono text-xl">
               {'>'} QUANTUM_PROCESSING_AWAITS_YOUR_COMMAND
