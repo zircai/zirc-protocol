@@ -76,7 +76,7 @@ export default function Contact() {
                     href="mailto:careers@zchatpumpfun.com"
                     className="text-muted-foreground mt-3 text-lg font-medium tracking-tight"
                   >
-                    careers@ZCHAT_PUMPFUN.com
+                    careers@ZIRC.com
                   </Link>
                 </div>
                 <div>

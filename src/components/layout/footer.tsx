@@ -13,7 +13,7 @@ import {
 
 const ASCII_ART = `
 ╔═══════════════════════════════════════════════╗
-║           ZCHAT_PUMPFUN TERMINAL v2.1.0          ║
+║           ZIRC TERMINAL v2.1.0          ║
 ║         COPYRIGHT 2025 - CYBER_CORP           ║
 ╚═══════════════════════════════════════════════╝
 `;
@@ -23,7 +23,7 @@ const navigation = [
     title: 'CORE_MODULES',
     icon: Terminal,
     links: [
-      { name: 'ZCHAT_PUMPFUN_CORE', href: '/', status: 'ONLINE' },
+      { name: 'ZIRC_CORE', href: '/', status: 'ONLINE' },
       { name: 'QUANTUM_PROC', href: '/#quantum', status: 'ACTIVE' },
       { name: 'DATA_MATRIX', href: '/#data', status: 'SECURE' },
       { name: 'CYBER_NET', href: '/#network', status: 'LINKED' },
@@ -235,13 +235,13 @@ export const Footer = () => {
           <div className="border-neon-green/50 mb-4 border bg-black p-4 font-mono text-sm">
             <div className="text-neon-green">$ system_info --copyright</div>
             <div className="text-neon-cyan mt-1">
-              © {currentYear} ZCHAT_PUMPFUN_CORP - ALL_RIGHTS_RESERVED
+              © {currentYear} ZIRC_CORP - ALL_RIGHTS_RESERVED
             </div>
             <div className="text-neon-blue mt-1">
               POWERED_BY: QUANTUM_PROCESSORS | SECURITY: CYBER_PROTOCOL_v3.0
             </div>
             <div className="text-neon-green mt-2 flex items-center">
-              USER@ZCHAT_PUMPFUN:~$
+              USER@ZIRC:TERMINAL:~$
               <span className="animate-blink ml-1">█</span>
             </div>
           </div>
@@ -249,7 +249,7 @@ export const Footer = () => {
           {/* Fine Print */}
           <div className="text-neon-green/70 flex flex-col items-center justify-between font-mono text-xs sm:flex-row">
             <div>
-              ZCHAT_PUMPFUN TERMINAL - LICENSED UNDER CYBERPUNK_LICENSE_v2.1
+              ZIRC_TERMINAL - LICENSED UNDER CYBERPUNK_LICENSE_v2.1
             </div>
             <div>
               BUILD: #

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Github, Activity } from 'lucide-react';
 import AudioPlayer from '../ui/audio-player';
 
 const ASCII_BORDER = '═══════════════════════════════════════════════';
@@ -162,9 +162,7 @@ const Navbar = () => {
             <Link href="/" className="group flex items-center gap-3">
               <div className="relative">
                 <div className="border-neon-green group-hover:border-neon-cyan flex h-8 w-8 items-center justify-center border-2 transition-colors">
-                  <div className="text-neon-green group-hover:text-neon-cyan text-sm font-bold">
-                    z
-                  </div>
+                  <Activity className="text-neon-green group-hover:text-neon-cyan h-4 w-4" />
                 </div>
                 <div className="bg-neon-green absolute -top-1 -right-1 h-2 w-2 animate-ping rounded-full"></div>
               </div>
@@ -177,6 +175,14 @@ const Navbar = () => {
 
             {/* Right side items */}
             <div className="hidden items-center gap-6 font-mono text-sm lg:flex">
+              <Link href="https://github.com" target="_blank" rel="noopener noreferrer" className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300">
+                <Github className="h-4 w-4" />
+              </Link>
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300">
+                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </Link>
               <Link href="/signup">
                 <button className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors">
                   Launch zIRC
