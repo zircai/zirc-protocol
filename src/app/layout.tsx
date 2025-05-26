@@ -21,63 +21,90 @@ const sourceCodePro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: {
-    default: 'PRIME Intellect - Decentralized AI Platform',
-    template: '%s | PRIME Intellect',
+    default: 'zIRC – Decentralized Retro Messaging',
+    template: '%s | zIRC',
   },
   description:
-    'Scalable, cheap, fast. Develop, train, and scale AI models through decentralized compute infrastructure. Democratizing AI development with collective ownership.',
+    'zIRC is a decentralized chat app with a retro terminal look. Built for degens, devs, and crypto culture. Anonymous. Encrypted. Fun.',
   keywords: [
-    'AI',
-    'Machine Learning',
-    'Distributed Computing',
-    'Decentralized AI',
-    'GPU Compute',
-    'Model Training',
-    'Collective Intelligence',
-    'Open Source AI',
-    'Blockchain',
-    'Protocol',
+    'zIRC',
+    'Decentralized Chat',
+    'Retro Terminal',
+    'Privacy',
+    'Encryption',
+    'Crypto',
+    'Anonymous Chat',
+    'Terminal UI',
+    'Web3',
+    'Degen',
   ],
-  authors: [{ name: 'PRIME Intellect' }],
-  creator: 'PRIME Intellect',
-  publisher: 'PRIME Intellect',
+  authors: [{ name: 'zIRC' }],
+  creator: 'zIRC',
+  publisher: 'zIRC',
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  metadataBase: new URL('https://zirc.ai'),
+  alternates: {
+    canonical: '/',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
   },
   icons: {
     icon: [
       { url: '/favicon/favicon.ico', sizes: '48x48' },
-      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon/favicon.ico' },
+      { url: '/favicon/favicon.svg', type: 'image/svg+xml' }
     ],
     apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180' }],
-    shortcut: [{ url: '/favicon/favicon.ico' }],
+    shortcut: [{ url: '/favicon/favicon.ico' }]
   },
   openGraph: {
-    title: 'PRIME Intellect - Decentralized AI Platform',
+    type: 'website',
+    title: 'zIRC – Decentralized Retro Messaging',
     description:
-      'Scalable, cheap, fast. Develop, train, and scale AI models through decentralized compute infrastructure. Democratizing AI development with collective ownership.',
-    siteName: 'PRIME Intellect',
+      'zIRC is a decentralized chat app with a retro terminal look. Built for degens, devs, and crypto culture. Anonymous. Encrypted. Fun.',
+    url: 'https://zirc.ai',
+    siteName: 'zIRC',
+    locale: 'en_US',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'PRIME Intellect - Decentralized AI Platform',
+        alt: 'zIRC – Decentralized Retro Messaging',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PRIME Intellect - Decentralized AI Platform',
+    title: 'zIRC – Decentralized Retro Messaging',
     description:
-      'Scalable, cheap, fast. Develop, train, and scale AI models through decentralized compute infrastructure. Democratizing AI development with collective ownership.',
-    images: ['/og-image.jpg'],
-    creator: '@primeintellect',
+      'zIRC is a decentralized chat app with a retro terminal look. Built for degens, devs, and crypto culture. Anonymous. Encrypted. Fun.',
+    images: ['/og-image.png'],
+    creator: '@zirc',
+    site: '@zirc',
   },
+  other: {
+    'msapplication-TileColor': '#000000',
+    'theme-color': '#000000',
+    'color-scheme': 'dark',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  applicationName: 'zIRC',
+  category: 'communication',
 };
 
 export default function RootLayout({

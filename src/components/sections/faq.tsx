@@ -3,21 +3,29 @@ import { useState } from 'react';
 
 const FAQS = [
   {
-    q: 'Why no servers?',
-    a: 'The protocol is fully peer-to-peer. Messages are relayed and stored by the network, not by any central server.',
+    q: 'What is ZIRC Terminal?',
+    a: 'ZIRC Terminal is a decentralized AI platform that provides access to distributed GPU infrastructure for AI training and inference at scale. It combines quantum processing capabilities with cyberpunk aesthetics for a unique user experience.',
   },
   {
-    q: 'How is it encrypted?',
-    a: 'All messages are end-to-end encrypted using modern cryptography. Zero-knowledge: only you and your recipient can read your messages.',
+    q: 'How does the decentralized compute work?',
+    a: 'Our platform connects you to a global network of GPU clusters, including H100, A100, and RTX 4090 nodes. All compute resources are distributed across multiple data centers, ensuring high availability and redundancy.',
   },
   {
-    q: 'Will it stay free?',
-    a: 'Yes. The protocol and reference client are open source and free to use, forever.',
+    q: 'What security measures are in place?',
+    a: 'We implement military-grade encryption and a comprehensive cyber protocol (v3.0). All communications are end-to-end encrypted, and we offer features like pseudonym rotation and hidden wallet mode for enhanced privacy.',
   },
   {
-    q: 'Can I build on it?',
-    a: 'Absolutely! The protocol is open, extensible, and designed for hackers. Fork it, extend it, or build your own client.',
+    q: 'How do I get started?',
+    a: 'Simply open the terminal or web dApp, connect your wallet or generate an anonymous key, and you\'re ready to start. You can join public rooms, create private chats, or begin training your AI models immediately.',
   },
+  {
+    q: 'What makes ZIRC unique?',
+    a: 'ZIRC combines retro aesthetics with cutting-edge technology. We offer meme market feeds, shitcoin scanners, degen watchlists, and fully decentralized alpha terminals. Our platform is built for both serious AI development and community engagement.',
+  },
+  {
+    q: 'Is there a free tier?',
+    a: 'Yes! We offer a generous free plan that includes basic access to the platform. For advanced features like unlimited compute, priority support, and custom integrations, check out our Startup and Enterprise plans.',
+  }
 ];
 
 export function FAQ() {
