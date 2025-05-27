@@ -21,13 +21,13 @@ const ASCII_ART = `
 const socialNetworks = [
   {
     icon: Github,
-    href: 'https://github.com',
+    href: 'https://github.com/zircai/zirc-protocol',
     label: 'GITHUB_REPO',
     status: 'PUBLIC',
   },
   {
     icon: Twitter,
-    href: 'https://twitter.com',
+    href: 'https://x.com/zircai',
     label: 'TWITTER_FEED',
     status: 'LIVE',
   },

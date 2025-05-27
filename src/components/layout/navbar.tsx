@@ -183,7 +183,7 @@ const Navbar = () => {
                 $ZIRC
               </Link>
               <Link 
-                href="https://github.com" 
+                href="https://github.com/zircai/zirc-protocol" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
@@ -192,7 +192,7 @@ const Navbar = () => {
                 <Github className="h-4 w-4" />
               </Link>
               <Link 
-                href="https://twitter.com" 
+                href="https://x.com/zircai" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
