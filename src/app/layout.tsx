@@ -56,11 +56,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
   icons: {
     icon: [
       { url: '/favicon/favicon.ico', sizes: '48x48' },
@@ -105,6 +100,12 @@ export const metadata: Metadata = {
   },
   applicationName: 'zIRC',
   category: 'communication',
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

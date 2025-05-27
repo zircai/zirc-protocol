@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { FloatingTokens } from '@/components/ui/floating-tokens';
@@ -49,11 +48,9 @@ const TokenPage = () => {
             <Button className="bg-[#61D040] text-black hover:bg-[#61D040]/90">
               Download Token Paper
             </Button>
-            <Link href="/tokenomics">
-              <Button variant="outline" className="border-[#61D040] text-[#61D040] hover:bg-[#61D040]/10">
-                Read Full Tokenomics
-              </Button>
-            </Link>
+            <Button variant="outline" className="border-[#61D040] text-[#61D040] hover:bg-[#61D040]/10">
+              Read Full Tokenomics
+            </Button>
           </div>
         </div>
 

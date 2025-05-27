@@ -1,368 +1,166 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 
 export const metadata: Metadata = {
   title: 'zIRC Tokenomics',
-  description: 'Deep dive into the economic design, mechanics, governance, vesting, and future role of $ZIRC in the decentralized terminal protocol.',
-  keywords: [
-    'zIRC',
-    'Tokenomics',
-    'Cryptocurrency',
-    'Token Distribution',
-    'Governance',
-    'DeFi',
-    'Decentralized',
-    'Blockchain',
-    'Token Utility',
-    'DAO',
-    'Vesting',
-    'Anti-Sybil',
-  ],
-  openGraph: {
-    title: 'zIRC Tokenomics – The Economic Design Behind Decentralized Communication',
-    description: 'Deep dive into the economic design, mechanics, governance, vesting, and future role of $ZIRC in the decentralized terminal protocol.',
-    type: 'website',
-  },
+  description: 'A deep dive into the economic design, mechanics, governance, and future of $ZIRC. For contributors, DAO voters, and degens who want to understand how zIRC works under the hood.',
 };
+
+const Divider = ({ label }: { label: string }) => (
+  <div className="my-12 flex items-center gap-4">
+    <div className="flex-1 border-t border-neon-green/30" />
+    <span className="font-mono text-neon-green text-xs uppercase tracking-widest">{label}</span>
+    <div className="flex-1 border-t border-neon-green/30" />
+  </div>
+);
 
 const TokenomicsPage = () => {
   return (
-    <section className="min-h-screen bg-black py-16 text-white">
-      <div className="container mx-auto px-6">
-        <div className="mx-auto max-w-4xl">
-          {/* Intro Section */}
-          <div className="mb-16">
-            <div className="text-neon-green mb-2 font-mono text-sm">
-              $ZIRC
-            </div>
-            <h1 className="mb-6 font-mono text-4xl text-white md:text-6xl">
-              zIRC Tokenomics
-            </h1>
-            <p className="mb-4 font-mono text-xl leading-relaxed text-gray-300">
-              The economic design behind a decentralized, terminal-native protocol.
-            </p>
-            <p className="font-mono text-lg text-gray-400">
-              For contributors, DAO voters, and degens who want to understand how $ZIRC works under the hood.
-            </p>
-          </div>
+    <section className="min-h-screen bg-black py-12 text-white font-mono">
+      <div className="container mx-auto max-w-3xl px-4">
+        {/* 1. Intro Section */}
+        <h1 className="text-4xl md:text-5xl font-bold text-neon-green mb-2">zIRC Tokenomics</h1>
+        <h2 className="text-xl md:text-2xl text-neon-green mb-4">The economic design behind a decentralized, terminal-native protocol.</h2>
+        <p className="mb-8 text-gray-300">This page is for contributors, DAO voters, and degens who want to understand how $ZIRC works under the hood. Dive into the mechanics, governance, and future of the zIRC protocol.</p>
 
-          {/* Token Philosophy */}
-          <div className="mb-16">
-            <h2 className="text-neon-green mb-6 font-mono text-2xl">
-              Token Philosophy
-            </h2>
-            <div className="space-y-6">
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Why $ZIRC?
-                  </h3>
-                  <p className="mb-4 font-mono text-sm text-gray-300">
-                    $ZIRC was designed to align incentives across the entire zIRC ecosystem, from users and moderators to developers and protocols. It's not just another token—it's the economic backbone of a truly decentralized communication network.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Anti-Extractive Design
-                  </h3>
-                  <p className="mb-4 font-mono text-sm text-gray-300">
-                    Unlike traditional platforms that extract value from users, $ZIRC is designed to empower the community. Every economic mechanism is built to reward genuine participation and contribution.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+        <Divider label="Token Philosophy" />
+        {/* 2. Token Philosophy */}
+        <h3 className="text-2xl text-neon-green mb-2">Why $ZIRC?</h3>
+        <p className="mb-4 text-gray-300">zIRC needed its own token to align incentives across users, mods, devs, and protocols. $ZIRC is designed to empower the community, not extract value. Every mechanic—from staking to governance—prioritizes user sovereignty and anti-extractive economics. The goal: a protocol where value flows to those who build, moderate, and grow the network.</p>
+        <ul className="mb-8 list-disc list-inside text-gray-400">
+          <li>Community-first: rewards real participation, not speculation</li>
+          <li>Anti-extractive: no hidden fees, no rent-seeking</li>
+          <li>Open innovation: devs and users can extend the protocol</li>
+        </ul>
 
-          {/* Token Supply & Emission Schedule */}
-          <div className="mb-16">
-            <h2 className="text-neon-green mb-6 font-mono text-2xl">
-              Token Supply & Emission
-            </h2>
-            <div className="overflow-hidden rounded-lg border border-neon-green/30">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-neon-green/30 bg-black/50">
-                    <th className="p-4 text-left font-mono text-sm text-neon-green">Allocation</th>
-                    <th className="p-4 text-center font-mono text-sm text-neon-green">%</th>
-                    <th className="p-4 text-left font-mono text-sm text-neon-green">Vesting</th>
-                  </tr>
-                </thead>
-                <tbody className="font-mono text-sm">
-                  <tr className="border-b border-neon-green/30">
-                    <td className="p-4 text-gray-300">Community & Airdrop</td>
-                    <td className="p-4 text-center text-gray-300">30%</td>
-                    <td className="p-4 text-gray-300">Over 18 months</td>
-                  </tr>
-                  <tr className="border-b border-neon-green/30">
-                    <td className="p-4 text-gray-300">Team & Devs</td>
-                    <td className="p-4 text-center text-gray-300">20%</td>
-                    <td className="p-4 text-gray-300">1-year cliff, 3-year vesting</td>
-                  </tr>
-                  <tr className="border-b border-neon-green/30">
-                    <td className="p-4 text-gray-300">Treasury & Grants</td>
-                    <td className="p-4 text-center text-gray-300">20%</td>
-                    <td className="p-4 text-gray-300">DAO-managed proposals</td>
-                  </tr>
-                  <tr className="border-b border-neon-green/30">
-                    <td className="p-4 text-gray-300">Liquidity & Exchanges</td>
-                    <td className="p-4 text-center text-gray-300">20%</td>
-                    <td className="p-4 text-gray-300">Gradual, event-based</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 text-gray-300">Reserve</td>
-                    <td className="p-4 text-center text-gray-300">10%</td>
-                    <td className="p-4 text-gray-300">Strategic usage</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-6 space-y-2 font-mono text-sm text-gray-400">
-              <p>• Total Supply: 1,000,000,000 $ZIRC</p>
-              <p>• No inflation mechanism</p>
-              <p>• Burn mechanism for protocol fees</p>
-            </div>
-          </div>
+        <Divider label="Supply & Emission" />
+        {/* 3. Token Supply & Emission Schedule */}
+        <div className="overflow-x-auto mb-6">
+          <table className="w-full border border-neon-green/30 text-sm">
+            <thead>
+              <tr className="bg-black/70 text-neon-green">
+                <th className="p-3 border-b border-neon-green/20 text-left">Allocation</th>
+                <th className="p-3 border-b border-neon-green/20 text-right">%</th>
+                <th className="p-3 border-b border-neon-green/20 text-left">Vesting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="p-3 border-b border-neon-green/10">Community & Airdrop</td>
+                <td className="p-3 border-b border-neon-green/10 text-right">30%</td>
+                <td className="p-3 border-b border-neon-green/10">Over 18 months</td>
+              </tr>
+              <tr>
+                <td className="p-3 border-b border-neon-green/10">Team & Devs</td>
+                <td className="p-3 border-b border-neon-green/10 text-right">20%</td>
+                <td className="p-3 border-b border-neon-green/10">1-year cliff, 3-year vesting</td>
+              </tr>
+              <tr>
+                <td className="p-3 border-b border-neon-green/10">Treasury & Grants</td>
+                <td className="p-3 border-b border-neon-green/10 text-right">20%</td>
+                <td className="p-3 border-b border-neon-green/10">DAO-managed proposals</td>
+              </tr>
+              <tr>
+                <td className="p-3 border-b border-neon-green/10">Liquidity & Exchanges</td>
+                <td className="p-3 border-b border-neon-green/10 text-right">20%</td>
+                <td className="p-3 border-b border-neon-green/10">Gradual, event-based</td>
+              </tr>
+              <tr>
+                <td className="p-3">Reserve</td>
+                <td className="p-3 text-right">10%</td>
+                <td className="p-3">Strategic usage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul className="mb-8 text-gray-400 text-xs">
+          <li>Total supply cap: <span className="text-neon-green font-bold">1,000,000,000 $ZIRC</span></li>
+          <li>Inflation: <span className="text-neon-green font-bold">None (fixed supply)</span></li>
+          <li>Burn logic: <span className="text-neon-green font-bold">Protocol-level burns on spam/abuse, future DAO proposals</span></li>
+        </ul>
 
-          {/* Advanced Utility */}
-          <div className="mb-16">
-            <h2 className="text-neon-green mb-6 font-mono text-2xl">
-              Advanced Utility
-            </h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Staking & Access
-                  </h3>
-                  <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• Create gated chatrooms</li>
-                    <li>• Unlock premium features</li>
-                    <li>• Access CLI bots</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Monetization
-                  </h3>
-                  <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• Plugin marketplace</li>
-                    <li>• Bot monetization</li>
-                    <li>• Message highlighting</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Incentives
-                  </h3>
-                  <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• Moderation rewards</li>
-                    <li>• Security bounties</li>
-                    <li>• Community grants</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Future Features
-                  </h3>
-                  <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• Bandwidth limits</li>
-                    <li>• Custom CLI tools</li>
-                    <li>• Protocol integrations</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+        <Divider label="Advanced Utility" />
+        {/* 4. Advanced Utility */}
+        <h3 className="text-2xl text-neon-green mb-2">What can you do with $ZIRC?</h3>
+        <ul className="mb-8 list-disc list-inside text-gray-400">
+          <li>Stake $ZIRC to create or unlock exclusive, gated chatrooms</li>
+          <li>Monetize plugins and bots—devs can charge $ZIRC for advanced features</li>
+          <li>Boost room rankings or highlight messages via micro-payments</li>
+          <li>Moderation and security incentive pools (earn $ZIRC for keeping the network healthy)</li>
+          <li>Future: pay-to-run features (bandwidth, CLI bots, premium integrations)</li>
+        </ul>
 
-          {/* Governance Framework */}
-          <div className="mb-16">
-            <h2 className="text-neon-green mb-6 font-mono text-2xl">
-              Governance Framework
-            </h2>
-            <div className="space-y-6">
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Voting Mechanics
-                  </h3>
-                  <p className="mb-4 font-mono text-sm text-gray-300">
-                    Quadratic voting ensures that large token holders can't dominate decisions. Each token holder's voting power is calculated as the square root of their token balance.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Proposal Lifecycle
-                  </h3>
-                  <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>1. Discussion on forum</li>
-                    <li>2. Temperature check</li>
-                    <li>3. Formal proposal</li>
-                    <li>4. On-chain vote</li>
-                    <li>5. Implementation</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+        <Divider label="Governance" />
+        {/* 5. Governance Framework */}
+        <h3 className="text-2xl text-neon-green mb-2">How does governance work?</h3>
+        <ul className="mb-4 list-disc list-inside text-gray-400">
+          <li>Voting: <span className="text-neon-green">1 token = 1 vote</span> (with future quadratic/rep-based options)</li>
+          <li>Delegation: Token holders can delegate votes to trusted community members</li>
+          <li>Proposal lifecycle: Idea → Discussion → Vote → On-chain execution</li>
+          <li>DAO treasury: Managed by token holder votes, funds protocol growth and grants</li>
+          <li>Examples: Protocol upgrades, feature launches, grant approvals, treasury spend</li>
+        </ul>
+        <div className="mb-8">
+          <Link href="/governance" className="text-neon-green underline mr-4">View Governance</Link>
+          <Link href="https://snapshot.org/#/zirc.eth" className="text-neon-green underline" target="_blank">Snapshot Voting</Link>
+        </div>
 
-          {/* Anti-Sybil Design */}
-          <div className="mb-16">
-            <h2 className="text-neon-green mb-6 font-mono text-2xl">
-              Anti-Sybil Design
-            </h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Identity Validation
-                  </h3>
-                  <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• zk-Proofs</li>
-                    <li>• POAP verification</li>
-                    <li>• Soulbound tokens</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="border-neon-green/30 bg-black/50">
-                <CardContent className="p-6">
-                  <h3 className="text-neon-green mb-4 font-mono text-lg">
-                    Anti-Farm Measures
-                  </h3>
-                  <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• Behavior analysis</li>
-                    <li>• Reputation scoring</li>
-                    <li>• Time-locked rewards</li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+        <Divider label="Anti-Sybil Design" />
+        {/* 6. Anti-Sybil Design */}
+        <h3 className="text-2xl text-neon-green mb-2">Keeping it real</h3>
+        <ul className="mb-8 list-disc list-inside text-gray-400">
+          <li>No grind-to-farm: Airdrops and rewards based on real behavior, not bots</li>
+          <li>Eligibility: Behavior- and rep-based, not just wallet activity</li>
+          <li>zk/POAP identity validation (planned)</li>
+          <li>Future: Soulbound/off-chain attestations for advanced features</li>
+        </ul>
 
-          {/* Roadmap */}
-          <div className="mb-16">
-            <h2 className="text-neon-green mb-6 font-mono text-2xl">
-              Roadmap
-            </h2>
-            <div className="space-y-4">
-              <div className="border-neon-green/30 border bg-black/50 p-6">
-                <div className="text-neon-green mb-2 font-mono text-sm">
-                  Q3 2025
-                </div>
-                <h3 className="mb-2 font-mono text-lg text-white">
-                  DAO Launch
-                </h3>
-                <p className="font-mono text-sm text-gray-300">
-                  Initial governance framework and treasury management
-                </p>
-              </div>
-              <div className="border-neon-green/30 border bg-black/50 p-6">
-                <div className="text-neon-green mb-2 font-mono text-sm">
-                  Q4 2025
-                </div>
-                <h3 className="mb-2 font-mono text-lg text-white">
-                  Plugin Monetization
-                </h3>
-                <p className="font-mono text-sm text-gray-300">
-                  Staking features and plugin marketplace launch
-                </p>
-              </div>
-              <div className="border-neon-green/30 border bg-black/50 p-6">
-                <div className="text-neon-green mb-2 font-mono text-sm">
-                  Q1 2026
-                </div>
-                <h3 className="mb-2 font-mono text-lg text-white">
-                  zkChat & L2
-                </h3>
-                <p className="font-mono text-sm text-gray-300">
-                  Privacy features and layer 2 deployment
-                </p>
-              </div>
-              <div className="border-neon-green/30 border bg-black/50 p-6">
-                <div className="text-neon-green mb-2 font-mono text-sm">
-                  Q2 2026
-                </div>
-                <h3 className="mb-2 font-mono text-lg text-white">
-                  Community & Integrations
-                </h3>
-                <p className="font-mono text-sm text-gray-300">
-                  Grant program and protocol partnerships
-                </p>
-              </div>
-            </div>
-          </div>
+        <Divider label="Roadmap" />
+        {/* 7. Roadmap */}
+        <div className="mb-8">
+          <ul className="text-gray-300 text-sm space-y-2">
+            <li><span className="text-neon-green">Q3 2025:</span> DAO Launch</li>
+            <li><span className="text-neon-green">Q4 2025:</span> Plugin monetization + $ZIRC staking</li>
+            <li><span className="text-neon-green">Q1 2026:</span> zkChat experiment + L2 deployment</li>
+            <li><span className="text-neon-green">Q2 2026:</span> Community grants + protocol integrations</li>
+          </ul>
+        </div>
 
-          {/* Resources */}
-          <div className="mb-16">
-            <h2 className="text-neon-green mb-6 font-mono text-2xl">
-              Resources
-            </h2>
-            <div className="grid gap-4 md:grid-cols-2">
-              <Link href="https://etherscan.io/address/0x..." target="_blank">
-                <Button variant="outline" className="w-full border-neon-green/30 text-neon-green hover:bg-neon-green/10">
-                  Smart Contract
-                </Button>
-              </Link>
-              <Link href="https://github.com/zirc" target="_blank">
-                <Button variant="outline" className="w-full border-neon-green/30 text-neon-green hover:bg-neon-green/10">
-                  GitHub Repo
-                </Button>
-              </Link>
-              <Link href="https://forum.zirc.ai" target="_blank">
-                <Button variant="outline" className="w-full border-neon-green/30 text-neon-green hover:bg-neon-green/10">
-                  Governance Forum
-                </Button>
-              </Link>
-              <Link href="https://snapshot.org/#/zirc" target="_blank">
-                <Button variant="outline" className="w-full border-neon-green/30 text-neon-green hover:bg-neon-green/10">
-                  Snapshot Voting
-                </Button>
-              </Link>
-              <Link href="/whitepaper.pdf" target="_blank">
-                <Button variant="outline" className="w-full border-neon-green/30 text-neon-green hover:bg-neon-green/10">
-                  Whitepaper
-                </Button>
-              </Link>
-              <Link href="/audit.pdf" target="_blank">
-                <Button variant="outline" className="w-full border-neon-green/30 text-neon-green hover:bg-neon-green/10">
-                  Audit Report
-                </Button>
-              </Link>
-            </div>
-          </div>
+        <Divider label="Resources" />
+        {/* 8. Resources Section */}
+        <div className="mb-12 grid gap-4 md:grid-cols-2">
+          <a href="https://etherscan.io/address/0x123..." target="_blank" className="block border border-neon-green/30 rounded p-4 hover:bg-neon-green/10 transition">
+            <span className="text-neon-green font-bold">Smart Contract</span>
+            <div className="text-xs text-gray-400 mt-1">0x123... (Etherscan)</div>
+          </a>
+          <a href="https://github.com/zirc-protocol" target="_blank" className="block border border-neon-green/30 rounded p-4 hover:bg-neon-green/10 transition">
+            <span className="text-neon-green font-bold">GitHub Repo</span>
+            <div className="text-xs text-gray-400 mt-1">zirc-protocol</div>
+          </a>
+          <a href="https://forum.zirc.ai" target="_blank" className="block border border-neon-green/30 rounded p-4 hover:bg-neon-green/10 transition">
+            <span className="text-neon-green font-bold">Governance Forum</span>
+            <div className="text-xs text-gray-400 mt-1">forum.zirc.ai</div>
+          </a>
+          <a href="https://snapshot.org/#/zirc.eth" target="_blank" className="block border border-neon-green/30 rounded p-4 hover:bg-neon-green/10 transition">
+            <span className="text-neon-green font-bold">Snapshot Voting</span>
+            <div className="text-xs text-gray-400 mt-1">snapshot.org</div>
+          </a>
+          <a href="/whitepaper.pdf" target="_blank" className="block border border-neon-green/30 rounded p-4 hover:bg-neon-green/10 transition">
+            <span className="text-neon-green font-bold">Whitepaper PDF</span>
+            <div className="text-xs text-gray-400 mt-1">Download</div>
+          </a>
+          <a href="/audit-report.pdf" target="_blank" className="block border border-neon-green/30 rounded p-4 hover:bg-neon-green/10 transition">
+            <span className="text-neon-green font-bold">Audit Report</span>
+            <div className="text-xs text-gray-400 mt-1">Download</div>
+          </a>
+        </div>
 
-          {/* CTA Section */}
-          <div className="text-center">
-            <div className="mb-8 flex flex-wrap justify-center gap-4">
-              <Button className="bg-neon-green text-black hover:bg-neon-green/90">
-                CLAIM AIRDROP
-              </Button>
-              <Link href="/governance">
-                <Button variant="outline" className="border-neon-green text-neon-green hover:bg-neon-green/10">
-                  View Governance
-                </Button>
-              </Link>
-              <Link href="https://forum.zirc.ai">
-                <Button variant="outline" className="border-neon-green text-neon-green hover:bg-neon-green/10">
-                  Join Forum
-                </Button>
-              </Link>
-            </div>
-            <p className="font-mono text-sm text-gray-400">
-              Join the zIRC ecosystem and help shape the future of decentralized communication.
-            </p>
-          </div>
+        <Divider label="Get Involved" />
+        {/* 9. CTA Section */}
+        <div className="text-center mb-8 flex flex-col md:flex-row gap-4 justify-center">
+          <Link href="/airdrop" className="bg-neon-green text-black px-8 py-4 font-mono text-lg rounded shadow hover:bg-white transition">Claim Airdrop</Link>
+          <Link href="/governance" className="border border-neon-green text-neon-green px-8 py-4 font-mono text-lg rounded shadow hover:bg-neon-green hover:text-black transition">View Governance</Link>
+          <a href="https://forum.zirc.ai" target="_blank" className="border border-neon-green text-neon-green px-8 py-4 font-mono text-lg rounded shadow hover:bg-neon-green hover:text-black transition">Join Forum</a>
         </div>
       </div>
     </section>
