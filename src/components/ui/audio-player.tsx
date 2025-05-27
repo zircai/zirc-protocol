@@ -45,7 +45,8 @@ export default function AudioPlayer() {
   return (
     <div className="group relative">
       <button
-        aria-label={playing ? "Pause music" : "Play music"}
+        aria-label={playing ? "Stop the noise" : "Play Chiptune"}
+        title={playing ? "Stop the noise" : "Play Chiptune"}
         onClick={handleToggle}
         className="ml-2 border-neon-green text-neon-green hover:bg-neon-green flex h-8 w-8 items-center justify-center border transition-all duration-300 hover:text-black"
       >

@@ -21,7 +21,7 @@ const sourceCodePro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: {
-    default: 'zIRC – Decentralized Retro Messaging',
+    default: 'zIRC – Decentralized for Degens',
     template: '%s | zIRC',
   },
   description:
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: 'zIRC – Decentralized Retro Messaging',
+    title: 'zIRC – Decentralized for Degens',
     description:
       'zIRC is a decentralized chat app with a retro terminal look. Built for degens, devs, and crypto culture. Anonymous. Encrypted. Fun.',
     url: 'https://zirc.ai',
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'zIRC – Decentralized Retro Messaging',
+    title: 'zIRC – Decentralized for Degens',
     description:
       'zIRC is a decentralized chat app with a retro terminal look. Built for degens, devs, and crypto culture. Anonymous. Encrypted. Fun.',
     images: ['/og-image.png'],

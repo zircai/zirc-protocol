@@ -1,6 +1,27 @@
-import React from 'react';
+import { Metadata } from 'next';
 
-const ResearchPage = () => {
+export const metadata: Metadata = {
+  title: 'Simple Tokenomics | zIRC',
+  description: 'Learn about $ZIRC token economics, distribution, utility, and governance. Powering the future of decentralized communication.',
+  keywords: [
+    'zIRC',
+    'Tokenomics',
+    'Cryptocurrency',
+    'Token Distribution',
+    'Governance',
+    'DeFi',
+    'Decentralized',
+    'Blockchain',
+    'Token Utility',
+  ],
+  openGraph: {
+    title: 'zIRC Simple Tokenomics – Powering the Terminal',
+    description: 'Learn about $ZIRC token economics, distribution, utility, and governance. Powering the future of decentralized communication.',
+    type: 'website',
+  },
+};
+
+const SimpleTokenomicsPage = () => {
   return (
     <section className="min-h-screen bg-black py-16 text-white">
       <div className="container mx-auto px-6">
@@ -8,16 +29,15 @@ const ResearchPage = () => {
           {/* Header */}
           <div className="mb-12">
             <div className="text-neon-green mb-2 font-mono text-sm">
-              zIRC
+              $ZIRC
             </div>
             <h1 className="mb-6 font-mono text-4xl text-white md:text-6xl">
-              Find Compute. Train models.
+              Token Economics
               <br />
-              Co-Own Intelligence.
+              Powering the Terminal
             </h1>
             <p className="font-mono text-xl leading-relaxed text-gray-300">
-              Collaborative AI research platform enabling distributed model
-              development and collective ownership.
+              $ZIRC token enables decentralized governance, rewards participation, and powers the zIRC ecosystem.
             </p>
           </div>
 
@@ -25,58 +45,54 @@ const ResearchPage = () => {
           <div className="mb-16 grid gap-8 md:grid-cols-2">
             <div className="border-neon-green/30 border bg-black/50 p-6">
               <h3 className="text-neon-green mb-4 font-mono text-lg">
-                Model Training
+                Token Utility
               </h3>
               <p className="mb-4 font-mono text-sm text-gray-300">
-                Train large language models, scientific AI, and specialized
-                models through distributed training.
+                $ZIRC powers core platform features and enables user participation in the ecosystem.
               </p>
               <ul className="space-y-1 font-mono text-xs text-gray-400">
-                <li>• Multi-node distributed training</li>
-                <li>• Model checkpointing and versioning</li>
-                <li>• Automated hyperparameter optimization</li>
+                <li>• Access to premium features</li>
+                <li>• Governance voting rights</li>
+                <li>• Staking rewards</li>
               </ul>
             </div>
             <div className="border-neon-green/30 border bg-black/50 p-6">
               <h3 className="text-neon-green mb-4 font-mono text-lg">
-                Collective Ownership
+                Distribution
               </h3>
               <p className="mb-4 font-mono text-sm text-gray-300">
-                Contribute compute and data to jointly own the resulting AI
-                innovations and breakthroughs.
+                Fair and transparent token distribution ensuring long-term sustainability.
               </p>
               <ul className="space-y-1 font-mono text-xs text-gray-400">
-                <li>• Decentralized model governance</li>
-                <li>• Revenue sharing protocols</li>
-                <li>• Open source contributions</li>
+                <li>• Community & Airdrop: 30%</li>
+                <li>• Team & Devs: 20%</li>
+                <li>• Treasury: 20%</li>
               </ul>
             </div>
             <div className="border-neon-green/30 border bg-black/50 p-6">
               <h3 className="text-neon-green mb-4 font-mono text-lg">
-                Research Tools
+                Earning Mechanisms
               </h3>
               <p className="mb-4 font-mono text-sm text-gray-300">
-                Advanced tools for AI research including experiment tracking and
-                collaboration features.
+                Multiple ways to earn $ZIRC through active participation and contribution.
               </p>
               <ul className="space-y-1 font-mono text-xs text-gray-400">
-                <li>• Experiment management</li>
-                <li>• Dataset sharing and versioning</li>
-                <li>• Peer review and collaboration</li>
+                <li>• Chat participation rewards</li>
+                <li>• Room hosting incentives</li>
+                <li>• Community contributions</li>
               </ul>
             </div>
             <div className="border-neon-green/30 border bg-black/50 p-6">
               <h3 className="text-neon-green mb-4 font-mono text-lg">
-                Scientific Breakthroughs
+                Governance
               </h3>
               <p className="mb-4 font-mono text-sm text-gray-300">
-                Focus on AI applications that advance scientific understanding
-                and benefit humanity.
+                Decentralized decision-making through token-based voting and proposals.
               </p>
               <ul className="space-y-1 font-mono text-xs text-gray-400">
-                <li>• Protein folding models</li>
-                <li>• Climate simulation AI</li>
-                <li>• Medical research applications</li>
+                <li>• Protocol upgrades</li>
+                <li>• Feature proposals</li>
+                <li>• Treasury management</li>
               </ul>
             </div>
           </div>
@@ -84,12 +100,11 @@ const ResearchPage = () => {
           {/* CTA Section */}
           <div className="text-center">
             <button className="hover:bg-neon-green mx-auto mb-8 flex items-center gap-2 bg-white px-8 py-4 font-mono text-lg text-black transition-all duration-300">
-              GET STARTED
+              CLAIM AIRDROP
               <span>→</span>
             </button>
             <p className="font-mono text-sm text-gray-400">
-              Join the movement to democratize AI development and collective
-              intelligence.
+              Join the zIRC ecosystem and be part of the future of decentralized communication.
             </p>
           </div>
         </div>
@@ -98,4 +113,4 @@ const ResearchPage = () => {
   );
 };
 
-export default ResearchPage;
+export default SimpleTokenomicsPage; 

@@ -7,6 +7,14 @@ const FAQS = [
     a: 'ZIRC Terminal is a decentralized AI platform that provides access to distributed GPU infrastructure for AI training and inference at scale. It combines quantum processing capabilities with cyberpunk aesthetics for a unique user experience.',
   },
   {
+    q: 'What is $ZIRC token?',
+    a: '$ZIRC is the native token powering the zIRC ecosystem. It enables decentralized governance, rewards participation, and unlocks premium features. Users can earn $ZIRC through active participation, staking, and community contributions.',
+  },
+  {
+    q: 'How can I earn $ZIRC?',
+    a: 'You can earn $ZIRC through various activities:\n• Active chat participation\n• Hosting popular rooms\n• Contributing to the ecosystem\n• Staking tokens\n• Early access rewards\n• Community contributions',
+  },
+  {
     q: 'How does the decentralized compute work?',
     a: 'Our platform connects you to a global network of GPU clusters, including H100, A100, and RTX 4090 nodes. All compute resources are distributed across multiple data centers, ensuring high availability and redundancy.',
   },
@@ -21,6 +29,10 @@ const FAQS = [
   {
     q: 'What makes ZIRC unique?',
     a: 'ZIRC combines retro aesthetics with cutting-edge technology. We offer meme market feeds, shitcoin scanners, degen watchlists, and fully decentralized alpha terminals. Our platform is built for both serious AI development and community engagement.',
+  },
+  {
+    q: 'What are the tokenomics of $ZIRC?',
+    a: '$ZIRC has a fair and transparent distribution:\n• 30% Community & Airdrop\n• 20% Team & Devs\n• 20% Treasury & Grants\n• 20% Liquidity & Exchanges\n• 10% Reserve\nLearn more about our tokenomics on the dedicated page.',
   },
   {
     q: 'Is there a free tier?',
