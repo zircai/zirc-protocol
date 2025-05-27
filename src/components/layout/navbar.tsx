@@ -177,17 +177,10 @@ const Navbar = () => {
             <div className="hidden items-center gap-6 font-mono text-sm lg:flex">
               <Link 
                 href="/token" 
-                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
+                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 min-w-12 items-center justify-center border transition-all duration-300 px-2 font-mono text-base font-bold"
                 title="$ZIRC Token"
               >
-                <svg 
-                  viewBox="0 0 24 24" 
-                  className="h-4 w-4 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"/>
-                  <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16Z"/>
-                </svg>
+                $ZIRC
               </Link>
               <Link 
                 href="https://github.com" 

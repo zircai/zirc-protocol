@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const HEADLINE_TOP = 'Chat Meets PumpFun.';
 const HEADLINE_BOTTOM = (
   <>
-    {'Minus the BS'}
+    {'Plus the Alpha.'}
     <span className="animate-blink ml-1 text-xl">█</span>
   </>
 );
