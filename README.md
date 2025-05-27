@@ -30,3 +30,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com)
+
+```bash
+npx vercel --prod
+```
+
+</rewritten_file>
