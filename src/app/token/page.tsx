@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { FloatingTokens } from '@/components/ui/floating-tokens';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: '$ZIRC Token | zIRC',
@@ -48,9 +49,11 @@ const TokenPage = () => {
             <Button className="bg-[#61D040] text-black hover:bg-[#61D040]/90">
               Download Token Paper
             </Button>
-            <Button variant="outline" className="border-[#61D040] text-[#61D040] hover:bg-[#61D040]/10">
-              Read Full Tokenomics
-            </Button>
+            <Link href="/tokenomics" passHref legacyBehavior>
+              <a className="inline-flex items-center justify-center rounded-md border border-[#61D040] bg-transparent px-4 py-2 font-mono text-base font-medium text-[#61D040] transition-colors hover:bg-[#61D040]/10 focus:outline-none focus:ring-2 focus:ring-[#61D040] focus:ring-offset-2">
+                Read Full Tokenomics
+              </a>
+            </Link>
           </div>
         </div>
 
