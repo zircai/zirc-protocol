@@ -202,7 +202,7 @@ const Navbar = () => {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </Link>
-              <Link href="/signup">
+              <Link href="https://zirc.vercel.app">
                 <button 
                   className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors"
                   title="Launch zIRC App"
@@ -272,12 +272,12 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <div className="fixed inset-0 z-40 flex items-center justify-center lg:hidden">
           <div
-            className="absolute inset-0 bg-black/90"
+            className="absolute inset-0 bg-black/90 transition-opacity duration-300 opacity-100"
             onClick={() => setIsMenuOpen(false)}
           ></div>
-          <div className="border-neon-green relative m-4 border-2 bg-black p-6 font-mono">
+          <div className="border-neon-green relative w-full max-w-sm mx-auto border-2 bg-black p-6 font-mono animate-fade-in-up" style={{zIndex: 50}}>
             {/* Mobile Menu Header */}
             <div className="border-neon-green/30 mb-6 border-b pb-4">
               <div className="text-neon-cyan mb-2 text-sm">
@@ -291,18 +291,57 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile Auth Buttons */}
-            <div className="border-neon-green/30 space-y-3 border-t pt-4">
-              <Link href="/login" onClick={() => setIsMenuOpen(false)}>
-                <button className="border-neon-green text-neon-green hover:bg-neon-green w-full border py-3 font-mono uppercase transition-all hover:text-black">
-                  LOGIN
-                </button>
+            {/* Main Navigation Links (Mobile) - now in a single row */}
+            <div className="flex items-center justify-between gap-3 mb-6">
+              <Link 
+                href="/token" 
+                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 min-w-12 items-center justify-center border transition-all duration-300 px-2 font-mono text-base font-bold"
+                title="$ZIRC Token"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                $ZIRC
               </Link>
-              <Link href="/signup" onClick={() => setIsMenuOpen(false)}>
-                <button className="hover:bg-neon-green w-full bg-white py-3 font-mono text-black uppercase transition-all">
-                  GET STARTED
-                </button>
+              <Link 
+                href="https://github.com/zircai/zirc-protocol" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
+                title="GitHub Repository"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Github className="h-5 w-5" />
               </Link>
+              <Link 
+                href="https://x.com/zircai" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
+                title="Twitter"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </Link>
+              <div title="Audio Player">
+                <AudioPlayer />
+              </div>
+            </div>
+
+            {/* Launch zIRC Button with Green Lines */}
+            <div className="my-8">
+              <div className="border-t border-neon-green mb-4"></div>
+              <a
+                href="https://zirc.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors"
+                title="Launch zIRC App"
+              >
+                Launch zIRC
+                <span>→</span>
+              </a>
+              <div className="border-t border-neon-green mt-4"></div>
             </div>
 
             {/* Mobile Status */}
