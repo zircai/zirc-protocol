@@ -62,7 +62,7 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-marquee: marquee 25s linear infinite;
-  --animate-blink: blink 1s infinite;
+  --animate-blink: blink 1s step-end infinite;
   --animate-glitch: glitch 0.3s ease-in-out infinite alternate;
   --animate-scan-line: scan-line 2s linear infinite;
   --animate-loading-bar: loading-bar 3s ease-in-out infinite;
@@ -92,12 +92,10 @@
     }
   }
   @keyframes blink {
-    0%,
-    50% {
+    0%, 100% {
       opacity: 1;
     }
-    51%,
-    100% {
+    50% {
       opacity: 0;
     }
   }
