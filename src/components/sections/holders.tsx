@@ -35,7 +35,6 @@ const tiers = [
       'Access to trading signals',
     ],
     cta: 'Stake Tokens',
-    popular: true,
   },
   {
     name: 'Elite',
@@ -51,6 +50,7 @@ const tiers = [
       'Early access to new features',
     ],
     cta: 'Stake Tokens',
+    popular: true,
   },
   {
     name: 'Whale',
@@ -107,7 +107,7 @@ export default function Holders({
                   tier.popular && 'bg-background relative ring-2 ring-black',
                 )}
               >
-                <CardHeader>
+                <CardHeader className="h-[120px]">
                   <h3 className="text-2xl font-semibold">{tier.name}</h3>
                   <div className="mt-2">
                     <p className="text-muted-foreground text-lg font-medium">
@@ -119,6 +119,7 @@ export default function Holders({
                   <Button
                     variant={tier.popular ? 'default' : 'outline'}
                     size="lg"
+                    className="h-14"
                   >
                     {tier.cta}
                   </Button>
