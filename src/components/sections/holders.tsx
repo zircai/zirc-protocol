@@ -9,125 +9,122 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { cn } from '@/lib/utils';
 
-const plans = [
+const tiers = [
   {
-    name: 'Free',
-    monthlyPrice: '$0',
-    annualPrice: '$0',
+    name: 'Starter',
+    tokenAmount: '100 $ZIRC',
     features: [
-      'Unlimited members',
-      '2 teams',
-      '500 issues',
-      'Slack and Github integrations',
+      'Access to basic chat rooms',
+      'Basic bot interactions',
+      'Community voting rights',
+      'Basic tipping capabilities',
+      'View public channels',
     ],
-    cta: 'Get started',
+    cta: 'Stake Tokens',
   },
   {
-    name: 'Startup',
-    monthlyPrice: '$8',
-    annualPrice: '$60',
-    monthlyPerUnit: 'per user/month',
-    annualPerUnit: 'per user/annum',
+    name: 'Active',
+    tokenAmount: '1,000 $ZIRC',
     features: [
-      'All free plan features and...',
-      'Streamline AI',
-      'Unlimited teams',
-      'Unlimited issues and file uploads',
-      'Streamline Insights',
-      'Admin roles',
+      'All Starter features',
+      'Access to encrypted rooms',
+      'Premium bot access',
+      'Enhanced tipping limits',
+      'Priority support',
+      'Create custom rooms',
+      'Access to trading signals',
     ],
-    cta: '7 day free trial',
+    cta: 'Stake Tokens',
     popular: true,
   },
   {
-    name: 'Enterprise',
-    monthlyPrice: '$15',
-    annualPrice: '$120',
-    monthlyPerUnit: 'per user/month',
-    annualPerUnit: 'per user/annum',
+    name: 'Elite',
+    tokenAmount: '10,000 $ZIRC',
     features: [
-      'All free plan features and...',
-      'Streamline AI',
-      'Unlimited teams',
-      'Unlimited issues and file uploads',
-      'Streamline Insights',
-      'Admin roles',
+      'All Active features',
+      'Access to alpha channels',
+      'Premium node access',
+      'Dev tools access',
+      'Governance proposal rights',
+      'Revenue sharing',
+      'Custom bot creation',
+      'Early access to new features',
     ],
-    cta: 'Get started',
+    cta: 'Stake Tokens',
+  },
+  {
+    name: 'Whale',
+    tokenAmount: '50,000 $ZIRC',
+    features: [
+      'All Elite features',
+      'Exclusive whale channels',
+      'Protocol revenue sharing',
+      'Priority governance rights',
+      'Custom node deployment',
+      'API access with higher limits',
+      'Private bot marketplace',
+      'Protocol development influence',
+    ],
+    cta: 'Stake Tokens',
   },
 ];
 
-export default function Pricing({
+export default function Holders({
   headerTag = 'h2',
 }: {
   headerTag?: 'h1' | 'h2';
 }) {
-  const [isAnnual, setIsAnnual] = useState(true);
-
   return (
     <section className="py-16 md:py-28 lg:py-32">
       <div className="container">
         <div className="mx-auto max-w-3xl space-y-4 text-center">
           {headerTag === 'h1' ? (
             <h1 className="text-center text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-              Pricing
+              Token Holder Benefits
             </h1>
           ) : (
             <h2 className="text-center text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-              Pricing
+              Token Holder Benefits
             </h2>
           )}
           <p className="text-muted-foreground text-lg text-balance">
-            Use Streamline for free with your whole team. Upgrade to enable
-            unlimited issues, enhanced security controls, and additional
-            features.
+            Stake your $ZIRC tokens to unlock premium features, enhanced capabilities, and exclusive access to the zIRC ecosystem.
           </p>
-          <div className="inline-flex items-center gap-2">
-            <Switch
-              checked={isAnnual}
-              onCheckedChange={setIsAnnual}
-              aria-label="Toggle annual billing"
-            />
-            <span className="text-sm font-medium">Billed annually</span>
-          </div>
         </div>
 
-        <div className="mt-8 grid gap-8 sm:grid-cols-2 md:mt-12 lg:mt-20 lg:grid-cols-3">
-          {plans.map((plan) => (
+        <div className="mt-8 grid gap-8 sm:grid-cols-2 md:mt-12 lg:mt-20 lg:grid-cols-4">
+          {tiers.map((tier) => (
             <div
-              key={plan.name}
+              key={tier.name}
               className={cn(
-                plan.popular &&
+                tier.popular &&
                   'from-mint/70 to-sand-100 scale-[1.075] rounded-3xl bg-linear-to-b p-3',
               )}
             >
               <Card
                 className={cn(
                   'h-full border-none bg-zinc-100 dark:bg-zinc-900',
-                  plan.popular && 'bg-background relative ring-2 ring-black',
+                  tier.popular && 'bg-background relative ring-2 ring-black',
                 )}
               >
                 <CardHeader>
-                  <h3 className="text-2xl font-semibold">{plan.name}</h3>
+                  <h3 className="text-2xl font-semibold">{tier.name}</h3>
                   <div className="mt-2">
                     <p className="text-muted-foreground text-lg font-medium">
-                      {isAnnual ? plan.annualPrice : plan.monthlyPrice}
-                      {(plan.monthlyPerUnit || plan.annualPerUnit) &&
-                        ' ' +
-                          (isAnnual ? plan.annualPerUnit : plan.monthlyPerUnit)}
+                      {tier.tokenAmount}
                     </p>
                   </div>
                 </CardHeader>
                 <CardContent className="flex flex-col space-y-6">
                   <Button
-                    variant={plan.popular ? 'default' : 'outline'}
+                    variant={tier.popular ? 'default' : 'outline'}
                     size="lg"
                   >
-                    {plan.cta}
+                    {tier.cta}
                   </Button>
 
                   <div className="space-y-4">
-                    {plan.features.map((feature) => (
+                    {tier.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-3">
                         <Check className="size-4 shrink-0" />
                         <span className="text-muted-foreground text-sm">
@@ -144,4 +141,4 @@ export default function Pricing({
       </div>
     </section>
   );
-}
+} 

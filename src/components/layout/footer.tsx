@@ -65,12 +65,12 @@ export const Footer = () => {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <a href="https://zirc.vercel.app" target="_blank" rel="noopener noreferrer">
-                <button className="retro-button px-8 py-4 text-lg">
+                <button className="retro-button h-14 min-w-[240px] px-8 text-lg">
                   INITIALIZE_SESSION
                 </button>
               </a>
-              <Link href="/pricing">
-                <button className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan border-2 px-8 py-4 font-mono uppercase transition-all duration-300 hover:text-black">
+              <Link href="/holders">
+                <button className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan h-14 min-w-[240px] border-2 px-8 font-mono text-lg uppercase transition-all duration-300 hover:text-black">
                   VIEW_UPGRADE_MATRIX
                 </button>
               </Link>

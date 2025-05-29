@@ -51,7 +51,7 @@ const WhyUs = () => {
       zirc: { value: 'Token-gated + secure', status: 'yes' },
       status: { value: 'Yes', status: 'yes' },
       farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'None', status: 'no' },
+      xmtp: { value: 'Yes', status: 'yes' },
       irc: { value: 'None', status: 'no' },
     },
     {
@@ -83,7 +83,7 @@ const WhyUs = () => {
       zirc: { value: 'Focused core', status: 'yes' },
       status: { value: 'Yes', status: 'yes' },
       farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'None', status: 'no' },
+      xmtp: { value: 'Yes', status: 'yes' },
       irc: { value: 'Yes', status: 'yes' },
     },
     {

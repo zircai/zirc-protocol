@@ -46,9 +46,11 @@ const TokenPage = () => {
             The fuel behind the terminal. Talk, earn, and govern with $ZIRC.
           </p>
           <div className="flex justify-center gap-4">
-            <Button className="bg-[#61D040] text-black hover:bg-[#61D040]/90">
-              Download Token Paper
-            </Button>
+            <Link href="/holders" passHref legacyBehavior>
+              <a className="inline-flex items-center justify-center rounded-md bg-[#61D040] px-4 py-2 font-mono text-base font-medium text-black transition-colors hover:bg-[#61D040]/90 focus:outline-none focus:ring-2 focus:ring-[#61D040] focus:ring-offset-2">
+                Holders' Benefits
+              </a>
+            </Link>
             <Link href="/tokenomics" passHref legacyBehavior>
               <a className="inline-flex items-center justify-center rounded-md border border-[#61D040] bg-transparent px-4 py-2 font-mono text-base font-medium text-[#61D040] transition-colors hover:bg-[#61D040]/10 focus:outline-none focus:ring-2 focus:ring-[#61D040] focus:ring-offset-2">
                 Read Full Tokenomics
