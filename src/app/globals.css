@@ -92,12 +92,8 @@
     }
   }
   @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
   @keyframes glitch {
     0% {
@@ -294,6 +290,10 @@
 
   .animate-fade-in-up {
     animation: fade-in-up 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .animate-blink {
+    animation: blink 1s step-end infinite;
   }
 }
 
