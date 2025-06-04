@@ -43,7 +43,7 @@ const Hero = () => {
           {SUBHEADLINE}
         </p>
         <a 
-          href="https://zirc.vercel.app" 
+          href="http://app.zirc.ai/" 
           target="_blank"
           rel="noopener noreferrer"
           className="bg-neon-green px-8 py-4 font-mono text-lg text-black shadow-lg transition hover:bg-white"
