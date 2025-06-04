@@ -64,7 +64,7 @@ export const Footer = () => {
               {'>'} FUTURE_PRODUCTIVITY_MODE: STANDBY
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <a href="https://zirc.vercel.app" target="_blank" rel="noopener noreferrer">
+              <a href="http://app.zirc.ai/" target="_blank" rel="noopener noreferrer">
                 <button className="retro-button h-14 min-w-[240px] px-8 text-lg">
                   INITIALIZE_SESSION
                 </button>
