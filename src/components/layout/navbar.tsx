@@ -202,7 +202,7 @@ const Navbar = () => {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </Link>
-              <Link href="http://app.zirc.ai/">
+              <Link href="https://app.zirc.ai/">
                 <button 
                   className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors"
                   title="Launch zIRC App"
@@ -332,7 +332,7 @@ const Navbar = () => {
             <div className="my-8">
               <div className="border-t border-neon-green mb-4"></div>
               <a
-                href="http://app.zirc.ai/"
+                href="https://app.zirc.ai/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors"
