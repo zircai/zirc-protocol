@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://zirc.ai/sitemap.xml
+
+# Disallow admin and private routes
+Disallow: /login
+Disallow: /signup
+Disallow: /admin
+Disallow: /api/ 
