@@ -6,93 +6,93 @@ type Status = 'yes' | 'no' | 'partial';
 interface Feature {
   feature: string;
   zirc: { value: string; status: Status };
-  status: { value: string; status: Status };
-  farcaster: { value: string; status: Status };
-  xmtp: { value: string; status: Status };
-  irc: { value: string; status: Status };
+  bscscan: { value: string; status: Status };
+  dune: { value: string; status: Status };
+  nansen: { value: string; status: Status };
+  defillama: { value: string; status: Status };
 }
 
 const WhyUs = () => {
   const features: Feature[] = [
     {
-      feature: 'AI-Powered Analysis',
-      zirc: { value: 'Natural language queries', status: 'yes' },
-      status: { value: 'Basic charts only', status: 'no' },
-      farcaster: { value: 'No data tools', status: 'no' },
-      xmtp: { value: 'No data tools', status: 'no' },
-      irc: { value: 'No data tools', status: 'no' },
+      feature: 'Natural Language Queries',
+      zirc: { value: 'Ask in plain English', status: 'yes' },
+      bscscan: { value: 'Manual navigation', status: 'no' },
+      dune: { value: 'Requires SQL', status: 'no' },
+      nansen: { value: 'Dashboard-based', status: 'partial' },
+      defillama: { value: 'No query interface', status: 'no' },
     },
     {
-      feature: 'Real-time BSC Data',
-      zirc: { value: 'Live prices & balances', status: 'yes' },
-      status: { value: 'Limited data', status: 'partial' },
-      farcaster: { value: 'No blockchain data', status: 'no' },
-      xmtp: { value: 'No blockchain data', status: 'no' },
-      irc: { value: 'No blockchain data', status: 'no' },
+      feature: 'AI-Powered Analysis',
+      zirc: { value: 'AI interprets queries', status: 'yes' },
+      bscscan: { value: 'No AI features', status: 'no' },
+      dune: { value: 'SQL-based only', status: 'no' },
+      nansen: { value: 'Smart labels only', status: 'partial' },
+      defillama: { value: 'No AI features', status: 'no' },
+    },
+    {
+      feature: 'BSC-Specific Focus',
+      zirc: { value: 'Built for BSC ecosystem', status: 'yes' },
+      bscscan: { value: 'BSC explorer', status: 'yes' },
+      dune: { value: 'Multi-chain (complex)', status: 'partial' },
+      nansen: { value: 'Multi-chain', status: 'partial' },
+      defillama: { value: 'Multi-chain', status: 'partial' },
     },
     {
       feature: 'Terminal Interface',
-      zirc: { value: 'CLI-style responses', status: 'yes' },
-      status: { value: 'Web dashboards', status: 'no' },
-      farcaster: { value: 'Social feeds', status: 'no' },
-      xmtp: { value: 'Chat interface', status: 'no' },
-      irc: { value: 'Text-based', status: 'yes' },
+      zirc: { value: 'CLI-style for degens', status: 'yes' },
+      bscscan: { value: 'Web explorer', status: 'no' },
+      dune: { value: 'Dashboard UI', status: 'no' },
+      nansen: { value: 'Dashboard UI', status: 'no' },
+      defillama: { value: 'Web dashboard', status: 'no' },
     },
     {
-      feature: 'Degen-Focused',
-      zirc: { value: 'Built for crypto natives', status: 'yes' },
-      status: { value: 'General purpose', status: 'no' },
-      farcaster: { value: 'Social platform', status: 'no' },
-      xmtp: { value: 'Communication', status: 'no' },
-      irc: { value: 'General chat', status: 'no' },
+      feature: 'Learning Curve',
+      zirc: { value: 'Just ask questions', status: 'yes' },
+      bscscan: { value: 'Moderate complexity', status: 'partial' },
+      dune: { value: 'High (SQL required)', status: 'no' },
+      nansen: { value: 'Moderate', status: 'partial' },
+      defillama: { value: 'Simple UI', status: 'yes' },
     },
     {
-      feature: 'BSC Integration',
-      zirc: { value: 'Native BSC support', status: 'yes' },
-      status: { value: 'Limited BSC', status: 'partial' },
-      farcaster: { value: 'No BSC support', status: 'no' },
-      xmtp: { value: 'No BSC support', status: 'no' },
-      irc: { value: 'No BSC support', status: 'no' },
+      feature: 'Pricing',
+      zirc: { value: 'Free tier available', status: 'yes' },
+      bscscan: { value: 'Free (with ads)', status: 'yes' },
+      dune: { value: 'Free + $390/mo Pro', status: 'partial' },
+      nansen: { value: '$150-$1,800/month', status: 'no' },
+      defillama: { value: 'Completely free', status: 'yes' },
     },
     {
-      feature: 'Query Limits',
-      zirc: { value: '10 free, unlimited Pro', status: 'yes' },
-      status: { value: 'Unlimited', status: 'yes' },
-      farcaster: { value: 'No data queries', status: 'no' },
-      xmtp: { value: 'No data queries', status: 'no' },
-      irc: { value: 'No data queries', status: 'no' },
+      feature: 'Real-time Price Data',
+      zirc: { value: 'Live BSC token prices', status: 'yes' },
+      bscscan: { value: 'Token prices available', status: 'yes' },
+      dune: { value: 'Depends on queries', status: 'partial' },
+      nansen: { value: 'Real-time data', status: 'yes' },
+      defillama: { value: 'Real-time TVL', status: 'yes' },
     },
     {
       feature: 'Wallet Integration',
-      zirc: { value: 'MetaMask + Coinbase', status: 'yes' },
-      status: { value: 'Basic wallet', status: 'partial' },
-      farcaster: { value: 'No wallet needed', status: 'no' },
-      xmtp: { value: 'No wallet needed', status: 'no' },
-      irc: { value: 'No wallet needed', status: 'no' },
+      zirc: { value: 'Connect & query wallet', status: 'yes' },
+      bscscan: { value: 'View-only', status: 'partial' },
+      dune: { value: 'No wallet connection', status: 'no' },
+      nansen: { value: 'Wallet tracking', status: 'yes' },
+      defillama: { value: 'Portfolio tracking', status: 'yes' },
     },
     {
-      feature: 'Data Accuracy',
-      zirc: { value: 'Real-time BSC data', status: 'yes' },
-      status: { value: 'Delayed data', status: 'partial' },
-      farcaster: { value: 'No blockchain data', status: 'no' },
-      xmtp: { value: 'No blockchain data', status: 'no' },
-      irc: { value: 'No blockchain data', status: 'no' },
+      feature: 'Target User',
+      zirc: { value: 'BSC degens & traders', status: 'yes' },
+      bscscan: { value: 'Developers & users', status: 'partial' },
+      dune: { value: 'Data analysts', status: 'no' },
+      nansen: { value: 'Institutions & whales', status: 'no' },
+      defillama: { value: 'DeFi users', status: 'partial' },
     },
     {
-      feature: 'User Experience',
-      zirc: { value: 'Terminal-focused', status: 'yes' },
-      status: { value: 'Dashboard-heavy', status: 'no' },
-      farcaster: { value: 'Social-focused', status: 'no' },
-      xmtp: { value: 'Chat-focused', status: 'no' },
-      irc: { value: 'Chat-focused', status: 'no' },
-    },
-    {
-      feature: 'Privacy & Security',
-      zirc: { value: 'Wallet-only data access', status: 'yes' },
-      status: { value: 'Data collection', status: 'no' },
-      farcaster: { value: 'Public posts', status: 'no' },
-      xmtp: { value: 'Encrypted messages', status: 'yes' },
-      irc: { value: 'Public channels', status: 'no' },
+      feature: 'Data Sources',
+      zirc: { value: 'BSC API + CoinGecko', status: 'yes' },
+      bscscan: { value: 'Direct blockchain', status: 'yes' },
+      dune: { value: 'Blockchain data', status: 'yes' },
+      nansen: { value: 'Blockchain + enriched', status: 'yes' },
+      defillama: { value: 'Protocol aggregation', status: 'yes' },
     },
   ];
 
@@ -122,7 +122,7 @@ const WhyUs = () => {
               BSC Data Access
             </h1>
             <p className="font-mono text-xl leading-relaxed text-gray-300">
-            zIRC.ai combines AI-powered queries with real-time BSC data in a terminal interface. While others focus on complex dashboards or social feeds, zIRC builds a direct, degen-friendly BSC intelligence layer.
+              zIRC.ai is the <span className="text-neon-green font-bold">first AI-powered terminal for Binance Smart Chain</span>. Ask questions in plain English—no SQL, no complex dashboards, no $150/month subscriptions. Built for BSC degens who want instant on-chain insights without the learning curve.
             </p>
           </div>
 
@@ -131,12 +131,12 @@ const WhyUs = () => {
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b border-neon-green/30">
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">Feature / Focus</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">Feature</th>
                   <th className="p-4 text-left font-mono text-sm text-neon-green">zIRC.ai 🟢</th>
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">TradingView</th>
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">DeFiPulse</th>
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">Dune Analytics</th>
                   <th className="p-4 text-left font-mono text-sm text-gray-400">BSCScan</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">Dune Analytics</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">Nansen</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">DeFiLlama</th>
                 </tr>
               </thead>
               <tbody>
@@ -151,26 +151,26 @@ const WhyUs = () => {
                     </td>
                     <td className="p-4 font-mono text-sm text-gray-300">
                       <div className="flex items-center gap-2">
-                        <StatusIcon status={row.status.status} />
-                        {row.status.value}
+                        <StatusIcon status={row.bscscan.status} />
+                        {row.bscscan.value}
                       </div>
                     </td>
                     <td className="p-4 font-mono text-sm text-gray-300">
                       <div className="flex items-center gap-2">
-                        <StatusIcon status={row.farcaster.status} />
-                        {row.farcaster.value}
+                        <StatusIcon status={row.dune.status} />
+                        {row.dune.value}
                       </div>
                     </td>
                     <td className="p-4 font-mono text-sm text-gray-300">
                       <div className="flex items-center gap-2">
-                        <StatusIcon status={row.xmtp.status} />
-                        {row.xmtp.value}
+                        <StatusIcon status={row.nansen.status} />
+                        {row.nansen.value}
                       </div>
                     </td>
                     <td className="p-4 font-mono text-sm text-gray-300">
                       <div className="flex items-center gap-2">
-                        <StatusIcon status={row.irc.status} />
-                        {row.irc.value}
+                        <StatusIcon status={row.defillama.status} />
+                        {row.defillama.value}
                       </div>
                     </td>
                   </tr>
