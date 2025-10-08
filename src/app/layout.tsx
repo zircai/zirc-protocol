@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image3.png',
         width: 1200,
         height: 630,
         alt: 'zIRC.ai BSC AI Terminal - Real-time Blockchain Data',
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     title: 'zIRC.ai – BSC AI Terminal | Real-time Blockchain Data',
     description:
       'AI-powered terminal for Binance Smart Chain. Ask natural questions about BSC data and get instant terminal-style answers.',
-    images: ['/og-image.png'],
+    images: ['/og-image3.png'],
     creator: '@zircai',
     site: '@zircai',
   },
