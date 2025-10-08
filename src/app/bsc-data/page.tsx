@@ -18,42 +18,46 @@ const BSCDataPage = () => {
     {
       icon: TrendingUp,
       title: 'Token Prices',
+      description: 'Real-time prices for BNB, CAKE, and all BSC tokens',
       queries: [
-        '> show BNB price',
-        '> what\'s CAKE worth?',
-        '> BUSD price today',
+        '> show CAKE price',
+        '> BNB price now',
+        '> what\'s BUSD worth?',
       ],
       status: 'LIVE',
     },
     {
       icon: Wallet,
       title: 'Wallet Balances',
+      description: 'Check your BNB and token balances instantly',
       queries: [
-        '> my BNB balance',
+        '> my balance',
         '> check wallet 0x123...',
         '> show my tokens',
       ],
-      status: 'BETA',
+      status: 'LIVE',
     },
     {
       icon: Database,
       title: 'Top Holders',
+      description: 'Find whale wallets and top token holders',
       queries: [
         '> top BNB holders',
         '> CAKE whale wallets',
         '> show rich list',
       ],
-      status: 'COMING SOON',
+      status: 'BETA',
     },
     {
       icon: Activity,
-      title: 'Transactions',
+      title: 'Market Insights',
+      description: 'Trading volume, market cap, and transaction details',
       queries: [
-        '> explain tx 0xabc...',
-        '> recent BNB transfers',
-        '> transaction history',
+        '> BNB volume today',
+        '> CAKE market cap',
+        '> explain transaction 0xabc...',
       ],
-      status: 'PLANNED',
+      status: 'COMING SOON',
     },
   ];
 
@@ -81,7 +85,7 @@ const BSCDataPage = () => {
               <span className="text-neon-green">BSC Data Queries</span>
             </h1>
             <p className="font-mono text-xl leading-relaxed text-gray-300">
-              Query Binance Smart Chain data using natural language. No SQL, no dashboards, just instant answers.
+              Live prices, wallet balances, transaction details, and market insights from Binance Smart Chain. Query everything with natural language.
             </p>
           </div>
 
@@ -106,9 +110,12 @@ const BSCDataPage = () => {
                     {dataType.status}
                   </span>
                 </div>
-                <h3 className="text-neon-green mb-4 font-mono text-xl">
+                <h3 className="text-neon-green mb-2 font-mono text-xl">
                   {dataType.title}
                 </h3>
+                <p className="mb-4 font-mono text-xs text-gray-500">
+                  {dataType.description}
+                </p>
                 <div className="space-y-2">
                   {dataType.queries.map((query, qIndex) => (
                     <div
@@ -132,26 +139,32 @@ const BSCDataPage = () => {
             </div>
             <div className="space-y-2 p-4">
               <div className="text-neon-green">
-                {'>'} show BNB price
+                {'>'} show CAKE price
               </div>
               <div className="text-neon-cyan">
-                [AI] BNB Price: $1,319.78 (+2.34% 24h)
+                [AI] CAKE Price: $1.89 (-1.23% 24h)
               </div>
               <div className="text-gray-500">
-                Market Cap: $48.2B | Volume: $2.1B
+                Market Cap: $450M | Volume: $45M
               </div>
               <div className="mt-4 text-neon-green">
-                {'>'} top CAKE holders
+                {'>'} top BNB holders
               </div>
               <div className="text-neon-cyan">
-                [AI] Top 5 CAKE Holders:
+                [AI] Top 5 BNB Holders:
               </div>
               <div className="text-gray-400">
-                1. 0x8894...a1b2 - 1,234,567 CAKE
+                1. Binance Hot Wallet - 1,385,795 BNB
                 <br />
-                2. 0x4567...c3d4 - 987,654 CAKE
+                2. 0x28C6...1d60 - 987,654 BNB
                 <br />
-                3. 0x7890...e5f6 - 654,321 CAKE
+                3. 0x21a3...8549 - 654,321 BNB
+              </div>
+              <div className="mt-4 text-neon-green">
+                {'>'} BNB volume today
+              </div>
+              <div className="text-neon-cyan">
+                [AI] Today&apos;s BNB trading volume: $2.1B (+15.2%)
               </div>
               <div className="mt-4 flex items-center gap-2">
                 <span className="text-neon-green">{'>'}</span>

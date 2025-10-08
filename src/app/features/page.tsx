@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Terminal, Zap, Database, Brain, ArrowLeft } from 'lucide-react';
+import { Terminal, Coins, Network, Code, ArrowLeft } from 'lucide-react';
 
 const FeaturesPage = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -14,28 +14,32 @@ const FeaturesPage = () => {
 
   const upcomingFeatures = [
     {
-      icon: Brain,
-      title: 'AI Query Engine',
-      description: 'Ask questions in plain English and get instant BSC insights',
-      status: 'In Development',
-    },
-    {
-      icon: Database,
-      title: 'Real-time BSC Data',
-      description: 'Live token prices, wallet balances, and transaction tracking',
-      status: 'Beta Testing',
-    },
-    {
       icon: Terminal,
-      title: 'Terminal Commands',
-      description: 'CLI-style commands for power users and degens',
-      status: 'Coming Q2 2025',
+      title: 'AI-Powered Queries',
+      description: 'Ask natural questions: "show CAKE price", "top BNB holders", "my balance". Get instant terminal-style answers.',
+      status: 'Beta Testing',
+      examples: ['show CAKE price', 'top BNB holders', 'my balance'],
     },
     {
-      icon: Zap,
-      title: 'Advanced Analytics',
-      description: 'Portfolio tracking, whale watching, and smart alerts',
-      status: 'Planned',
+      icon: Coins,
+      title: 'Real-time BSC Data',
+      description: 'Live prices, wallet balances, transaction details, and market insights from Binance Smart Chain.',
+      status: 'Live',
+      examples: ['BNB price now', 'wallet balance 0x123...', 'CAKE volume today'],
+    },
+    {
+      icon: Network,
+      title: 'Degen-Friendly Interface',
+      description: 'No complex dashboards. Just terminal commands and AI responses. Built for crypto natives.',
+      status: 'Operational',
+      examples: ['Simple CLI commands', 'No learning curve', 'Instant responses'],
+    },
+    {
+      icon: Code,
+      title: 'Terminal Aesthetic',
+      description: 'Retro CLI vibes meet modern blockchain data. Fast, direct, and no-nonsense.',
+      status: 'Live',
+      examples: ['Hacker aesthetic', 'Monospace fonts', 'Neon green theme'],
     },
   ];
 
@@ -63,7 +67,7 @@ const FeaturesPage = () => {
               <span className="text-neon-green">Features</span>
             </h1>
             <p className="font-mono text-xl leading-relaxed text-gray-300">
-              The first AI-powered terminal for Binance Smart Chain. Query blockchain data with natural language.
+              Ask natural questions about BSC data and get instant AI-powered insights. No dashboards, just terminal-style answers for degens.
             </p>
           </div>
 
@@ -115,6 +119,46 @@ const FeaturesPage = () => {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* How It Works */}
+          <div className="border-neon-green/30 mb-12 border-t pt-12">
+            <h2 className="text-neon-green mb-8 text-center font-mono text-3xl">
+              How BSC AI Terminal Works
+            </h2>
+            <div className="grid gap-6 md:grid-cols-4">
+              {[
+                {
+                  step: '1',
+                  title: 'Connect Wallet',
+                  description: 'Link your MetaMask or Coinbase wallet to access BSC data.',
+                },
+                {
+                  step: '2',
+                  title: 'Ask Questions',
+                  description: 'Type natural queries: "CAKE price", "top BNB holders", "BNB volume today".',
+                },
+                {
+                  step: '3',
+                  title: 'Get AI Insights',
+                  description: 'Receive instant, formatted responses with real-time BSC data.',
+                },
+                {
+                  step: '4',
+                  title: 'Trade Smarter',
+                  description: 'Make informed decisions with AI-powered BSC analytics at your fingertips.',
+                },
+              ].map((step, index) => (
+                <div
+                  key={index}
+                  className="border-neon-green/30 border bg-black/30 p-6 text-center"
+                >
+                  <div className="text-neon-green mb-2 font-mono text-4xl">{step.step}</div>
+                  <h3 className="text-neon-green mb-2 font-mono text-xl">{step.title}</h3>
+                  <p className="font-mono text-sm text-gray-400">{step.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Coming Soon Message */}
