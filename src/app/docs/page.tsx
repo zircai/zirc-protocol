@@ -24,10 +24,10 @@ const DocsPage = () => {
       icon: Terminal,
       title: 'Terminal Commands',
       items: [
-        'Price Queries',
-        'Balance Checks',
-        'Transaction Lookup',
-        'Holder Analysis',
+        '30+ Commands Available',
+        'Portfolio & Wallet',
+        'Market Data & Gas',
+        'DeFi & Analytics',
       ],
     },
     {
@@ -157,16 +157,55 @@ const DocsPage = () => {
             </div>
           </div>
 
-          {/* Coming Soon Message */}
+          {/* Command Reference Links */}
+          <div className="border-neon-green/40 mb-12 grid gap-6 md:grid-cols-2">
+            <div className="border border-neon-green/30 bg-black/30 p-6">
+              <Terminal className="text-neon-green mb-4 h-10 w-10" />
+              <h3 className="text-neon-green mb-3 font-mono text-2xl">
+                Complete Command Reference
+              </h3>
+              <p className="mb-4 font-mono text-sm text-gray-300">
+                Browse all 30+ commands with examples, usage patterns, and natural language alternatives.
+              </p>
+              <Link
+                href="https://github.com/zircai/zirc-protocol/blob/main/TERMINAL-COMMANDS.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-neon-green hover:bg-neon-cyan inline-block px-6 py-3 font-mono text-black transition-colors"
+              >
+                View Command Reference
+              </Link>
+            </div>
+            
+            <div className="border border-neon-green/30 bg-black/30 p-6">
+              <Code className="text-neon-cyan mb-4 h-10 w-10" />
+              <h3 className="text-neon-green mb-3 font-mono text-2xl">
+                Implementation Guide
+              </h3>
+              <p className="mb-4 font-mono text-sm text-gray-300">
+                Technical documentation on terminal architecture, wallet integration, and API design.
+              </p>
+              <Link
+                href="https://github.com/zircai/zirc-protocol/blob/main/TERMINAL-IMPLEMENTATION.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-neon-cyan text-neon-cyan hover:bg-neon-cyan border px-6 py-3 font-mono transition-colors hover:text-black"
+              >
+                View Implementation
+              </Link>
+            </div>
+          </div>
+
+          {/* Additional Resources */}
           <div className="border-neon-cyan/50 border bg-black/50 p-8 text-center">
             <Book className="text-neon-cyan mx-auto mb-4 h-12 w-12" />
             <h2 className="text-neon-green mb-4 font-mono text-3xl">
-              Full Documentation Coming Soon
+              More Documentation Coming Soon
             </h2>
             <p className="mb-6 font-mono text-gray-300">
-              We're writing comprehensive docs covering every feature, command, and API endpoint.
+              We're continuously adding API endpoints, advanced guides, and video tutorials.
               <br />
-              Join our community for early access and updates.
+              Join our community for updates and early access.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Link

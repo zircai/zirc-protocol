@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Terminal, Coins, Network, Code, ArrowLeft } from 'lucide-react';
+import Head from 'next/head';
 
 const FeaturesPage = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
