@@ -1,21 +1,24 @@
-// Simple test script for BSCScan API
+// Simple test script for Etherscan V2 Multichain API (BSC)
 // Run with: node test-bsc-api.js
+// Reference: https://docs.etherscan.io/v2-migration
 
 const axios = require('axios');
 require('dotenv').config({ path: '.env.local' });
 
-const BSC_API_BASE = 'https://api.bscscan.com/api';
+const ETHERSCAN_V2_BASE = 'https://api.etherscan.io/v2/api';
+const BSC_CHAIN_ID = 56; // Binance Smart Chain
 const API_KEY = process.env.NEXT_PUBLIC_BSC_API_KEY;
 
-console.log('🔍 Testing BSCScan API Connection...\n');
+console.log('🔍 Testing Etherscan V2 Multichain API (BSC)...\n');
 console.log(`API Key: ${API_KEY ? API_KEY.slice(0, 10) + '...' : 'NOT FOUND'}\n`);
 
 async function testBSCScanAPI() {
   try {
     // Test 1: Get BNB Price
     console.log('📊 Test 1: Getting BNB Price...');
-    const priceResponse = await axios.get(BSC_API_BASE, {
+    const priceResponse = await axios.get(ETHERSCAN_V2_BASE, {
       params: {
+        chainid: BSC_CHAIN_ID,
         module: 'stats',
         action: 'bnbprice',
         apikey: API_KEY
@@ -32,8 +35,9 @@ async function testBSCScanAPI() {
 
     // Test 2: Get BNB Balance for Binance Hot Wallet
     console.log('💰 Test 2: Getting BNB Balance for Binance Hot Wallet...');
-    const balanceResponse = await axios.get(BSC_API_BASE, {
+    const balanceResponse = await axios.get(ETHERSCAN_V2_BASE, {
       params: {
+        chainid: BSC_CHAIN_ID,
         module: 'account',
         action: 'balance',
         address: '0x8894E0a0c962CB723c1976a4421c95949bE2D4E3',
@@ -53,8 +57,9 @@ async function testBSCScanAPI() {
     // Test 3: Get CAKE Token Info
     console.log('🥞 Test 3: Getting CAKE Token Info...');
     const cakeAddress = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
-    const tokenResponse = await axios.get(BSC_API_BASE, {
+    const tokenResponse = await axios.get(ETHERSCAN_V2_BASE, {
       params: {
+        chainid: BSC_CHAIN_ID,
         module: 'token',
         action: 'tokeninfo',
         contractaddress: cakeAddress,
@@ -72,7 +77,8 @@ async function testBSCScanAPI() {
     console.log('');
 
     console.log('🎉 All tests completed!');
-    console.log('\n✨ Your BSCScan API is working correctly!\n');
+    console.log('\n✨ Your Etherscan V2 Multichain API is working correctly!');
+    console.log('🌐 This API key works for 60+ chains including BSC, Ethereum, Arbitrum, Base, Polygon, and more!\n');
 
   } catch (error) {
     console.error('❌ ERROR:', error.message);

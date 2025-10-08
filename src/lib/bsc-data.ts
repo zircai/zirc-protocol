@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-// BSC Data API configuration
-const BSC_API_BASE = 'https://api.bscscan.com/api';
-const MORALIS_API_BASE = 'https://deep-index.moralis.io/api/v2.2';
+// Etherscan V2 Multichain API configuration
+// Using Etherscan V2 API which supports 60+ chains including BSC
+// Reference: https://docs.etherscan.io/v2-migration
+const ETHERSCAN_V2_BASE = 'https://api.etherscan.io/v2/api';
+const BSC_CHAIN_ID = 56; // Binance Smart Chain
+const ETH_CHAIN_ID = 1; // Ethereum Mainnet
 
 export interface BSCData {
   address: string;
@@ -25,17 +28,19 @@ export class BSCDataService {
     this.apiKey = apiKey;
   }
 
-  // Get BNB balance for an address
+  // Get BNB balance for an address using Etherscan V2 Multichain API
   async getBNBBalance(address: string): Promise<string> {
     try {
-      const response = await axios.get(BSC_API_BASE, {
+      const response = await axios.get(ETHERSCAN_V2_BASE, {
         params: {
+          chainid: BSC_CHAIN_ID,
           module: 'account',
           action: 'balance',
           address: address,
           tag: 'latest',
           apikey: this.apiKey
-        }
+        },
+        timeout: 5000
       });
       
       if (response.data.status === '1') {
@@ -125,9 +130,10 @@ export class BSCDataService {
         return mockHolders.slice(0, limit);
       }
 
-      // For BEP-20 tokens, use BSCScan API
-      const response = await axios.get(BSC_API_BASE, {
+      // For BEP-20 tokens, use Etherscan V2 Multichain API
+      const response = await axios.get(ETHERSCAN_V2_BASE, {
         params: {
+          chainid: BSC_CHAIN_ID,
           module: 'token',
           action: 'tokenholderlist',
           contractaddress: tokenAddress,
@@ -161,11 +167,12 @@ export class BSCDataService {
     }
   }
 
-  // Get transaction details
+  // Get transaction details using Etherscan V2 Multichain API
   async getTransaction(txHash: string): Promise<any> {
     try {
-      const response = await axios.get(BSC_API_BASE, {
+      const response = await axios.get(ETHERSCAN_V2_BASE, {
         params: {
+          chainid: BSC_CHAIN_ID,
           module: 'proxy',
           action: 'eth_getTransactionByHash',
           txhash: txHash,
@@ -181,11 +188,12 @@ export class BSCDataService {
     }
   }
 
-  // Get BEP-20 token balance for an address
+  // Get BEP-20 token balance for an address using Etherscan V2 Multichain API
   async getTokenBalance(address: string, contractAddress: string): Promise<string> {
     try {
-      const response = await axios.get(BSC_API_BASE, {
+      const response = await axios.get(ETHERSCAN_V2_BASE, {
         params: {
+          chainid: BSC_CHAIN_ID,
           module: 'account',
           action: 'tokenbalance',
           contractaddress: contractAddress,
@@ -208,11 +216,12 @@ export class BSCDataService {
     }
   }
 
-  // Get transaction list for an address
+  // Get transaction list for an address using Etherscan V2 Multichain API
   async getTransactionList(address: string, limit: number = 10): Promise<any[]> {
     try {
-      const response = await axios.get(BSC_API_BASE, {
+      const response = await axios.get(ETHERSCAN_V2_BASE, {
         params: {
+          chainid: BSC_CHAIN_ID,
           module: 'account',
           action: 'txlist',
           address: address,
@@ -236,11 +245,12 @@ export class BSCDataService {
     }
   }
 
-  // Get BNB price from BSCScan
+  // Get BNB price using Etherscan V2 Multichain API
   async getBNBPrice(): Promise<number> {
     try {
-      const response = await axios.get(BSC_API_BASE, {
+      const response = await axios.get(ETHERSCAN_V2_BASE, {
         params: {
+          chainid: BSC_CHAIN_ID,
           module: 'stats',
           action: 'bnbprice',
           apikey: this.apiKey
@@ -258,11 +268,12 @@ export class BSCDataService {
     }
   }
 
-  // Test API connection
+  // Test API connection using Etherscan V2 Multichain API
   async testConnection(): Promise<boolean> {
     try {
-      const response = await axios.get(BSC_API_BASE, {
+      const response = await axios.get(ETHERSCAN_V2_BASE, {
         params: {
+          chainid: BSC_CHAIN_ID,
           module: 'stats',
           action: 'bnbprice',
           apikey: this.apiKey
