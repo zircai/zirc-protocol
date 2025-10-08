@@ -1,7 +1,7 @@
 import { bscDataService, BSCData, TokenPrice } from './bsc-data';
 
 export interface AIResponse {
-  type: 'text' | 'data' | 'error';
+  type: 'text' | 'data' | 'error' | 'system';
   content: string;
   data?: any;
   timestamp: number;
