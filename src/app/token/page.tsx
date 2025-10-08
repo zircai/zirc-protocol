@@ -5,21 +5,25 @@ import { FloatingTokens } from '@/components/ui/floating-tokens';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '$ZIRC Token | zIRC',
-  description: 'The native token powering zIRC. Earn, tip, access premium features, and govern the protocol with $ZIRC.',
+  title: '$ZIRC Token | BSC AI Terminal',
+  description: 'The native token powering zIRC BSC AI Terminal. Access unlimited queries, premium BSC data, advanced analytics, and govern the protocol with $ZIRC.',
   keywords: [
-    'zIRC',
-    'Token',
-    'Cryptocurrency',
-    'DeFi',
-    'Decentralized',
-    'Blockchain',
-    'Token Utility',
-    'Tokenomics',
+    'ZIRC Token',
+    'BSC Token',
+    'BNB Chain Token',
+    'AI Terminal Token',
+    'BSC Analytics',
+    'Blockchain Data Token',
+    'DeFi Token',
+    'BEP-20',
+    'Binance Smart Chain',
+    'Crypto Analytics Token',
+    'BSC Intelligence',
+    'PancakeSwap Token',
   ],
   openGraph: {
-    title: '$ZIRC Token – Powering the Terminal',
-    description: 'The native token powering zIRC. Earn, tip, access premium features, and govern the protocol with $ZIRC.',
+    title: '$ZIRC Token – Powering BSC Intelligence',
+    description: 'Access unlimited BSC queries, premium data, advanced analytics, and protocol governance with $ZIRC token.',
     type: 'website',
   },
 };
@@ -43,7 +47,7 @@ const TokenPage = () => {
         <div className="mb-16 text-center">
           <h1 className="mb-4 text-4xl font-bold text-[#61D040] md:text-6xl">$ZIRC Token</h1>
           <p className="mx-auto mb-8 max-w-2xl text-xl text-zinc-400">
-            The fuel behind the terminal. Talk, earn, and govern with $ZIRC.
+            Powering BSC intelligence. Query, analyze, and govern with $ZIRC.
           </p>
           <div className="flex justify-center gap-4">
             <Link href="/holders" passHref legacyBehavior>
@@ -63,7 +67,7 @@ const TokenPage = () => {
         <div className="mb-16">
           <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">What is $ZIRC?</h2>
           <p className="text-lg text-zinc-400">
-            $ZIRC is the native token powering zIRC. It rewards real participation, unlocks new features, and gives you a voice in protocol governance. zIRC is more than a chat app—it's a decentralized social layer with built-in economic coordination.
+            $ZIRC is the native token powering the first AI terminal for Binance Smart Chain. It unlocks unlimited queries, premium BSC data access, advanced analytics, and gives you governance rights over protocol development. $ZIRC holders get priority access to whale tracking, custom alerts, API endpoints, and revenue sharing from Pro subscriptions.
           </p>
         </div>
 
@@ -73,17 +77,9 @@ const TokenPage = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card className="border-zinc-800 bg-black/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="mb-2 text-xl font-bold text-[#61D040]">Earn</h3>
+                <h3 className="mb-2 text-xl font-bold text-[#61D040]">Query</h3>
                 <p className="text-zinc-400">
-                  Earn $ZIRC by chatting, hosting rooms, contributing bots, or spreading alpha.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-zinc-800 bg-black/50 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <h3 className="mb-2 text-xl font-bold text-[#61D040]">Tip</h3>
-                <p className="text-zinc-400">
-                  Instantly tip contributors, mods, and devs from your wallet or in-chat.
+                  Free tier: 10 queries/day. Stake $ZIRC for unlimited AI-powered BSC queries.
                 </p>
               </CardContent>
             </Card>
@@ -91,7 +87,7 @@ const TokenPage = () => {
               <CardContent className="p-6">
                 <h3 className="mb-2 text-xl font-bold text-[#61D040]">Access</h3>
                 <p className="text-zinc-400">
-                  Stake $ZIRC to unlock encrypted rooms, premium nodes, or dev tools.
+                  Unlock premium BSC data: whale tracking, advanced analytics, real-time alerts.
                 </p>
               </CardContent>
             </Card>
@@ -99,7 +95,15 @@ const TokenPage = () => {
               <CardContent className="p-6">
                 <h3 className="mb-2 text-xl font-bold text-[#61D040]">Govern</h3>
                 <p className="text-zinc-400">
-                  Vote on protocol upgrades, community funding, and feature proposals.
+                  Vote on protocol upgrades, feature priorities, and treasury allocation.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-zinc-800 bg-black/50 backdrop-blur-sm">
+              <CardContent className="p-6">
+                <h3 className="mb-2 text-xl font-bold text-[#61D040]">Earn</h3>
+                <p className="text-zinc-400">
+                  Stake $ZIRC to earn protocol revenue share from Pro subscriptions.
                 </p>
               </CardContent>
             </Card>
@@ -107,7 +111,7 @@ const TokenPage = () => {
               <CardContent className="p-6">
                 <h3 className="mb-2 text-xl font-bold text-[#61D040]">Build</h3>
                 <p className="text-zinc-400">
-                  Use $ZIRC to launch bots, create plugins, or bridge chains.
+                  Use $ZIRC to access developer APIs and build BSC analytics tools.
                 </p>
               </CardContent>
             </Card>
@@ -155,9 +159,9 @@ const TokenPage = () => {
         <div className="text-center">
           <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">How to Get $ZIRC</h2>
           <div className="mb-8 space-y-2 text-zinc-400">
-            <p>• Claim via early access / chat usage</p>
-            <p>• Earn by participating</p>
-            <p>• Trade on supported DEXs (coming soon)</p>
+            <p>• Claim via early access / terminal usage rewards</p>
+            <p>• Earn by contributing BSC data and analytics</p>
+            <p>• Trade on PancakeSwap (coming soon)</p>
           </div>
           <div className="flex justify-center gap-4">
             <Button className="bg-[#61D040] text-black hover:bg-[#61D040]/90">

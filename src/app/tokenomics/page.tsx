@@ -2,8 +2,18 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'zIRC Tokenomics',
-  description: 'A deep dive into the economic design, mechanics, governance, and future of $ZIRC. For contributors, DAO voters, and degens who want to understand how zIRC works under the hood.',
+  title: '$ZIRC Tokenomics | BSC AI Terminal',
+  description: 'Deep dive into $ZIRC token economics: supply, utility, governance, and how it powers the first AI terminal for Binance Smart Chain. For investors, DAO voters, and BSC degens.',
+  keywords: [
+    'ZIRC Tokenomics',
+    'BSC Token Economics',
+    'AI Terminal Token',
+    'BNB Chain Tokenomics',
+    'Crypto Token Utility',
+    'BSC Governance',
+    'DeFi Tokenomics',
+    'BEP-20 Token',
+  ],
 };
 
 const Divider = ({ label }: { label: string }) => (
@@ -19,18 +29,18 @@ const TokenomicsPage = () => {
     <section className="min-h-screen bg-black py-12 text-white font-mono">
       <div className="container mx-auto max-w-3xl px-4">
         {/* 1. Intro Section */}
-        <h1 className="text-4xl md:text-5xl font-bold text-neon-green mb-2">zIRC Tokenomics</h1>
-        <h2 className="text-xl md:text-2xl text-neon-green mb-4">The economic design behind a decentralized, terminal-native protocol.</h2>
-        <p className="mb-8 text-gray-300">This page is for contributors, DAO voters, and degens who want to understand how $ZIRC works under the hood. Dive into the mechanics, governance, and future of the zIRC protocol.</p>
+        <h1 className="text-4xl md:text-5xl font-bold text-neon-green mb-2">$ZIRC Tokenomics</h1>
+        <h2 className="text-xl md:text-2xl text-neon-green mb-4">The economic design behind the first AI terminal for BSC.</h2>
+        <p className="mb-8 text-gray-300">This page is for investors, DAO voters, and BSC degens who want to understand how $ZIRC powers BSC intelligence. Dive into the token mechanics, governance, and future of the zIRC protocol.</p>
 
         <Divider label="Token Philosophy" />
         {/* 2. Token Philosophy */}
         <h3 className="text-2xl text-neon-green mb-2">Why $ZIRC?</h3>
-        <p className="mb-4 text-gray-300">zIRC needed its own token to align incentives across users, mods, devs, and protocols. $ZIRC is designed to empower the community, not extract value. Every mechanic—from staking to governance—prioritizes user sovereignty and anti-extractive economics. The goal: a protocol where value flows to those who build, moderate, and grow the network.</p>
+        <p className="mb-4 text-gray-300">zIRC needed its own token to align incentives across users, developers, and the BSC ecosystem. $ZIRC enables a sustainable model where users pay for premium queries, developers earn from API usage, and the community governs feature development. Every mechanic—from staking to governance—prioritizes user value and protocol sustainability. The goal: a protocol where value flows to those who query, analyze, and build on BSC data.</p>
         <ul className="mb-8 list-disc list-inside text-gray-400">
-          <li>Community-first: rewards real participation, not speculation</li>
-          <li>Anti-extractive: no hidden fees, no rent-seeking</li>
-          <li>Open innovation: devs and users can extend the protocol</li>
+          <li>Query-to-earn: Rewards active users and data contributors</li>
+          <li>Sustainable model: Revenue from Pro tier funds development</li>
+          <li>Open ecosystem: Developers can build on zIRC APIs</li>
         </ul>
 
         <Divider label="Supply & Emission" />
@@ -83,11 +93,12 @@ const TokenomicsPage = () => {
         {/* 4. Advanced Utility */}
         <h3 className="text-2xl text-neon-green mb-2">What can you do with $ZIRC?</h3>
         <ul className="mb-8 list-disc list-inside text-gray-400">
-          <li>Stake $ZIRC to create or unlock exclusive, gated chatrooms</li>
-          <li>Monetize plugins and bots—devs can charge $ZIRC for advanced features</li>
-          <li>Boost room rankings or highlight messages via micro-payments</li>
-          <li>Moderation and security incentive pools (earn $ZIRC for keeping the network healthy)</li>
-          <li>Future: pay-to-run features (bandwidth, CLI bots, premium integrations)</li>
+          <li>Stake $ZIRC to unlock unlimited BSC queries (no daily limits)</li>
+          <li>Access premium BSC data: whale tracking, advanced analytics, custom alerts</li>
+          <li>Use developer APIs to build BSC analytics tools and integrations</li>
+          <li>Vote on protocol upgrades, feature priorities, and treasury allocation</li>
+          <li>Earn protocol revenue share from Pro subscriptions (5-15% based on stake)</li>
+          <li>Future: Multi-chain expansion (Ethereum, Arbitrum, Base)</li>
         </ul>
 
         <Divider label="Governance" />
@@ -105,24 +116,24 @@ const TokenomicsPage = () => {
           <Link href="https://snapshot.org/#/zirc.eth" className="text-neon-green underline" target="_blank">Snapshot Voting</Link>
         </div>
 
-        <Divider label="Anti-Sybil Design" />
-        {/* 6. Anti-Sybil Design */}
-        <h3 className="text-2xl text-neon-green mb-2">Keeping it real</h3>
+        <Divider label="Fair Distribution" />
+        {/* 6. Fair Distribution */}
+        <h3 className="text-2xl text-neon-green mb-2">Keeping it fair</h3>
         <ul className="mb-8 list-disc list-inside text-gray-400">
-          <li>No grind-to-farm: Airdrops and rewards based on real behavior, not bots</li>
-          <li>Eligibility: Behavior- and rep-based, not just wallet activity</li>
-          <li>zk/POAP identity validation (planned)</li>
-          <li>Future: Soulbound/off-chain attestations for advanced features</li>
+          <li>No bot farming: Airdrops based on real terminal usage, not wallet activity</li>
+          <li>Query-to-earn: Rewards genuine users who contribute to data quality</li>
+          <li>Anti-spam: Rate limits prevent query abuse and bot manipulation</li>
+          <li>Future: Proof-of-query validation for advanced features</li>
         </ul>
 
         <Divider label="Roadmap" />
         {/* 7. Roadmap */}
         <div className="mb-8">
           <ul className="text-gray-300 text-sm space-y-2">
-            <li><span className="text-neon-green">Q3 2025:</span> DAO Launch</li>
-            <li><span className="text-neon-green">Q4 2025:</span> Plugin monetization + $ZIRC staking</li>
-            <li><span className="text-neon-green">Q1 2026:</span> zkChat experiment + L2 deployment</li>
-            <li><span className="text-neon-green">Q2 2026:</span> Community grants + protocol integrations</li>
+            <li><span className="text-neon-green">Q2 2025:</span> $ZIRC launch on BSC + Free tier</li>
+            <li><span className="text-neon-green">Q3 2025:</span> Pro tier + Staking rewards + DAO governance</li>
+            <li><span className="text-neon-green">Q4 2025:</span> Advanced analytics + Developer APIs + Revenue sharing</li>
+            <li><span className="text-neon-green">Q1 2026:</span> Multi-chain expansion (Ethereum, Arbitrum, Base)</li>
           </ul>
         </div>
 

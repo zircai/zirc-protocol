@@ -14,11 +14,11 @@ const tiers = [
     name: 'Starter',
     tokenAmount: '100 $ZIRC',
     features: [
-      'Access to basic chat rooms',
-      'Basic bot interactions',
+      '10 AI queries per day',
+      'Basic BSC price data',
       'Community voting rights',
-      'Basic tipping capabilities',
-      'View public channels',
+      'Wallet balance checks',
+      'View public analytics',
     ],
     cta: 'Stake Tokens',
   },
@@ -27,12 +27,12 @@ const tiers = [
     tokenAmount: '1,000 $ZIRC',
     features: [
       'All Starter features',
-      'Access to encrypted rooms',
-      'Premium bot access',
-      'Enhanced tipping limits',
+      '100 queries per day',
+      'Advanced token analytics',
+      'Portfolio tracking',
+      'Custom price alerts',
       'Priority support',
-      'Create custom rooms',
-      'Access to trading signals',
+      'Historical data access',
     ],
     cta: 'Stake Tokens',
   },
@@ -41,13 +41,13 @@ const tiers = [
     tokenAmount: '10,000 $ZIRC',
     features: [
       'All Active features',
-      'Access to alpha channels',
-      'Premium node access',
-      'Dev tools access',
+      'Unlimited AI queries',
+      'Whale wallet tracking',
+      'Advanced BSC analytics',
+      'Real-time alerts',
+      'API access (1,000 calls/day)',
       'Governance proposal rights',
-      'Revenue sharing',
-      'Custom bot creation',
-      'Early access to new features',
+      'Revenue sharing (5%)',
     ],
     cta: 'Stake Tokens',
     popular: true,
@@ -57,13 +57,13 @@ const tiers = [
     tokenAmount: '50,000 $ZIRC',
     features: [
       'All Elite features',
-      'Exclusive whale channels',
-      'Protocol revenue sharing',
+      'Unlimited API access',
+      'Custom data feeds',
       'Priority governance rights',
-      'Custom node deployment',
-      'API access with higher limits',
-      'Private bot marketplace',
-      'Protocol development influence',
+      'White-label options',
+      'Protocol revenue sharing (15%)',
+      'Direct dev support',
+      'Early feature access',
     ],
     cta: 'Stake Tokens',
   },
@@ -88,7 +88,7 @@ export default function Holders({
             </h2>
           )}
           <p className="text-muted-foreground text-lg text-balance">
-            Stake your $ZIRC tokens to unlock premium features, enhanced capabilities, and exclusive access to the zIRC ecosystem.
+            Stake your $ZIRC tokens to unlock unlimited BSC queries, premium data access, advanced analytics, and exclusive features.
           </p>
         </div>
 
