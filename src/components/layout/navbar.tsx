@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Github, Activity } from 'lucide-react';
+import { Menu, X, Github, Activity, Terminal } from 'lucide-react';
 import AudioPlayer from '../ui/audio-player';
+import { WalletConnectButton } from '../ui/wallet-connect-button';
 import { bscDataService } from '@/lib/bsc-data';
 
 const ASCII_BORDER = '═══════════════════════════════════════════════';
@@ -56,6 +57,37 @@ const Navbar = () => {
         'BONK': 'Bonk - Solana\'s dog coin, now bridged to BSC 🐕',
       };
 
+      // Temporarily use mock data to prevent network errors
+      const mockTokens: TokenData[] = tokens.map(token => {
+        const mockData = {
+          'BNB': { price: '$320.45', change: '+2.34%', mcap: '$48.0B' },
+          'CAKE': { price: '$1.89', change: '-1.23%', mcap: '$450M' },
+          'FLOKI': { price: '$0.000012', change: '+5.67%', mcap: '$1.2B' },
+          'BABYDOGE': { price: '$0.0000000012', change: '+8.90%', mcap: '$890M' },
+          'SAFEMOON': { price: '$0.00000034', change: '-2.45%', mcap: '$210M' },
+          'SHIB': { price: '$0.000024', change: '+3.21%', mcap: '$14.2B' },
+          'BTCB': { price: '$43,250', change: '+1.89%', mcap: '$850M' },
+          'ETH': { price: '$2,650', change: '+2.15%', mcap: '$320M' },
+          'PEPE': { price: '$0.0000018', change: '+12.34%', mcap: '$7.6B' },
+          'BONK': { price: '$0.000023', change: '+6.78%', mcap: '$1.5B' },
+        };
+        
+        const data = mockData[token as keyof typeof mockData] || { price: '$0.00', change: '+0.00%', mcap: '$---' };
+        
+        return {
+          coin: token,
+          price: data.price,
+          change: data.change,
+          volume: '---',
+          mcap: data.mcap,
+          details: tokenDescriptions[token] || `${token} token on Binance Smart Chain`,
+        };
+      });
+
+      setBscTokens(mockTokens);
+
+      // TODO: Re-enable real API calls once network issues are resolved
+      /*
       const updatedTokens: TokenData[] = [];
 
       for (const token of tokens) {
@@ -80,6 +112,7 @@ const Navbar = () => {
       if (updatedTokens.length > 0) {
         setBscTokens(updatedTokens);
       }
+      */
     };
 
     // Fetch immediately on mount
@@ -234,15 +267,15 @@ const Navbar = () => {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </Link>
-              <Link href="https://app.zirc.ai/">
-                <button 
-                  className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors"
-                  title="Launch BSC AI Terminal"
-                >
-                  Launch Terminal
-                  <span>→</span>
-                </button>
+              <Link 
+                href="/terminal"
+                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex items-center gap-2 border px-4 py-2 transition-all duration-300"
+                title="Open AI Terminal"
+              >
+                <Terminal className="h-4 w-4" />
+                Terminal
               </Link>
+              <WalletConnectButton />
               <div title="Audio Player">
                 <AudioPlayer />
               </div>
@@ -354,6 +387,16 @@ const Navbar = () => {
                 >
                   Docs
                 </Link>
+                <Link 
+                  href="/terminal" 
+                  className="text-neon-cyan hover:text-white transition-colors text-center py-2 col-span-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <Terminal className="h-4 w-4" />
+                    AI Terminal
+                  </div>
+                </Link>
               </div>
               <div className="flex items-center justify-center gap-3">
                 <Link 
@@ -392,19 +435,12 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Launch zIRC Button with Green Lines */}
+            {/* Wallet Connection & Launch */}
             <div className="my-8">
               <div className="border-t border-neon-green mb-4"></div>
-              <a
-                href="https://app.zirc.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors"
-                title="Launch zIRC App"
-              >
-                Launch zIRC
-                <span>→</span>
-              </a>
+              <div className="flex justify-center mb-4">
+                <WalletConnectButton />
+              </div>
               <div className="border-t border-neon-green mt-4"></div>
             </div>
 

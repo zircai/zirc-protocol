@@ -48,13 +48,14 @@ const Hero = () => {
         <p className="text-neon-cyan animate-fade-in-slow mb-10 max-w-2xl font-mono text-xl md:text-2xl">
           {SUBHEADLINE}
         </p>
-        <button 
-          className="bg-neon-green px-8 py-4 font-mono text-lg text-black shadow-lg transition hover:bg-white"
-          role="button"
-          onClick={() => alert('Wallet connection coming soon!')}
-        >
-          {isConnected ? 'Terminal Ready' : CTA}
-        </button>
+        <a href="/terminal">
+          <button 
+            className="bg-neon-green px-8 py-4 font-mono text-lg text-black shadow-lg transition hover:bg-white"
+            role="button"
+          >
+            {isConnected ? 'Open Terminal' : CTA}
+          </button>
+        </a>
         {/* Simulated terminal window (animated) */}
         <div 
           className="border-neon-green/40 text-neon-green animate-fade-in-slow mx-auto mt-16 w-full max-w-2xl overflow-hidden rounded-lg border bg-black/80 text-left font-mono text-sm shadow-lg"

@@ -5,9 +5,7 @@ import type { Metadata } from 'next';
 import { Footer } from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
-// import { WagmiProvider } from 'wagmi';
-// import { QueryClientProvider } from '@tanstack/react-query';
-// import { config, queryClient } from '@/lib/wagmi';
+import { WagmiProviderWrapper } from '@/components/providers/wagmi-provider';
 import './globals.css';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -130,16 +128,18 @@ export default function RootLayout({
       <body
         className={`min-h-screen ${jetbrainsMono.variable} ${sourceCodePro.variable} bg-black text-white antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main className="">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <WagmiProviderWrapper>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <main className="">{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </WagmiProviderWrapper>
       </body>
     </html>
   );
