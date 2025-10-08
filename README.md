@@ -7,15 +7,15 @@ AI-powered terminal for Binance Smart Chain. Ask natural questions about BSC dat
 ## Features
 
 - 🤖 **AI-Powered Queries** - Natural language BSC data analysis
-- 🔗 **Wallet Integration** - MetaMask, Trust Wallet, WalletConnect, Coinbase
-- 💰 **Real-time Prices** - Live BSC token prices and market data
+- 🔗 **Wallet Integration** - MetaMask, Trust Wallet, WalletConnect, Coinbase (all working!)
+- 💰 **Real-time Prices** - Live BSC token prices from CoinGecko API
+- ⛽ **Live Gas Prices** - Real-time BSC gas prices from BSCScan
+- 🏊 **DeFi Data** - Real pool APYs from DeFi Llama (PancakeSwap)
 - 🎯 **Terminal Interface** - Retro CLI aesthetic for crypto natives
 - 📱 **Mobile Support** - Responsive design with mobile wallet connections
-- 🔄 **DeFi Integration** - Pools, farms, staking, and swap data
 - 🐋 **Whale Tracking** - Monitor large transactions and movements
-- ⛽ **Gas Optimization** - Real-time gas prices for BSC
 - 🔒 **Security Tools** - Token approval monitoring
-- 📊 **30+ Commands** - Comprehensive command system
+- 📊 **30+ Commands** - Comprehensive command system with real data
 
 ## Quick Start
 
@@ -31,11 +31,16 @@ Open [http://localhost:3000](http://localhost:3000) to see the homepage, or [htt
 Create `.env.local`:
 
 ```bash
-# Required for WalletConnect (mobile wallets)
+# BSCScan API Key (for real blockchain data)
+NEXT_PUBLIC_BSC_API_KEY=your_bscscan_api_key_here
+
+# WalletConnect Project ID (for mobile wallets)
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
 ```
 
-Get your WalletConnect Project ID from [cloud.walletconnect.com](https://cloud.walletconnect.com)
+**Get API Keys:**
+- **BSCScan API Key**: Sign up at [bscscan.com](https://bscscan.com/) (free, 5 calls/sec)
+- **WalletConnect Project ID**: Get from [cloud.walletconnect.com](https://cloud.walletconnect.com) (free)
 
 ## Available Commands
 
@@ -104,12 +109,19 @@ You can also use natural language instead of commands:
 - WalletConnect v2 (mobile wallets)
 - shadcn/ui components
 
+## Data Sources
+
+- **BSCScan/Etherscan V2 API** - Blockchain data (balances, transactions, gas prices)
+- **CoinGecko API** - Token prices and market data (no key required)
+- **DeFi Llama API** - DeFi protocol data (pools, farms, APYs)
+
 ## Documentation
 
-- [Terminal Commands Guide](./TERMINAL-COMMANDS.md) - Complete command reference
-- [Wallet Setup Guide](./WALLET-SETUP.md) - Wallet integration setup
+- [Terminal Commands Guide](./TERMINAL-COMMANDS.md) - Complete command reference (30+ commands)
+- [API Integration Status](./API-INTEGRATION-STATUS.md) - Real data sources and API setup
+- [Wallet Integration](./WALLET-INTEGRATION-COMPLETE.md) - Wallet setup and testing
+- [SEO Improvements](./SEO-IMPROVEMENTS-SUMMARY.md) - SEO optimization summary
 - [Implementation Details](./IMPLEMENTATION-COMPLETE.md) - Technical implementation
-- [API Setup Guide](./API-SETUP-GUIDE.md) - API configuration
 
 ## Contributors
 
