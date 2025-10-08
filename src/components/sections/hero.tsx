@@ -1,19 +1,24 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useAccount, useConnect } from 'wagmi';
+import AITerminal from '@/components/ui/ai-terminal';
 
-const HEADLINE_TOP = 'Chat Meets PumpFun.';
+const HEADLINE_TOP = 'AI Terminal for BSC.';
 const HEADLINE_BOTTOM = (
   <>
-    {'Plus the Alpha.'}
+    {'Real-time Alpha.'}
     <span className="animate-blink ml-1 text-xl">█</span>
   </>
 );
 const SUBHEADLINE =
-  'Experience secure, serverless communication with a nostalgic touch. zIRC brings back the essence of IRC with modern privacy.';
-const CTA = 'Launch zIRC';
+  'Ask natural questions about BSC data and get instant AI-powered insights. No dashboards, just terminal-style answers for degens.';
+const CTA = 'Connect Wallet';
 
 const Hero = () => {
+  const { connect, connectors } = useConnect();
+  const { isConnected } = useAccount();
+
   useEffect(() => {
     // Placeholder for any future effects
   }, []);
@@ -42,36 +47,16 @@ const Hero = () => {
         <p className="text-neon-cyan animate-fade-in-slow mb-10 max-w-2xl font-mono text-xl md:text-2xl">
           {SUBHEADLINE}
         </p>
-        <a 
-          href="https://app.zirc.ai/" 
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
           className="bg-neon-green px-8 py-4 font-mono text-lg text-black shadow-lg transition hover:bg-white"
           role="button"
+          onClick={() => !isConnected && connect({ connector: connectors[0] })}
         >
-          {CTA}
-        </a>
-        {/* Simulated terminal window (animated) */}
-        <div 
-          className="border-neon-green/40 text-neon-green animate-fade-in-slow mx-auto mt-16 w-full max-w-2xl overflow-hidden rounded-lg border bg-black/80 text-left font-mono text-sm shadow-lg"
-          role="complementary"
-          aria-label="Terminal preview"
-        >
-          <div className="border-neon-green/20 border-b bg-black/60 px-6 py-4">
-            <span className="text-neon-cyan">user@matrix</span>:
-            <span className="text-neon-green">~</span>${' '}
-            <span className="text-white">connecting...</span>
-          </div>
-          <div className="h-32 overflow-y-auto bg-black/70 px-6 py-4">
-            <div className="animate-blink">
-              [12:00] &lt;anon42&gt; joined #cyberpunk
-            </div>
-            <div>[12:00] &lt;anon42&gt; hello world</div>
-            <div>[12:01] &lt;cybercat&gt; welcome to the future</div>
-            <div>[12:01] &lt;anon42&gt; is this really p2p?</div>
-            <div>[12:01] &lt;cybercat&gt; no servers, no ads, just chat</div>
-            <div>[12:02] &lt;anon42&gt; love it</div>
-          </div>
+          {isConnected ? 'Terminal Ready' : CTA}
+        </button>
+        {/* AI Terminal */}
+        <div className="mt-16 w-full">
+          <AITerminal />
         </div>
       </div>
     </section>

@@ -3,32 +3,32 @@ import { useState } from 'react';
 
 const FAQS = [
   {
-    q: 'What is ZIRC Terminal?',
-    a: 'ZIRC Terminal is a decentralized AI platform that provides access to distributed GPU infrastructure for AI training and inference at scale. It combines quantum processing capabilities with cyberpunk aesthetics for a unique user experience.',
+    q: 'What is zIRC.ai BSC Terminal?',
+    a: 'zIRC.ai is an AI-powered terminal for Binance Smart Chain that lets you ask natural questions about BSC data and get instant, terminal-style answers. No dashboards, just direct AI responses for degens.',
   },
   {
-    q: 'What is $ZIRC token?',
-    a: '$ZIRC is the native token powering the zIRC ecosystem. It enables decentralized governance, rewards participation, and unlocks premium features. Users can earn $ZIRC through active participation, staking, and community contributions.',
+    q: 'How do I use the AI Terminal?',
+    a: 'Connect your wallet and start asking questions! Try commands like:\n• "show CAKE price"\n• "top BNB holders"\n• "my BNB balance"\n• "BNB volume today"\n• "/help" for all commands',
   },
   {
-    q: 'How can I earn $ZIRC?',
-    a: 'You can earn $ZIRC through various activities:\n• Active chat participation\n• Hosting popular rooms\n• Contributing to the ecosystem\n• Staking tokens\n• Early access rewards\n• Community contributions',
+    q: 'What BSC data can I query?',
+    a: 'You can ask about:\n• Token prices (BNB, CAKE, BUSD, etc.)\n• Wallet balances and top holders\n• Trading volume and market data\n• Transaction details\n• General BSC network info',
   },
   {
-    q: 'How does the decentralized compute work?',
-    a: 'Our platform connects you to a global network of GPU clusters, including H100, A100, and RTX 4090 nodes. All compute resources are distributed across multiple data centers, ensuring high availability and redundancy.',
+    q: 'Do I need to pay to use it?',
+    a: 'Free tier includes 10 queries per day. Pro users get unlimited queries, premium data feeds, and advanced features. Connect your wallet to start with the free tier.',
   },
   {
-    q: 'What security measures are in place?',
-    a: 'We implement military-grade encryption and a comprehensive cyber protocol (v3.0). All communications are end-to-end encrypted, and we offer features like pseudonym rotation and hidden wallet mode for enhanced privacy.',
+    q: 'Is my wallet data secure?',
+    a: 'Yes! We only read your wallet address for balance queries. We never store private keys or sensitive data. All queries are processed securely and your wallet remains in your control.',
   },
   {
-    q: 'How do I get started?',
-    a: 'Simply open the terminal or web dApp, connect your wallet or generate an anonymous key, and you\'re ready to start. You can join public rooms, create private chats, or begin training your AI models immediately.',
+    q: 'What makes zIRC.ai different?',
+    a: 'Unlike traditional DeFi dashboards, zIRC.ai uses a terminal interface with AI to give you direct answers. It\'s designed for degens who want fast, no-nonsense BSC data without complex UIs.',
   },
   {
-    q: 'What makes ZIRC unique?',
-    a: 'ZIRC combines retro aesthetics with cutting-edge technology. We offer meme market feeds, shitcoin scanners, degen watchlists, and fully decentralized alpha terminals. Our platform is built for both serious AI development and community engagement.',
+    q: 'Can I use it without connecting a wallet?',
+    a: 'Yes! You can ask general BSC questions without connecting a wallet. However, connecting your wallet unlocks personal features like balance queries and personalized insights.',
   },
   {
     q: 'What are the tokenomics of $ZIRC?',
