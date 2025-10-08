@@ -1,9 +1,6 @@
-# Streamline NextJS Template
+# Zirc Protocol
 
-Streamline NextJS Template is a premium template built by https://www.shadcnblocks.com
-
-- [Demo](https://streamline-nextjs-template.vercel.app/)
-- [Documentation](https://docs.shadcnblocks.com/templates/getting-started)
+A Next.js application for the Zirc Protocol project.
 
 ## Screenshot
 
@@ -33,8 +30,37 @@ This project is maintained by the current development team.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com)
+### First Time Setup
 
+1. Install Vercel CLI globally (if not already installed):
 ```bash
-npx vercel --prod
+npm i -g vercel
 ```
+
+2. Link your project to Vercel:
+```bash
+vercel link
+```
+
+3. Deploy to production:
+```bash
+vercel --prod
+```
+
+### Subsequent Deployments
+
+After the initial setup, you can deploy by:
+
+1. **Automatic deployments**: Push to the `main` branch on GitHub
+   - Vercel will automatically build and deploy
+
+2. **Manual deployments**: Use the Vercel CLI
+```bash
+vercel --prod
+```
+
+### Environment Variables
+
+If you need environment variables, add them in:
+- Vercel Dashboard: Project Settings → Environment Variables
+- Or use: `vercel env add`
