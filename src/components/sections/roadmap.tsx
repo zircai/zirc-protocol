@@ -13,10 +13,10 @@ const Roadmap = () => {
             <h1 className="mb-4 font-mono text-4xl text-white md:text-6xl">
               Building the Future
               <br />
-              of Decentralized Chat
+              of BSC Intelligence
             </h1>
             <p className="font-mono text-xl leading-relaxed text-gray-300">
-              Our journey to revolutionize decentralized communication through zIRC
+              Our journey to revolutionize BSC data access through AI-powered terminal interface
             </p>
           </div>
 
@@ -28,14 +28,14 @@ const Roadmap = () => {
               <div className="relative">
                 <div className="border-neon-green/30 border bg-black/50 p-6 rounded-lg hover:border-neon-green transition-colors duration-300 h-full">
                   <div className="text-neon-green mb-2 font-mono text-sm">PHASE 1 - Q2 2025</div>
-                  <h3 className="mb-4 font-mono text-lg text-white">Foundation & Launch</h3>
+                  <h3 className="mb-4 font-mono text-lg text-white">Core BSC Data Integration</h3>
                   <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• $ZIRC launch on Solana</li>
-                    <li>• $ZIRC Utility 1.0</li>
-                    <li>• Messaging App Beta on ETH</li>
-                    <li>• Initial token distribution and airdrop</li>
-                    <li>• Core chat functionality implementation</li>
-                    <li>• Basic room creation and management</li>
+                    <li>• $ZIRC launch on BSC</li>
+                    <li>• Basic BSC data queries</li>
+                    <li>• AI Terminal MVP</li>
+                    <li>• Wallet connection (MetaMask, Coinbase)</li>
+                    <li>• Price tracking for BNB, CAKE</li>
+                    <li>• Balance queries</li>
                     <li>• Community building initiatives</li>
                   </ul>
                 </div>
@@ -45,13 +45,14 @@ const Roadmap = () => {
               <div className="relative">
                 <div className="border-neon-green/30 border bg-black/50 p-6 rounded-lg hover:border-neon-green transition-colors duration-300 h-full">
                   <div className="text-neon-green mb-2 font-mono text-sm">PHASE 2 - Q3 2025</div>
-                  <h3 className="mb-4 font-mono text-lg text-white">Ecosystem Growth</h3>
+                  <h3 className="mb-4 font-mono text-lg text-white">Advanced AI Analytics</h3>
                   <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• Degen features pack 1</li>
-                    <li>• EVM ready</li>
-                    <li>• Staking mechanism implementation</li>
-                    <li>• Enhanced room features and moderation tools</li>
-                    <li>• Integration with major wallets</li>
+                    <li>• Advanced BSC analytics</li>
+                    <li>• Multi-token support</li>
+                    <li>• Transaction analysis</li>
+                    <li>• Portfolio tracking</li>
+                    <li>• Custom alerts and notifications</li>
+                    <li>• Pro tier with unlimited queries</li>
                   </ul>
                 </div>
               </div>
@@ -60,12 +61,12 @@ const Roadmap = () => {
               <div className="relative">
                 <div className="border-neon-green/30 border bg-black/50 p-6 rounded-lg hover:border-neon-green transition-colors duration-300 h-full">
                   <div className="text-neon-green mb-2 font-mono text-sm">PHASE 3 - Q4 2025</div>
-                  <h3 className="mb-4 font-mono text-lg text-white">Advanced Features</h3>
+                  <h3 className="mb-4 font-mono text-lg text-white">Multi-Chain Expansion</h3>
                   <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• Messaging App on Solana</li>
-                    <li>• Degen features pack 2</li>
-                    <li>• Governance system launch</li>
-                    <li>• Premium features marketplace</li>
+                    <li>• Ethereum integration</li>
+                    <li>• Polygon support</li>
+                    <li>• Cross-chain analytics</li>
+                    <li>• Advanced trading signals</li>
                     <li>• Developer API and SDK</li>
                   </ul>
                 </div>
@@ -75,12 +76,12 @@ const Roadmap = () => {
               <div className="relative">
                 <div className="border-neon-green/30 border bg-black/50 p-6 rounded-lg hover:border-neon-green transition-colors duration-300 h-full">
                   <div className="text-neon-green mb-2 font-mono text-sm">PHASE 4 - 2026</div>
-                  <h3 className="mb-4 font-mono text-lg text-white">Expansion & Innovation</h3>
+                  <h3 className="mb-4 font-mono text-lg text-white">Institutional Features</h3>
                   <ul className="space-y-2 font-mono text-sm text-gray-300">
-                    <li>• DAO governance implementation</li>
-                    <li>• Advanced analytics and insights</li>
-                    <li>• Enterprise solutions</li>
-                    <li>• Global community expansion</li>
+                    <li>• Institutional dashboard</li>
+                    <li>• Advanced risk analytics</li>
+                    <li>• White-label solutions</li>
+                    <li>• Global BSC ecosystem integration</li>
                   </ul>
                 </div>
               </div>

@@ -21,10 +21,10 @@ const TokenPreview = () => {
               $ZIRC
             </div>
             <h2 className="mb-6 font-mono text-3xl text-white md:text-5xl">
-              Powering the Terminal
+              Powering BSC Intelligence
             </h2>
             <p className="mx-auto mb-8 max-w-2xl font-mono text-xl text-gray-300">
-              The native token enabling decentralized governance, rewards, and premium features.
+              $ZIRC enables premium BSC data queries, advanced analytics, and unlimited AI insights.
             </p>
           </div>
 

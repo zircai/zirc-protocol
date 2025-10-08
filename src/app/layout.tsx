@@ -5,9 +5,9 @@ import type { Metadata } from 'next';
 import { Footer } from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
-import { WagmiProvider } from 'wagmi';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { config, queryClient } from '@/lib/wagmi';
+// import { WagmiProvider } from 'wagmi';
+// import { QueryClientProvider } from '@tanstack/react-query';
+// import { config, queryClient } from '@/lib/wagmi';
 import './globals.css';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -24,22 +24,29 @@ const sourceCodePro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: {
-    default: 'zIRC.ai – BSC AI Terminal',
-    template: '%s | zIRC.ai',
+    default: 'zIRC.ai – BSC AI Terminal | Real-time Blockchain Data',
+    template: '%s | zIRC.ai BSC Terminal',
   },
   description:
-    'AI Terminal for Binance Smart Chain. Ask natural questions about BSC data and get instant AI-powered insights. No dashboards, just terminal-style answers for degens.',
+    'AI-powered terminal for Binance Smart Chain. Ask natural questions about BSC data, get instant insights. No dashboards, just terminal-style answers for degens. Query prices, holders, transactions.',
   keywords: [
-    'zIRC',
     'BSC AI Terminal',
-    'Binance Smart Chain',
-    'AI Blockchain',
-    'Crypto Terminal',
-    'BSC Data',
-    'DeFi AI',
-    'Terminal UI',
+    'Binance Smart Chain AI',
+    'BSC Data Query',
+    'BNB Price Terminal',
+    'CAKE Price AI',
+    'BSC Blockchain Data',
+    'DeFi Terminal',
+    'Crypto AI Assistant',
+    'BSC Analytics',
+    'Blockchain Terminal',
+    'Degen Tools',
+    'BSC Insights',
+    'Real-time BSC Data',
+    'BSC Price Tracker',
+    'BSC Wallet Analytics',
+    'zIRC',
     'Web3',
-    'Degen',
     'BNB',
     'CAKE',
   ],
@@ -71,29 +78,29 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: 'zIRC – Decentralized for Degens',
+    title: 'zIRC.ai – BSC AI Terminal | Real-time Blockchain Data',
     description:
-      'zIRC is a decentralized chat app with a retro terminal look. Built for degens, devs, and crypto culture. Anonymous. Encrypted. Fun.',
+      'AI-powered terminal for Binance Smart Chain. Ask natural questions about BSC data and get instant terminal-style answers. Built for degens.',
     url: 'https://zirc.ai',
-    siteName: 'zIRC',
+    siteName: 'zIRC.ai BSC Terminal',
     locale: 'en_US',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'zIRC – Decentralized for Degens',
+        alt: 'zIRC.ai BSC AI Terminal - Real-time Blockchain Data',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'zIRC – Decentralized for Degens',
+    title: 'zIRC.ai – BSC AI Terminal | Real-time Blockchain Data',
     description:
-      'zIRC is a decentralized chat app with a retro terminal look. Built for degens, devs, and crypto culture. Anonymous. Encrypted. Fun.',
+      'AI-powered terminal for Binance Smart Chain. Ask natural questions about BSC data and get instant terminal-style answers.',
     images: ['/og-image.png'],
-    creator: '@zirc',
-    site: '@zirc',
+    creator: '@zircai',
+    site: '@zircai',
   },
   other: {
     'msapplication-TileColor': '#000000',
@@ -123,20 +130,16 @@ export default function RootLayout({
       <body
         className={`min-h-screen ${jetbrainsMono.variable} ${sourceCodePro.variable} bg-black text-white antialiased`}
       >
-        <WagmiProvider config={config}>
-          <QueryClientProvider client={queryClient}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem={false}
-              disableTransitionOnChange
-            >
-              <Navbar />
-              <main className="">{children}</main>
-              <Footer />
-            </ThemeProvider>
-          </QueryClientProvider>
-        </WagmiProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <main className="">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,24 +2,24 @@ import { VenetianMask, Network, Terminal, Gamepad2, Coins, MessageSquare, Code }
 
 const FEATURES = [
   {
+    icon: Terminal,
+    title: 'AI-Powered Queries',
+    description: 'Ask natural questions: "show CAKE price", "top BNB holders", "my balance". Get instant terminal-style answers.',
+  },
+  {
     icon: Coins,
-    title: 'Built for Degens',
-    description: 'Meme Market Feeds, Shitcoin Scanner, and Degens-Only Watchlist.',
+    title: 'Real-time BSC Data',
+    description: 'Live prices, wallet balances, transaction details, and market insights from Binance Smart Chain.',
   },
   {
-    icon: MessageSquare,
-    title: 'Alpha Terminal',
-    description: 'Fully Decentralised, Anon Insider Rooms, /leak Command, Bridge Alerts.',
+    icon: Network,
+    title: 'Degen-Friendly Interface',
+    description: 'No complex dashboards. Just terminal commands and AI responses. Built for crypto natives.',
   },
   {
-    icon: VenetianMask,
-    title: 'Anonymity-First Tools',
-    description: 'Pseudonym Rotation, Hidden Wallet Mode, Chat as anon, and many more.',
-  },
-  {
-    icon: Gamepad2,
-    title: 'Retro Core, Future Proof',
-    description: 'It feels like 1999. It works like 2049.',
+    icon: Code,
+    title: 'Terminal Aesthetic',
+    description: 'Retro CLI vibes meet modern blockchain data. Fast, direct, and no-nonsense.',
   },
 ];
 
@@ -34,7 +34,7 @@ export default function KeyFeatures() {
           id="features-heading"
           className="mb-12 text-center font-mono text-3xl font-bold text-white md:text-5xl"
         >
-          Key Features
+          BSC AI Terminal Features
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((feature, i) => (

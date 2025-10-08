@@ -15,84 +15,84 @@ interface Feature {
 const WhyUs = () => {
   const features: Feature[] = [
     {
-      feature: 'Fully Decentralized',
-      zirc: { value: 'Yes (infra + tokens)', status: 'yes' },
-      status: { value: 'Yes', status: 'yes' },
-      farcaster: { value: 'Yes', status: 'yes' },
-      xmtp: { value: 'Yes', status: 'yes' },
-      irc: { value: 'Federated', status: 'partial' },
+      feature: 'AI-Powered Analysis',
+      zirc: { value: 'Natural language queries', status: 'yes' },
+      status: { value: 'Basic charts only', status: 'no' },
+      farcaster: { value: 'No data tools', status: 'no' },
+      xmtp: { value: 'No data tools', status: 'no' },
+      irc: { value: 'No data tools', status: 'no' },
     },
     {
-      feature: 'Onchain Token Utility',
-      zirc: { value: 'Earn, tip, stake', status: 'yes' },
-      status: { value: 'SNT (limited)', status: 'yes' },
-      farcaster: { value: 'No token yet', status: 'no' },
-      xmtp: { value: 'Infra only', status: 'no' },
-      irc: { value: 'None', status: 'no' },
+      feature: 'Real-time BSC Data',
+      zirc: { value: 'Live prices & balances', status: 'yes' },
+      status: { value: 'Limited data', status: 'partial' },
+      farcaster: { value: 'No blockchain data', status: 'no' },
+      xmtp: { value: 'No blockchain data', status: 'no' },
+      irc: { value: 'No blockchain data', status: 'no' },
     },
     {
-      feature: 'Degen Culture',
-      zirc: { value: 'Deeply integrated', status: 'yes' },
-      status: { value: 'None', status: 'no' },
-      farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'None', status: 'no' },
-      irc: { value: 'By accident', status: 'yes' },
+      feature: 'Terminal Interface',
+      zirc: { value: 'CLI-style responses', status: 'yes' },
+      status: { value: 'Web dashboards', status: 'no' },
+      farcaster: { value: 'Social feeds', status: 'no' },
+      xmtp: { value: 'Chat interface', status: 'no' },
+      irc: { value: 'Text-based', status: 'yes' },
     },
     {
-      feature: 'Terminal-Inspired UI',
-      zirc: { value: 'Retro CLI vibes', status: 'yes' },
-      status: { value: 'None', status: 'no' },
-      farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'None', status: 'no' },
-      irc: { value: 'Yes', status: 'yes' },
+      feature: 'Degen-Focused',
+      zirc: { value: 'Built for crypto natives', status: 'yes' },
+      status: { value: 'General purpose', status: 'no' },
+      farcaster: { value: 'Social platform', status: 'no' },
+      xmtp: { value: 'Communication', status: 'no' },
+      irc: { value: 'General chat', status: 'no' },
     },
     {
-      feature: 'Encrypted Rooms & Access',
-      zirc: { value: 'Token-gated + secure', status: 'yes' },
-      status: { value: 'Yes', status: 'yes' },
-      farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'Yes', status: 'yes' },
-      irc: { value: 'None', status: 'no' },
+      feature: 'BSC Integration',
+      zirc: { value: 'Native BSC support', status: 'yes' },
+      status: { value: 'Limited BSC', status: 'partial' },
+      farcaster: { value: 'No BSC support', status: 'no' },
+      xmtp: { value: 'No BSC support', status: 'no' },
+      irc: { value: 'No BSC support', status: 'no' },
     },
     {
-      feature: 'Modular Bot & Plugin Support',
-      zirc: { value: 'Dev monetization built-in', status: 'yes' },
-      status: { value: 'None', status: 'no' },
-      farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'Indirectly', status: 'yes' },
-      irc: { value: 'Manual only', status: 'yes' },
+      feature: 'Query Limits',
+      zirc: { value: '10 free, unlimited Pro', status: 'yes' },
+      status: { value: 'Unlimited', status: 'yes' },
+      farcaster: { value: 'No data queries', status: 'no' },
+      xmtp: { value: 'No data queries', status: 'no' },
+      irc: { value: 'No data queries', status: 'no' },
     },
     {
-      feature: 'Onchain Governance',
-      zirc: { value: 'DAO voting with $ZIRC', status: 'yes' },
-      status: { value: 'Yes', status: 'yes' },
-      farcaster: { value: 'Yes', status: 'yes' },
-      xmtp: { value: 'None', status: 'no' },
-      irc: { value: 'None', status: 'no' },
+      feature: 'Wallet Integration',
+      zirc: { value: 'MetaMask + Coinbase', status: 'yes' },
+      status: { value: 'Basic wallet', status: 'partial' },
+      farcaster: { value: 'No wallet needed', status: 'no' },
+      xmtp: { value: 'No wallet needed', status: 'no' },
+      irc: { value: 'No wallet needed', status: 'no' },
     },
     {
-      feature: 'Community Rewards',
-      zirc: { value: 'Chat-to-earn model', status: 'yes' },
-      status: { value: 'None', status: 'no' },
-      farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'None', status: 'no' },
-      irc: { value: 'None', status: 'no' },
+      feature: 'Data Accuracy',
+      zirc: { value: 'Real-time BSC data', status: 'yes' },
+      status: { value: 'Delayed data', status: 'partial' },
+      farcaster: { value: 'No blockchain data', status: 'no' },
+      xmtp: { value: 'No blockchain data', status: 'no' },
+      irc: { value: 'No blockchain data', status: 'no' },
     },
     {
-      feature: 'Real-time Chat Experience',
-      zirc: { value: 'Focused core', status: 'yes' },
-      status: { value: 'Yes', status: 'yes' },
-      farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'Yes', status: 'yes' },
-      irc: { value: 'Yes', status: 'yes' },
+      feature: 'User Experience',
+      zirc: { value: 'Terminal-focused', status: 'yes' },
+      status: { value: 'Dashboard-heavy', status: 'no' },
+      farcaster: { value: 'Social-focused', status: 'no' },
+      xmtp: { value: 'Chat-focused', status: 'no' },
+      irc: { value: 'Chat-focused', status: 'no' },
     },
     {
-      feature: 'Privacy by Design',
-      zirc: { value: 'No data collection', status: 'yes' },
-      status: { value: 'Yes', status: 'yes' },
-      farcaster: { value: 'None', status: 'no' },
-      xmtp: { value: 'Yes', status: 'yes' },
-      irc: { value: 'Yes', status: 'yes' },
+      feature: 'Privacy & Security',
+      zirc: { value: 'Wallet-only data access', status: 'yes' },
+      status: { value: 'Data collection', status: 'no' },
+      farcaster: { value: 'Public posts', status: 'no' },
+      xmtp: { value: 'Encrypted messages', status: 'yes' },
+      irc: { value: 'Public channels', status: 'no' },
     },
   ];
 
@@ -119,10 +119,10 @@ const WhyUs = () => {
             <h1 className="mb-4 font-mono text-4xl text-white md:text-6xl">
               The Future of
               <br />
-              Decentralized Chat
+              BSC Data Access
             </h1>
             <p className="font-mono text-xl leading-relaxed text-gray-300">
-            zIRC combines the best of IRC’s simplicity, Web3’s incentives, and crypto-native culture. While others focus on infra, feeds, or privacy alone, zIRC builds a living, earning, degen-native chat layer.
+            zIRC.ai combines AI-powered queries with real-time BSC data in a terminal interface. While others focus on complex dashboards or social feeds, zIRC builds a direct, degen-friendly BSC intelligence layer.
             </p>
           </div>
 
@@ -132,11 +132,11 @@ const WhyUs = () => {
               <thead>
                 <tr className="border-b border-neon-green/30">
                   <th className="p-4 text-left font-mono text-sm text-gray-400">Feature / Focus</th>
-                  <th className="p-4 text-left font-mono text-sm text-neon-green">zIRC 🟢</th>
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">Status.im</th>
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">Farcaster</th>
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">XMTP</th>
-                  <th className="p-4 text-left font-mono text-sm text-gray-400">IRC Clients</th>
+                  <th className="p-4 text-left font-mono text-sm text-neon-green">zIRC.ai 🟢</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">TradingView</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">DeFiPulse</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">Dune Analytics</th>
+                  <th className="p-4 text-left font-mono text-sm text-gray-400">BSCScan</th>
                 </tr>
               </thead>
               <tbody>

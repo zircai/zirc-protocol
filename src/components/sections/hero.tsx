@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useAccount, useConnect } from 'wagmi';
-import AITerminal from '@/components/ui/ai-terminal';
+// import { useAccount, useConnect } from 'wagmi';
+// import AITerminal from '@/components/ui/ai-terminal';
 
 const HEADLINE_TOP = 'AI Terminal for BSC.';
 const HEADLINE_BOTTOM = (
@@ -16,8 +16,9 @@ const SUBHEADLINE =
 const CTA = 'Connect Wallet';
 
 const Hero = () => {
-  const { connect, connectors } = useConnect();
-  const { isConnected } = useAccount();
+  // const { connect, connectors } = useConnect();
+  // const { isConnected } = useAccount();
+  const isConnected = false;
 
   useEffect(() => {
     // Placeholder for any future effects
@@ -50,13 +51,34 @@ const Hero = () => {
         <button 
           className="bg-neon-green px-8 py-4 font-mono text-lg text-black shadow-lg transition hover:bg-white"
           role="button"
-          onClick={() => !isConnected && connect({ connector: connectors[0] })}
+          onClick={() => alert('Wallet connection coming soon!')}
         >
           {isConnected ? 'Terminal Ready' : CTA}
         </button>
-        {/* AI Terminal */}
-        <div className="mt-16 w-full">
-          <AITerminal />
+        {/* Simulated terminal window (animated) */}
+        <div 
+          className="border-neon-green/40 text-neon-green animate-fade-in-slow mx-auto mt-16 w-full max-w-2xl overflow-hidden rounded-lg border bg-black/80 text-left font-mono text-sm shadow-lg"
+          role="complementary"
+          aria-label="Terminal preview"
+        >
+          <div className="border-neon-green/20 border-b bg-black/60 px-6 py-4">
+            <span className="text-neon-cyan">degen@bsc</span>:
+            <span className="text-neon-green">~</span>${' '}
+            <span className="text-white">zirc.ai terminal ready</span>
+          </div>
+          <div className="h-32 overflow-y-auto bg-black/70 px-6 py-4">
+            <div className="animate-blink">
+              &gt; show top BNB holders
+            </div>
+            <div className="text-neon-cyan">[AI] Top 5 BNB holders:</div>
+            <div className="text-gray-300">1. 0x8894...a1b2 - 1,234,567 BNB</div>
+            <div className="text-gray-300">2. 0x4567...c3d4 - 987,654 BNB</div>
+            <div className="text-gray-300">3. 0x7890...e5f6 - 654,321 BNB</div>
+            <div className="text-gray-400">...</div>
+            <div className="animate-blink">
+              &gt; what's CAKE price?
+            </div>
+          </div>
         </div>
       </div>
     </section>

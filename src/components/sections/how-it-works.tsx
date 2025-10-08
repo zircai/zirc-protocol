@@ -1,23 +1,23 @@
 const STEPS = [
   {
     step: '1',
-    title: 'Open the app',
-    description: 'Launch the terminal or web dApp.',
+    title: 'Connect Wallet',
+    description: 'Link your MetaMask or Coinbase wallet to access BSC data.',
   },
   {
     step: '2',
-    title: 'Connect wallet or generate anon key',
-    description: 'Choose privacy: connect your wallet or use a throwaway key.',
+    title: 'Ask Questions',
+    description: 'Type natural queries: "CAKE price", "top BNB holders", "BNB volume today".',
   },
   {
     step: '3',
-    title: 'Join rooms or start private chats',
-    description: 'Jump into public rooms or create encrypted private chats.',
+    title: 'Get AI Insights',
+    description: 'Receive instant, formatted responses with real-time BSC data.',
   },
   {
     step: '4',
-    title: 'Fork it, build on it, own your comms',
-    description: 'Hack, extend, or self-host. The protocol is yours.',
+    title: 'Trade Smarter',
+    description: 'Make informed decisions with AI-powered BSC analytics at your fingertips.',
   },
 ];
 
@@ -32,7 +32,7 @@ export default function HowItWorks() {
           id="how-it-works-heading"
           className="mb-12 text-center font-mono text-3xl font-bold text-white md:text-5xl"
         >
-          How It Works
+          How BSC AI Terminal Works
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step, i) => (
