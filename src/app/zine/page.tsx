@@ -3,70 +3,70 @@
 import { useEffect, useState } from 'react';
 
 const manifesto = {
-  title: "zIRC Manifesto",
-  content: `Encrypted hearts and neon dreams.
-Through the pixels we've always grown.
-This isn't a product. It's a pulse.
-zIRC is the song of the stream.`
+  title: "zIRC BSC Terminal Manifesto",
+  content: `Data flows and neon dreams.
+Through the blockchain we've always grown.
+This isn't a dashboard. It's intelligence.
+zIRC is the pulse of BSC.`
 };
 
 const cards = [
   {
     type: 'phrase',
-    content: 'No server, no leash',
+    content: 'No SQL, no dashboards',
     ascii: `
     ╔══════════════╗
-    ║  NO SERVER   ║
-    ║  NO LEASH    ║
+    ║   NO SQL     ║
+    ║ NO DASHBOARD ║
     ╚══════════════╝`
   },
   {
     type: 'phrase',
-    content: 'Echoes from the terminal',
+    content: 'Alpha from the terminal',
     ascii: `
     ╔════════════════╗
-    ║    ECHOES     ║
+    ║     ALPHA     ║
     ║    TERMINAL   ║
     ╚════════════════╝`
   },
   {
     type: 'phrase',
-    content: '/join the glitch',
+    content: 'Query BSC. Find alpha.',
     ascii: `
     ╔══════════════╗
-    ║  /JOIN THE   ║
-    ║    GLITCH    ║
+    ║  QUERY BSC   ║
+    ║  FIND ALPHA  ║
     ╚══════════════╝`
   },
   {
     type: 'meme',
-    title: 'decentralized drainer vs. zIRC degen',
-    content: 'Two paths diverged in a digital wood...',
+    title: 'SQL analyst vs. zIRC degen',
+    content: 'Two paths to BSC data. One requires a PhD...',
     ascii: `
     ╔══════════════╗
-    ║    DRAINER   ║
-    ║     VS      ║
-    ║    ZIRC     ║
+    ║     SQL      ║
+    ║     VS       ║
+    ║    ZIRC      ║
     ╚══════════════╝`
   },
   {
     type: 'poster',
-    title: 'The Protocol',
-    content: 'Coming soon...',
+    title: 'The Terminal',
+    content: 'First AI terminal for BSC',
     ascii: `
     ╔══════════════╗
-    ║   PROTOCOL   ║
-    ║    POSTER    ║
+    ║   TERMINAL   ║
+    ║     BSC      ║
     ╚══════════════╝`
   },
   {
     type: 'poster',
-    title: 'The Network',
-    content: 'Coming soon...',
+    title: 'The Intelligence',
+    content: 'AI-powered BSC queries',
     ascii: `
     ╔══════════════╗
-    ║   NETWORK    ║
-    ║    POSTER    ║
+    ║     AI       ║
+    ║   QUERIES    ║
     ╚══════════════╝`
   }
 ];

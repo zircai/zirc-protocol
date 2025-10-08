@@ -7,7 +7,7 @@ const entries = [
   {
     path: '/matrix',
     title: 'The Philosophy',
-    description: 'Decentralization isn\'t the future. It\'s the default.',
+    description: 'Data flows through terminals. BSC intelligence, unlocked.',
     status: 'discovered',
     icon: '🌐',
     glitchText: ['PHILOSOPHY', 'MATRIX', 'TRUTH']
@@ -15,7 +15,7 @@ const entries = [
   {
     path: '/root',
     title: 'Developer Logs',
-    description: 'Whisper channels go live. Only the ones who need to hear will hear.',
+    description: 'BSC data streams go live. Real-time alpha for those who query.',
     status: 'discovered',
     icon: '📝',
     glitchText: ['LOGS', 'ROOT', 'ACCESS']
@@ -23,18 +23,18 @@ const entries = [
   {
     path: '/zine',
     title: 'Visual Manifesto',
-    description: 'This isn\'t a product. It\'s a pulse.',
+    description: 'This isn\'t a dashboard. It\'s a terminal.',
     status: 'discovered',
     icon: '🎨',
     glitchText: ['VISUAL', 'PULSE', 'ART']
   },
   {
     path: '/whoami',
-    title: 'Identity Console',
-    description: 'Your words, your keys, your channel.',
+    title: 'Terminal Console',
+    description: 'Your queries, your data, your BSC intelligence.',
     status: 'discovered',
     icon: '💻',
-    glitchText: ['IDENTITY', 'CONSOLE', 'SELF']
+    glitchText: ['IDENTITY', 'CONSOLE', 'QUERY']
   }
 ];
 
@@ -46,7 +46,7 @@ export default function LorePage() {
 
   // Typing animation for the header
   useEffect(() => {
-    const text = 'Discover the hidden layers of the protocol';
+    const text = 'Discover the hidden layers of BSC intelligence';
     let currentIndex = 0;
 
     const typingInterval = setInterval(() => {

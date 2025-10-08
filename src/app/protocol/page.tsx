@@ -11,11 +11,11 @@ const ProtocolPage = () => {
               PROTOCOL
             </div>
             <h1 className="mb-6 font-mono text-4xl text-white md:text-6xl">
-              Decentralized Protocols
+              BSC AI Terminal Protocol
             </h1>
             <p className="font-mono text-xl leading-relaxed text-gray-300">
-              Built on decentralized infrastructure ensuring transparency,
-              security, and collective ownership.
+              Built on Binance Smart Chain with AI-powered natural language processing,
+              ensuring real-time data access and degen-friendly intelligence.
             </p>
           </div>
 
@@ -23,33 +23,33 @@ const ProtocolPage = () => {
           <div className="mb-16 space-y-8">
             <div className="border-neon-green/30 border bg-black/50 p-8">
               <h3 className="text-neon-green mb-4 font-mono text-xl">
-                Decentralized Compute Network
+                AI Query Engine
               </h3>
               <p className="mb-4 font-mono text-sm text-gray-300">
-                A peer-to-peer network of compute providers enabling trustless
-                resource sharing and distributed AI training.
+                Natural language processing that converts plain English questions
+                into BSC blockchain queries with instant AI-powered responses.
               </p>
               <div className="grid gap-4 font-mono text-xs md:grid-cols-3">
                 <div>
                   <div className="text-neon-cyan mb-1">
-                    • Trustless Execution
+                    • Natural Language
                   </div>
                   <div className="text-gray-400">
-                    Smart contracts ensure fair execution and payment
+                    Ask questions in plain English, no SQL needed
                   </div>
                 </div>
                 <div>
                   <div className="text-neon-cyan mb-1">
-                    • Resource Discovery
+                    • AI Processing
                   </div>
                   <div className="text-gray-400">
-                    Automated matching of compute requirements
+                    Intelligent query interpretation and response formatting
                   </div>
                 </div>
                 <div>
-                  <div className="text-neon-cyan mb-1">• Fault Tolerance</div>
+                  <div className="text-neon-cyan mb-1">• Instant Responses</div>
                   <div className="text-gray-400">
-                    Redundancy and automatic failover mechanisms
+                    Terminal-style answers in milliseconds
                   </div>
                 </div>
               </div>
@@ -57,29 +57,29 @@ const ProtocolPage = () => {
 
             <div className="border-neon-green/30 border bg-black/50 p-8">
               <h3 className="text-neon-green mb-4 font-mono text-xl">
-                Tokenized Model Ownership
+                BSC Data Integration
               </h3>
               <p className="mb-4 font-mono text-sm text-gray-300">
-                Revolutionary token-based system for collective ownership and
-                governance of AI models.
+                Direct integration with Binance Smart Chain via Etherscan V2 Multichain API
+                and CoinGecko for real-time prices and on-chain data.
               </p>
               <div className="grid gap-4 font-mono text-xs md:grid-cols-3">
                 <div>
-                  <div className="text-neon-cyan mb-1">• Ownership Tokens</div>
+                  <div className="text-neon-cyan mb-1">• Real-time Prices</div>
                   <div className="text-gray-400">
-                    Stake-based ownership of trained models
+                    Live token prices via CoinGecko API
                   </div>
                 </div>
                 <div>
-                  <div className="text-neon-cyan mb-1">• Revenue Sharing</div>
+                  <div className="text-neon-cyan mb-1">• On-chain Data</div>
                   <div className="text-gray-400">
-                    Automatic distribution of model earnings
+                    Balances, transactions via Etherscan V2
                   </div>
                 </div>
                 <div>
-                  <div className="text-neon-cyan mb-1">• Governance Rights</div>
+                  <div className="text-neon-cyan mb-1">• Multi-chain Ready</div>
                   <div className="text-gray-400">
-                    Democratic decision-making for model usage
+                    Supports 60+ chains with same API key
                   </div>
                 </div>
               </div>
@@ -87,31 +87,31 @@ const ProtocolPage = () => {
 
             <div className="border-neon-green/30 border bg-black/50 p-8">
               <h3 className="text-neon-green mb-4 font-mono text-xl">
-                Open Source Infrastructure
+                Open Source & Community Governed
               </h3>
               <p className="mb-4 font-mono text-sm text-gray-300">
-                Fully open source protocol ensuring transparency and
-                community-driven development.
+                Fully open source protocol with transparent development and
+                $ZIRC token holder governance over features and upgrades.
               </p>
               <div className="grid gap-4 font-mono text-xs md:grid-cols-3">
                 <div>
                   <div className="text-neon-cyan mb-1">• Open Protocol</div>
                   <div className="text-gray-400">
-                    All protocol code is publicly available
+                    All code publicly available on GitHub
                   </div>
                 </div>
                 <div>
                   <div className="text-neon-cyan mb-1">
-                    • Community Governed
+                    • DAO Governance
                   </div>
                   <div className="text-gray-400">
-                    Token holders vote on protocol upgrades
+                    $ZIRC holders vote on protocol upgrades
                   </div>
                 </div>
                 <div>
                   <div className="text-neon-cyan mb-1">• Permissionless</div>
                   <div className="text-gray-400">
-                    Anyone can join and contribute to the network
+                    Anyone can query, build, and contribute
                   </div>
                 </div>
               </div>
@@ -128,19 +128,19 @@ const ProtocolPage = () => {
                 <div className="flex items-center gap-3 font-mono text-sm">
                   <div className="bg-neon-green h-2 w-2"></div>
                   <span className="text-gray-300">
-                    Consensus Layer: Proof of Compute
+                    Blockchain: Binance Smart Chain (BSC)
                   </span>
                 </div>
                 <div className="flex items-center gap-3 font-mono text-sm">
                   <div className="bg-neon-green h-2 w-2"></div>
                   <span className="text-gray-300">
-                    Smart Contracts: Training & Payment
+                    Data APIs: Etherscan V2 + CoinGecko
                   </span>
                 </div>
                 <div className="flex items-center gap-3 font-mono text-sm">
                   <div className="bg-neon-green h-2 w-2"></div>
                   <span className="text-gray-300">
-                    Storage: IPFS Distributed Storage
+                    AI Engine: Natural Language Processing
                   </span>
                 </div>
               </div>
@@ -148,19 +148,19 @@ const ProtocolPage = () => {
                 <div className="flex items-center gap-3 font-mono text-sm">
                   <div className="bg-neon-cyan h-2 w-2"></div>
                   <span className="text-gray-300">
-                    Communication: Peer-to-Peer Network
+                    Interface: Terminal-style CLI
                   </span>
                 </div>
                 <div className="flex items-center gap-3 font-mono text-sm">
                   <div className="bg-neon-cyan h-2 w-2"></div>
                   <span className="text-gray-300">
-                    Security: Multi-Party Computation
+                    Wallet: MetaMask + Coinbase integration
                   </span>
                 </div>
                 <div className="flex items-center gap-3 font-mono text-sm">
                   <div className="bg-neon-cyan h-2 w-2"></div>
                   <span className="text-gray-300">
-                    Governance: DAO Framework
+                    Governance: $ZIRC DAO Framework
                   </span>
                 </div>
               </div>
@@ -170,11 +170,11 @@ const ProtocolPage = () => {
           {/* CTA Section */}
           <div className="text-center">
             <button className="hover:bg-neon-green mx-auto mb-8 flex items-center gap-2 bg-white px-8 py-4 font-mono text-lg text-black transition-all duration-300">
-              JOIN PROTOCOL
+              LAUNCH TERMINAL
               <span>→</span>
             </button>
             <p className="font-mono text-sm text-gray-400">
-              Become part of the decentralized AI revolution.
+              Start querying BSC data with AI-powered intelligence.
             </p>
           </div>
         </div>

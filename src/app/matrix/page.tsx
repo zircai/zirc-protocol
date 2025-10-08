@@ -5,12 +5,12 @@ import MatrixRain from './components/MatrixRain';
 import TypewriterText from './components/TypewriterText';
 
 const messages = [
-  "Decentralization isn't the future. It's the default.",
-  "The web forgot its roots. We didn't.",
-  "We're not building a chat app. We're rebuilding a protocol.",
-  "No servers. No gatekeepers. Just encrypted flow.",
-  "Your words, your keys, your channel.",
-  "This is zIRC. You're already inside."
+  "Data isn't locked in dashboards. It flows through terminals.",
+  "BSC forgot its degens. We didn't.",
+  "We're not building another explorer. We're building intelligence.",
+  "No SQL. No dashboards. Just AI-powered alpha.",
+  "Your queries, your data, your terminal.",
+  "This is zIRC. You're already querying."
 ];
 
 export default function MatrixPage() {

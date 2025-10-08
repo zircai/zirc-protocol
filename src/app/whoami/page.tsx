@@ -9,25 +9,28 @@ interface Command {
 }
 
 const commands = {
-  'whoami': 'anonymous.degen@zirc',
-  'zirc --version': 'v0.1.6-alpha-nightshift',
-  'sudo moon': 'Permission denied. You are not a whale.',
-  'ping mother': 'Request timed out.',
+  'whoami': 'degen@bsc-terminal',
+  'zirc --version': 'v0.1.6-alpha-bsc-terminal',
+  'sudo moon': 'Permission denied. Stake more $ZIRC to unlock whale features.',
+  'ping bsc': 'BSC network: 56ms latency. Status: OPERATIONAL',
   'help': [
-    'Try: whoami, tip, join, sudo su, connect, lore, clear',
-    'Available commands:',
-    '  whoami    - Check your identity',
-    '  tip       - Send $ZIRC tokens',
-    '  join      - Join a channel',
-    '  sudo su   - Elevate privileges',
-    '  connect   - Connect to network',
-    '  lore      - View zIRC lore',
-    '  clear     - Clear terminal',
-    '  help      - Show this help'
+    'Available BSC AI Terminal commands:',
+    '  whoami              - Check your identity',
+    '  show [token] price  - Get token price (e.g., show BNB price)',
+    '  my balance          - Check your BNB balance',
+    '  top [token] holders - View top holders',
+    '  tx [hash]           - Explain transaction',
+    '  volume [token]      - Get 24h trading volume',
+    '  lore                - View zIRC lore',
+    '  clear               - Clear terminal',
+    '  help                - Show this help'
   ],
-  'tip': 'Sent 6.9 $ZIRC to mod@alpha.channel ✔',
-  'connect irc.zirc.ai': '...connected. Room: /alpha-terminal',
-  'lore': '"They built servers. We built shadows."',
+  'show BNB price': '[AI] BNB Price: $1,319.78 (+2.34% 24h) | MCap: $48.2B',
+  'show CAKE price': '[AI] CAKE Price: $1.89 (-1.23% 24h) | MCap: $450M',
+  'my balance': 'Connect wallet to check your BSC balance',
+  'top BNB holders': '[AI] Top: Binance Hot Wallet (1.38M BNB), 0x28C6...1d60 (987K BNB)',
+  'volume BNB': '[AI] BNB 24h Volume: $2.1B (+15.2%)',
+  'lore': '"They built dashboards. We built terminals. BSC intelligence, unlocked."',
   'clear': ''
 };
 
@@ -89,8 +92,9 @@ export default function WhoamiPage() {
         >
           {/* Welcome Message */}
           <div className="mb-4">
-            <div className="text-[#00ff00]/60">Welcome to zIRC Terminal v0.1.6</div>
-            <div className="text-[#00ff00]/40">Type "help" for available commands</div>
+            <div className="text-[#00ff00]/60">Welcome to zIRC BSC AI Terminal v0.1.6</div>
+            <div className="text-[#00ff00]/40">Type "help" for available BSC query commands</div>
+            <div className="text-[#00ff00]/40">Try: show BNB price, my balance, top BNB holders</div>
           </div>
 
           {/* Command History */}

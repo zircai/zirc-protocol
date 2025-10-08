@@ -6,30 +6,30 @@ const logs = [
   {
     user: 'boot',
     command: 'DevLog 001',
-    content: 'Woke up thinking: what if chat wasn\'t about messages, but memory?'
+    content: 'Woke up thinking: what if BSC data wasn\'t trapped in dashboards, but flowing through terminals?'
   },
   {
     user: 'dev',
     command: 'Push v0.0.4',
-    content: 'Whisper channels go live. Only the ones who need to hear will hear.'
+    content: 'BSC data streams go live. Real-time alpha for those who query.'
   },
   {
     user: 'root',
     command: 'Patch Notes',
-    content: `– Implemented heartbeat pings
-– Added echo suppression
-– Removed unnecessary permissions (again)`
+    content: `– Integrated Etherscan V2 Multichain API
+– Added CoinGecko price feeds
+– Implemented natural language query parser`
   },
   {
     user: 'system',
     command: 'Thought Dump',
-    content: 'If Matrix had a /status page, it would look like us.'
+    content: 'If BSCScan had an AI assistant, it would look like us.'
   },
   {
     user: 'user',
     command: './dream',
     content: `I saw neon letters pulsing through the dark.
-They whispered: "ZIRC is awake."`
+They whispered: "Query BNB. Find alpha. ZIRC is live."`
   }
 ];
 
