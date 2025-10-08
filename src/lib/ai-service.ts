@@ -410,23 +410,86 @@ export class AIService {
   }
 
   private async handleGasQuery(): Promise<AIResponse> {
-    // Mock gas data
+    try {
+      // Try to get real gas price from BSC
+      const response = await fetch('https://api.bscscan.com/api?module=gastracker&action=gasoracle&apikey=' + (process.env.NEXT_PUBLIC_BSC_API_KEY || ''));
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data.status === '1' && data.result) {
+          const { SafeGasPrice, ProposeGasPrice, FastGasPrice } = data.result;
+          
+          // Calculate estimated fees (assuming 21000 gas for simple transfer)
+          const calculateFee = (gwei: string) => {
+            const fee = (parseFloat(gwei) * 21000) / 1e9 * 320; // Rough BNB price estimate
+            return `$${fee.toFixed(2)}`;
+          };
+
+          const gasData = {
+            slow: { gwei: SafeGasPrice, time: '~1 min', fee: calculateFee(SafeGasPrice) },
+            standard: { gwei: ProposeGasPrice, time: '~30 sec', fee: calculateFee(ProposeGasPrice) },
+            fast: { gwei: FastGasPrice, time: '~15 sec', fee: calculateFee(FastGasPrice) },
+          };
+
+          return {
+            type: 'data',
+            content: `⛽ Current Gas Prices (BSC) - LIVE\n\n🐌 Slow: ${gasData.slow.gwei} gwei (${gasData.slow.time}) - ${gasData.slow.fee}\n🚶 Standard: ${gasData.standard.gwei} gwei (${gasData.standard.time}) - ${gasData.standard.fee}\n🏃 Fast: ${gasData.fast.gwei} gwei (${gasData.fast.time}) - ${gasData.fast.fee}\n\n✅ Real-time data from BSCScan`,
+            data: gasData,
+            timestamp: Date.now()
+          };
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching real gas prices:', error);
+    }
+
+    // Fallback to reasonable estimates for BSC
     const gasData = {
-      slow: { gwei: 3, time: '~5 min', fee: '$0.12' },
-      standard: { gwei: 5, time: '~2 min', fee: '$0.20' },
-      fast: { gwei: 8, time: '~30 sec', fee: '$0.32' },
-      instant: { gwei: 12, time: '~10 sec', fee: '$0.48' }
+      slow: { gwei: '3', time: '~1 min', fee: '$0.02' },
+      standard: { gwei: '5', time: '~30 sec', fee: '$0.03' },
+      fast: { gwei: '7', time: '~15 sec', fee: '$0.04' },
     };
 
     return {
       type: 'data',
-      content: `⛽ Current Gas Prices (BSC)\n\n🐌 Slow: ${gasData.slow.gwei} gwei (${gasData.slow.time}) - ${gasData.slow.fee}\n🚶 Standard: ${gasData.standard.gwei} gwei (${gasData.standard.time}) - ${gasData.standard.fee}\n🏃 Fast: ${gasData.fast.gwei} gwei (${gasData.fast.time}) - ${gasData.fast.fee}\n🚀 Instant: ${gasData.instant.gwei} gwei (${gasData.instant.time}) - ${gasData.instant.fee}`,
+      content: `⛽ Current Gas Prices (BSC) - Estimated\n\n🐌 Slow: ${gasData.slow.gwei} gwei (${gasData.slow.time}) - ${gasData.slow.fee}\n🚶 Standard: ${gasData.standard.gwei} gwei (${gasData.standard.time}) - ${gasData.standard.fee}\n🏃 Fast: ${gasData.fast.gwei} gwei (${gasData.fast.time}) - ${gasData.fast.fee}\n\n⚠️ Using estimated values`,
       data: gasData,
       timestamp: Date.now()
     };
   }
 
   private async handleTopTokensQuery(): Promise<AIResponse> {
+    try {
+      // Try to get real data from CoinGecko
+      const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=price_change_percentage_24h_desc&per_page=5&page=1&sparkline=false&price_change_percentage=24h&category=binance-smart-chain');
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data && data.length > 0) {
+          const topTokens = data.slice(0, 5).map((coin: any) => ({
+            symbol: coin.symbol.toUpperCase(),
+            price: `$${coin.current_price.toFixed(coin.current_price < 0.01 ? 8 : 2)}`,
+            change: `${coin.price_change_percentage_24h >= 0 ? '+' : ''}${coin.price_change_percentage_24h.toFixed(2)}%`,
+            volume: `$${(coin.total_volume / 1000000).toFixed(1)}M`
+          }));
+
+          const formattedTokens = topTokens.map((token: any, index: number) => 
+            `${index + 1}. ${token.symbol}: ${token.price} ${token.change} (Vol: ${token.volume})`
+          ).join('\n');
+
+          return {
+            type: 'data',
+            content: `📈 Top Performing Tokens (24h) - LIVE\n\n${formattedTokens}\n\n✅ Real-time data from CoinGecko`,
+            data: topTokens,
+            timestamp: Date.now()
+          };
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching top tokens:', error);
+    }
+
+    // Fallback to mock data
     const topTokens = [
       { symbol: 'PEPE', price: '$0.0000018', change: '+12.34%', volume: '$45.2M' },
       { symbol: 'BONK', price: '$0.000023', change: '+8.76%', volume: '$23.1M' },
@@ -441,7 +504,7 @@ export class AIService {
 
     return {
       type: 'data',
-      content: `📈 Top Performing Tokens (24h)\n\n${formattedTokens}`,
+      content: `📈 Top Performing Tokens (24h) - Estimated\n\n${formattedTokens}\n\n⚠️ Using estimated values`,
       data: topTokens,
       timestamp: Date.now()
     };
@@ -468,6 +531,46 @@ export class AIService {
   }
 
   private async handlePoolsQuery(): Promise<AIResponse> {
+    try {
+      // Try to get real data from DeFi Llama (PancakeSwap)
+      const response = await fetch('https://yields.llama.fi/pools');
+      
+      if (response.ok) {
+        const data = await response.json();
+        // Filter for PancakeSwap V2/V3 on BSC
+        const pancakeswapPools = data.data
+          .filter((pool: any) => 
+            pool.project === 'pancakeswap-amm' && 
+            pool.chain === 'Binance' &&
+            pool.tvlUsd > 100000 // Only pools with >$100k TVL
+          )
+          .sort((a: any, b: any) => b.apy - a.apy)
+          .slice(0, 4)
+          .map((pool: any) => ({
+            pair: pool.symbol,
+            apy: `${pool.apy.toFixed(1)}%`,
+            tvl: `$${(pool.tvlUsd / 1000000).toFixed(1)}M`,
+            fee: '0.25%'
+          }));
+
+        if (pancakeswapPools.length > 0) {
+          const formattedPools = pancakeswapPools.map((pool: any, index: number) => 
+            `${index + 1}. ${pool.pair}: ${pool.apy} APY (TVL: ${pool.tvl})`
+          ).join('\n');
+
+          return {
+            type: 'data',
+            content: `🏊 Top Liquidity Pools - LIVE\n\n${formattedPools}\n\n✅ Real-time data from DeFi Llama (PancakeSwap)`,
+            data: pancakeswapPools,
+            timestamp: Date.now()
+          };
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching pool data:', error);
+    }
+
+    // Fallback to mock data
     const pools = [
       { pair: 'BNB/CAKE', apy: '45.2%', tvl: '$12.5M', fee: '0.25%' },
       { pair: 'BNB/BUSD', apy: '23.8%', tvl: '$8.7M', fee: '0.25%' },
@@ -481,7 +584,7 @@ export class AIService {
 
     return {
       type: 'data',
-      content: `🏊 Top Liquidity Pools\n\n${formattedPools}`,
+      content: `🏊 Top Liquidity Pools - Estimated\n\n${formattedPools}\n\n⚠️ Using estimated values`,
       data: pools,
       timestamp: Date.now()
     };

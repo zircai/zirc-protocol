@@ -58,7 +58,7 @@ export const Footer = () => {
               {'>'} BSC_DATA_ACCESS_MODE: STANDBY
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <a href="https://app.zirc.ai/" target="_blank" rel="noopener noreferrer">
+              <a href="https://zirc.ai/terminal" target="_blank" rel="noopener noreferrer">
                 <button className="retro-button h-14 min-w-[240px] px-8 text-lg">
                   LAUNCH_TERMINAL
                 </button>
