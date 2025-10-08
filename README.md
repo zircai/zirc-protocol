@@ -11,6 +11,11 @@ AI-powered terminal for Binance Smart Chain. Ask natural questions about BSC dat
 - 💰 **Real-time Prices** - Live BSC token prices and market data
 - 🎯 **Terminal Interface** - Retro CLI aesthetic for crypto natives
 - 📱 **Mobile Support** - Responsive design with mobile wallet connections
+- 🔄 **DeFi Integration** - Pools, farms, staking, and swap data
+- 🐋 **Whale Tracking** - Monitor large transactions and movements
+- ⛽ **Gas Optimization** - Real-time gas prices for BSC
+- 🔒 **Security Tools** - Token approval monitoring
+- 📊 **30+ Commands** - Comprehensive command system
 
 ## Quick Start
 
@@ -32,15 +37,63 @@ NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
 
 Get your WalletConnect Project ID from [cloud.walletconnect.com](https://cloud.walletconnect.com)
 
-## Usage
+## Available Commands
 
-1. **Connect Wallet** - Click "Connect Wallet" in the navbar
-2. **Visit Terminal** - Go to `/terminal` or click "Terminal" in navbar
-3. **Ask Questions** - Try queries like:
-   - "CAKE price"
-   - "my balance"
-   - "top BNB holders"
-   - "BNB volume today"
+The BSC AI Terminal supports **30+ commands** organized by category:
+
+### 💰 Portfolio & Wallet
+- `/portfolio` - Complete portfolio overview with token breakdown
+- `/balance` - Check your BNB balance
+- `/approvals` - Review token approvals for security
+
+### 📊 Market Data
+- `/top` - Top performing tokens (24h)
+- `/trending` - Trending tokens with reasons
+- `/market` - Overall BSC market overview
+- `/gas` - Current gas prices (slow/standard/fast/instant)
+- `/price [token]` - Get specific token price
+
+### 🔄 DeFi & Trading
+- `/pools` - Top liquidity pools with APY
+- `/farms` - Yield farming opportunities
+- `/staking` - Staking rewards and options
+- `/swap [token1] [token2]` - Get swap rates and fees
+
+### 🐋 Analytics
+- `/whale` - Recent whale movements
+- `/history [token]` - Price history with ATH/ATL
+- `/convert [amount] [from] [to]` - Currency converter
+- `/holders [token]` - Top token holders
+
+### 🛠️ System
+- `/help` - Show all available commands
+- `/status` - System status and uptime
+- `/version` - Version information
+- `/clear` - Clear terminal
+
+## Natural Language Queries
+
+You can also use natural language instead of commands:
+
+**Portfolio:**
+- "What's my portfolio worth?"
+- "Show my token holdings"
+- "How much BNB do I have?"
+
+**Market:**
+- "Show me top performing tokens"
+- "What are current gas prices?"
+- "CAKE price today"
+
+**DeFi:**
+- "Best yield farming opportunities"
+- "Top liquidity pools"
+- "Staking rewards for BNB"
+
+**Analytics:**
+- "Whale movements today"
+- "CAKE price history"
+- "Top BNB holders"
 
 ## Tech Stack
 
@@ -53,9 +106,10 @@ Get your WalletConnect Project ID from [cloud.walletconnect.com](https://cloud.w
 
 ## Documentation
 
-- [Wallet Setup Guide](./WALLET-SETUP.md)
-- [Implementation Details](./IMPLEMENTATION-COMPLETE.md)
-- [API Setup Guide](./API-SETUP-GUIDE.md)
+- [Terminal Commands Guide](./TERMINAL-COMMANDS.md) - Complete command reference
+- [Wallet Setup Guide](./WALLET-SETUP.md) - Wallet integration setup
+- [Implementation Details](./IMPLEMENTATION-COMPLETE.md) - Technical implementation
+- [API Setup Guide](./API-SETUP-GUIDE.md) - API configuration
 
 ## Contributors
 
