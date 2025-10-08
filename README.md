@@ -2,6 +2,8 @@
 
 A Next.js application for the Zirc Protocol project.
 
+🚀 **Live Demo**: [View on Vercel](https://vercel.com/zircai99/simple)
+
 ## Screenshot
 
 ![Streamline NextJS Template screenshot](./public/og-image.jpg)
