@@ -180,14 +180,14 @@ const Navbar = () => {
             {/* Right side items */}
             <div className="hidden items-center gap-6 font-mono text-sm lg:flex">
               <Link 
-                href="#features" 
+                href="/features" 
                 className="text-neon-cyan hover:text-white transition-colors"
                 title="BSC AI Terminal Features"
               >
                 Features
               </Link>
               <Link 
-                href="#data" 
+                href="/bsc-data" 
                 className="text-neon-cyan hover:text-white transition-colors"
                 title="BSC Data Queries"
               >
@@ -327,14 +327,14 @@ const Navbar = () => {
             <div className="mb-6 space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <Link 
-                  href="#features" 
+                  href="/features" 
                   className="text-neon-cyan hover:text-white transition-colors text-center py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Features
                 </Link>
                 <Link 
-                  href="#data" 
+                  href="/bsc-data" 
                   className="text-neon-cyan hover:text-white transition-colors text-center py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
