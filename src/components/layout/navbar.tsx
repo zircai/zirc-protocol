@@ -176,6 +176,34 @@ const Navbar = () => {
             {/* Right side items */}
             <div className="hidden items-center gap-6 font-mono text-sm lg:flex">
               <Link 
+                href="#features" 
+                className="text-neon-cyan hover:text-white transition-colors"
+                title="BSC AI Terminal Features"
+              >
+                Features
+              </Link>
+              <Link 
+                href="#data" 
+                className="text-neon-cyan hover:text-white transition-colors"
+                title="BSC Data Queries"
+              >
+                BSC Data
+              </Link>
+              <Link 
+                href="/pricing" 
+                className="text-neon-cyan hover:text-white transition-colors"
+                title="Pricing Plans"
+              >
+                Pricing
+              </Link>
+              <Link 
+                href="/docs" 
+                className="text-neon-cyan hover:text-white transition-colors"
+                title="Documentation"
+              >
+                Docs
+              </Link>
+              <Link 
                 href="/token" 
                 className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 min-w-12 items-center justify-center border transition-all duration-300 px-2 font-mono text-base font-bold"
                 title="$ZIRC Token"
@@ -205,9 +233,9 @@ const Navbar = () => {
               <Link href="https://app.zirc.ai/">
                 <button 
                   className="hover:bg-neon-green flex items-center gap-2 bg-white px-4 py-2 font-mono text-sm text-black transition-colors"
-                  title="Launch zIRC App"
+                  title="Launch BSC AI Terminal"
                 >
-                  Launch zIRC
+                  Launch Terminal
                   <span>→</span>
                 </button>
               </Link>
@@ -291,40 +319,72 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Main Navigation Links (Mobile) - now in a single row */}
-            <div className="flex items-center justify-between gap-3 mb-6">
-              <Link 
-                href="/token" 
-                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 min-w-12 items-center justify-center border transition-all duration-300 px-2 font-mono text-base font-bold"
-                title="$ZIRC Token"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                $ZIRC
-              </Link>
-              <Link 
-                href="https://github.com/zircai/zirc-protocol" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
-                title="GitHub Repository"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link 
-                href="https://x.com/zircai" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
-                title="Twitter"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </Link>
-              <div title="Audio Player">
-                <AudioPlayer />
+            {/* Main Navigation Links (Mobile) */}
+            <div className="mb-6 space-y-4">
+              <div className="grid grid-cols-2 gap-3">
+                <Link 
+                  href="#features" 
+                  className="text-neon-cyan hover:text-white transition-colors text-center py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Features
+                </Link>
+                <Link 
+                  href="#data" 
+                  className="text-neon-cyan hover:text-white transition-colors text-center py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  BSC Data
+                </Link>
+                <Link 
+                  href="/pricing" 
+                  className="text-neon-cyan hover:text-white transition-colors text-center py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Pricing
+                </Link>
+                <Link 
+                  href="/docs" 
+                  className="text-neon-cyan hover:text-white transition-colors text-center py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Docs
+                </Link>
+              </div>
+              <div className="flex items-center justify-center gap-3">
+                <Link 
+                  href="/token" 
+                  className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 min-w-12 items-center justify-center border transition-all duration-300 px-2 font-mono text-base font-bold"
+                  title="$ZIRC Token"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  $ZIRC
+                </Link>
+                <Link 
+                  href="https://github.com/zircai/zirc-protocol" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
+                  title="GitHub Repository"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Github className="h-5 w-5" />
+                </Link>
+                <Link 
+                  href="https://x.com/zircai" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="border-neon-green text-neon-green hover:bg-neon-green hover:text-black flex h-8 w-8 items-center justify-center border transition-all duration-300"
+                  title="Twitter"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </Link>
+                <div title="Audio Player">
+                  <AudioPlayer />
+                </div>
               </div>
             </div>
 
