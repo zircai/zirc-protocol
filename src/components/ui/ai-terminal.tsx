@@ -6,7 +6,7 @@ import { aiService, AIResponse } from '@/lib/ai-service';
 
 interface TerminalLine {
   id: string;
-  type: 'user' | 'ai' | 'system';
+  type: 'user' | 'ai' | 'system' | 'data' | 'error';
   content: string;
   data?: any;
   timestamp: number;
@@ -43,7 +43,7 @@ export default function AITerminal() {
     }
   }, [isConnected, address]);
 
-  const addLine = (type: 'user' | 'ai' | 'system', content: string, data?: any) => {
+  const addLine = (type: 'user' | 'ai' | 'system' | 'data' | 'error', content: string, data?: any) => {
     const newLine: TerminalLine = {
       id: Date.now().toString(),
       type,
@@ -63,18 +63,42 @@ export default function AITerminal() {
     addLine('user', `> ${query}`);
 
     if (query === '/help') {
-      addLine('ai', `Available commands:
-• /help - Show this help
-• /clear - Clear terminal
-• /balance - Check BNB balance
-• /price [token] - Get token price
-• /holders [token] - Show top holders
-• /volume [token] - Show trading volume
+      addLine('ai', `🚀 zIRC.ai BSC Terminal Commands
 
-Natural language queries also work:
-• "show CAKE price"
-• "top BNB holders"
-• "BNB volume today"`);
+💰 Portfolio & Balances:
+• /portfolio - Complete portfolio overview
+• /balance - Check BNB balance
+• /approvals - Review token approvals
+
+📊 Market Data:
+• /top - Top performing tokens
+• /trending - Trending tokens
+• /market - Market overview
+• /gas - Current gas prices
+
+🔄 DeFi & Trading:
+• /pools - Top liquidity pools
+• /farms - Yield farming opportunities
+• /staking - Staking rewards
+• /swap [token1] [token2] - Swap rates
+
+🐋 Analytics:
+• /whale - Whale movements
+• /history [token] - Price history
+• /convert [amount] [from] [to] - Currency converter
+
+🛠️ System:
+• /status - System status
+• /version - Version info
+• /clear - Clear terminal
+• /help - Show this help
+
+💬 Natural Language:
+• "What's my portfolio worth?"
+• "Show me top performing tokens"
+• "Current gas prices"
+• "Best yield farming opportunities"
+• "Whale movements today"`);
       return;
     }
 
@@ -119,13 +143,17 @@ Natural language queries also work:
   const getLineStyle = (line: TerminalLine) => {
     switch (line.type) {
       case 'user':
-        return 'text-white';
+        return 'text-neon-green';
       case 'ai':
         return 'text-neon-cyan';
       case 'system':
-        return 'text-neon-green';
+        return 'text-yellow-400';
+      case 'data':
+        return 'text-green-400';
+      case 'error':
+        return 'text-red-400';
       default:
-        return 'text-gray-400';
+        return 'text-white';
     }
   };
 

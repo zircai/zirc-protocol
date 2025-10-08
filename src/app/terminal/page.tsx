@@ -91,28 +91,47 @@ export default function TerminalPage() {
 
         {/* Quick Commands Reference */}
         <div className="mt-8 bg-black/40 border border-neon-green/20 rounded-lg p-6 max-w-4xl mx-auto">
-          <h3 className="text-neon-green font-mono font-semibold mb-3">Quick Commands</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-mono">
+          <h3 className="text-neon-green font-mono font-semibold mb-3">🚀 Enhanced Commands</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono">
             <div>
-              <span className="text-neon-cyan">/help</span>
-              <span className="text-gray-400"> - Show available commands</span>
+              <div className="text-neon-cyan mb-2">💰 Portfolio</div>
+              <div className="space-y-1 text-gray-300">
+                <div>/portfolio - Complete overview</div>
+                <div>/balance - BNB balance</div>
+                <div>/approvals - Security check</div>
+              </div>
             </div>
             <div>
-              <span className="text-neon-cyan">/clear</span>
-              <span className="text-gray-400"> - Clear terminal history</span>
+              <div className="text-neon-cyan mb-2">📊 Market</div>
+              <div className="space-y-1 text-gray-300">
+                <div>/top - Top performers</div>
+                <div>/trending - Trending tokens</div>
+                <div>/gas - Gas prices</div>
+                <div>/market - Market overview</div>
+              </div>
             </div>
             <div>
-              <span className="text-neon-cyan">/balance</span>
-              <span className="text-gray-400"> - Check your BNB balance</span>
+              <div className="text-neon-cyan mb-2">🔄 DeFi</div>
+              <div className="space-y-1 text-gray-300">
+                <div>/pools - Liquidity pools</div>
+                <div>/farms - Yield farming</div>
+                <div>/staking - Staking rewards</div>
+                <div>/swap [token1] [token2]</div>
+              </div>
             </div>
             <div>
-              <span className="text-neon-cyan">/price [token]</span>
-              <span className="text-gray-400"> - Get token price</span>
+              <div className="text-neon-cyan mb-2">🐋 Analytics</div>
+              <div className="space-y-1 text-gray-300">
+                <div>/whale - Whale movements</div>
+                <div>/history [token] - Price history</div>
+                <div>/convert [amount] [from] [to]</div>
+                <div>/status - System status</div>
+              </div>
             </div>
           </div>
           <div className="mt-4 pt-4 border-t border-neon-green/10">
             <p className="text-gray-500 text-xs">
-              💡 Tip: You can also use natural language like "show me CAKE price" or "what's BNB trading volume?"
+              💡 Enhanced Natural Language: "What's my portfolio worth?", "Show me top performing tokens", "Current gas prices", "Best yield farming opportunities"
             </p>
           </div>
         </div>
