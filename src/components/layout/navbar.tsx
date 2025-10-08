@@ -25,26 +25,35 @@ const Navbar = () => {
   const [tickerPaused, setTickerPaused] = useState(false);
   const [coinModal, setCoinModal] = useState<TokenData | null>(null);
   const [bscTokens, setBscTokens] = useState<TokenData[]>([
-    // Initial placeholder data
+    // Initial placeholder data - mix of blue chips and memes
     { coin: 'BNB', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
     { coin: 'CAKE', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
-    { coin: 'BUSD', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'FLOKI', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'BABYDOGE', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'SAFEMOON', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'SHIB', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
     { coin: 'BTCB', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
     { coin: 'ETH', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
-    { coin: 'USDT', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'PEPE', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'BONK', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
   ]);
 
-  // Fetch real BSC token prices
+  // Fetch real BSC token prices (mix of blue chips and memes)
   useEffect(() => {
     const fetchTokenPrices = async () => {
-      const tokens = ['BNB', 'CAKE', 'BUSD', 'BTCB', 'ETH', 'USDT'];
+      // Mix of major tokens and BSC memecoins for that degen vibe 🚀
+      const tokens = ['BNB', 'CAKE', 'FLOKI', 'BABYDOGE', 'SAFEMOON', 'SHIB', 'BTCB', 'ETH', 'PEPE', 'BONK'];
       const tokenDescriptions: Record<string, string> = {
         'BNB': 'Binance Coin - Native token of Binance Smart Chain, powers the BSC ecosystem',
         'CAKE': 'PancakeSwap - Leading decentralized exchange (DEX) on BSC',
-        'BUSD': 'Binance USD - Stablecoin issued by Binance, pegged to USD',
+        'FLOKI': 'Floki Inu - Named after Elon Musk\'s dog, Viking-themed BSC memecoin 🐕',
+        'BABYDOGE': 'Baby Doge Coin - BSC memecoin with massive community, son of Dogecoin 👶🐕',
+        'SAFEMOON': 'SafeMoon - OG BSC memecoin with reflection tokenomics 🌙',
+        'SHIB': 'Shiba Inu - The Dogecoin killer, now on BSC too 🐕',
         'BTCB': 'Bitcoin BEP20 - Wrapped Bitcoin on Binance Smart Chain',
         'ETH': 'Ethereum BEP20 - Wrapped Ethereum on Binance Smart Chain',
-        'USDT': 'Tether - Leading stablecoin on BSC, pegged to USD',
+        'PEPE': 'Pepe - The frog memecoin that took crypto by storm 🐸',
+        'BONK': 'Bonk - Solana\'s dog coin, now bridged to BSC 🐕',
       };
 
       const updatedTokens: TokenData[] = [];

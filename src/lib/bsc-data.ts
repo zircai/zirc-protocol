@@ -58,7 +58,7 @@ export class BSCDataService {
   // Get token price (using CoinGecko free API)
   async getTokenPrice(symbol: string): Promise<TokenPrice | null> {
     try {
-      // CoinGecko coin IDs mapping
+      // CoinGecko coin IDs mapping (blue chips + memecoins)
       const coinGeckoIds: Record<string, string> = {
         'BNB': 'binancecoin',
         'CAKE': 'pancakeswap-token',
@@ -67,6 +67,14 @@ export class BSCDataService {
         'ETH': 'ethereum',
         'BTCB': 'bitcoin-bep2',
         'USDC': 'usd-coin',
+        // BSC Memecoins 🚀
+        'FLOKI': 'floki',
+        'BABYDOGE': 'baby-doge-coin',
+        'SAFEMOON': 'safemoon-2',
+        'SHIB': 'shiba-inu',
+        'PEPE': 'pepe',
+        'BONK': 'bonk',
+        'DOGE': 'dogecoin',
       };
 
       const coinId = coinGeckoIds[symbol.toUpperCase()];
