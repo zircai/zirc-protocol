@@ -4,87 +4,83 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Github, Activity } from 'lucide-react';
 import AudioPlayer from '../ui/audio-player';
+import { bscDataService } from '@/lib/bsc-data';
 
 const ASCII_BORDER = '═══════════════════════════════════════════════';
 
-// Memecoin pricing data that scrolls across the top
-const memecoinPricing = [
-  {
-    coin: 'DOGE',
-    price: '$0.1234',
-    change: '+2.3%',
-    volume: '$1.2B',
-    mcap: '$17.8B',
-    details:
-      'Dogecoin - The original memecoin, started as a joke, now a major player.',
-  },
-  {
-    coin: 'SHIB',
-    price: '$0.00001234',
-    change: '-1.2%',
-    volume: '$856M',
-    mcap: '$7.2B',
-    details: 'Shiba Inu - The Dogecoin killer, with its own ecosystem.',
-  },
-  {
-    coin: 'PEPE',
-    price: '$0.0000001234',
-    change: '+5.6%',
-    volume: '$234M',
-    mcap: '$1.1B',
-    details: 'Pepe - The frog-themed memecoin that took the market by storm.',
-  },
-  {
-    coin: 'FLOKI',
-    price: '$0.0001234',
-    change: '-0.8%',
-    volume: '$98M',
-    mcap: '$892M',
-    details: "Floki - Named after Elon Musk's dog, with a Viking theme.",
-  },
-  {
-    coin: 'BONK',
-    price: '$0.0000000234',
-    change: '+3.4%',
-    volume: '$45M',
-    mcap: '$156M',
-    details:
-      "Bonk - Solana's first dog coin, gaining traction in the ecosystem.",
-  },
-  {
-    coin: 'WOJAK',
-    price: '$0.0000000123',
-    change: '-2.1%',
-    volume: '$12M',
-    mcap: '$89M',
-    details: 'Wojak - Based on the popular internet meme character.',
-  },
-  {
-    coin: 'SAMO',
-    price: '$0.01234',
-    change: '+4.5%',
-    volume: '$34M',
-    mcap: '$445M',
-    details: 'Samoyedcoin - The unofficial mascot of Solana.',
-  },
-  {
-    coin: 'MYRO',
-    price: '$0.0000000345',
-    change: '-1.8%',
-    volume: '$23M',
-    mcap: '$67M',
-    details: 'Myro - Another Solana-based dog coin gaining popularity.',
-  },
-];
+// BSC Token data interface
+interface TokenData {
+  coin: string;
+  price: string;
+  change: string;
+  volume: string;
+  mcap: string;
+  details: string;
+}
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [tickerOffset, setTickerOffset] = useState(0);
   const [tickerPaused, setTickerPaused] = useState(false);
-  const [coinModal, setCoinModal] = useState<
-    null | (typeof memecoinPricing)[0]
-  >(null);
+  const [coinModal, setCoinModal] = useState<TokenData | null>(null);
+  const [bscTokens, setBscTokens] = useState<TokenData[]>([
+    // Initial placeholder data
+    { coin: 'BNB', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'CAKE', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'BUSD', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'BTCB', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'ETH', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+    { coin: 'USDT', price: '$---', change: '+0.0%', volume: '$---', mcap: '$---', details: 'Loading BSC data...' },
+  ]);
+
+  // Fetch real BSC token prices
+  useEffect(() => {
+    const fetchTokenPrices = async () => {
+      const tokens = ['BNB', 'CAKE', 'BUSD', 'BTCB', 'ETH', 'USDT'];
+      const tokenDescriptions: Record<string, string> = {
+        'BNB': 'Binance Coin - Native token of Binance Smart Chain, powers the BSC ecosystem',
+        'CAKE': 'PancakeSwap - Leading decentralized exchange (DEX) on BSC',
+        'BUSD': 'Binance USD - Stablecoin issued by Binance, pegged to USD',
+        'BTCB': 'Bitcoin BEP20 - Wrapped Bitcoin on Binance Smart Chain',
+        'ETH': 'Ethereum BEP20 - Wrapped Ethereum on Binance Smart Chain',
+        'USDT': 'Tether - Leading stablecoin on BSC, pegged to USD',
+      };
+
+      const updatedTokens: TokenData[] = [];
+
+      for (const token of tokens) {
+        try {
+          const priceData = await bscDataService.getTokenPrice(token);
+          
+          if (priceData) {
+            updatedTokens.push({
+              coin: token,
+              price: `$${priceData.price < 1 ? priceData.price.toFixed(4) : priceData.price.toFixed(2)}`,
+              change: `${priceData.change24h >= 0 ? '+' : ''}${priceData.change24h.toFixed(2)}%`,
+              volume: '---', // Volume data would need additional API
+              mcap: priceData.marketCap > 0 ? `$${(priceData.marketCap / 1e9).toFixed(2)}B` : '$---',
+              details: tokenDescriptions[token] || `${token} token on Binance Smart Chain`,
+            });
+          }
+        } catch (error) {
+          console.error(`Error fetching ${token} price:`, error);
+        }
+      }
+
+      if (updatedTokens.length > 0) {
+        setBscTokens(updatedTokens);
+      }
+    };
+
+    // Fetch immediately on mount
+    fetchTokenPrices();
+
+    // Refresh every 30 seconds
+    const interval = setInterval(fetchTokenPrices, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -116,7 +112,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Memecoin Pricing Ticker */}
+      {/* BSC Token Pricing Ticker - Real-time Data */}
       <div
         className="text-neon-green border-neon-green/30 overflow-hidden border-b bg-black py-1 font-mono text-xs"
         onMouseEnter={handleTickerMouseEnter}
@@ -126,7 +122,7 @@ const Navbar = () => {
           className="flex whitespace-nowrap"
           style={{ transform: `translateX(${tickerOffset}px)` }}
         >
-          {[...memecoinPricing, ...memecoinPricing].map((coin, index) => (
+          {[...bscTokens, ...bscTokens].map((coin, index) => (
             <button
               key={index}
               className="hover:text-neon-cyan mr-8 flex items-center bg-transparent hover:underline focus:outline-none"
@@ -146,7 +142,6 @@ const Navbar = () => {
               >
                 {coin.change}
               </span>
-              <span className="mr-2 text-gray-400">Vol: {coin.volume}</span>
               <span className="mr-2 text-gray-400">MCap: {coin.mcap}</span>
               <span className="mr-4 text-gray-600">|</span>
             </button>
