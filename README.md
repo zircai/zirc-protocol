@@ -1,34 +1,65 @@
-# Zirc Protocol
+# zIRC.ai - BSC AI Terminal
 
-A Next.js application for the Zirc Protocol project.
+AI-powered terminal for Binance Smart Chain. Ask natural questions about BSC data, get instant insights. No dashboards, just terminal-style answers for degens.
 
 🚀 **Live Demo**: [View on Vercel](https://vercel.com/zircai99/simple)
 
-## Screenshot
+## Features
 
-![Streamline NextJS Template screenshot](./public/og-image.jpg)
+- 🤖 **AI-Powered Queries** - Natural language BSC data analysis
+- 🔗 **Wallet Integration** - MetaMask, Trust Wallet, WalletConnect, Coinbase
+- 💰 **Real-time Prices** - Live BSC token prices and market data
+- 🎯 **Terminal Interface** - Retro CLI aesthetic for crypto natives
+- 📱 **Mobile Support** - Responsive design with mobile wallet connections
 
-## Getting Started
+## Quick Start
 
 ```bash
 npm install
-```
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the homepage, or [http://localhost:3000/terminal](http://localhost:3000/terminal) for the AI Terminal.
+
+## Environment Setup
+
+Create `.env.local`:
+
+```bash
+# Required for WalletConnect (mobile wallets)
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
+```
+
+Get your WalletConnect Project ID from [cloud.walletconnect.com](https://cloud.walletconnect.com)
+
+## Usage
+
+1. **Connect Wallet** - Click "Connect Wallet" in the navbar
+2. **Visit Terminal** - Go to `/terminal` or click "Terminal" in navbar
+3. **Ask Questions** - Try queries like:
+   - "CAKE price"
+   - "my balance"
+   - "top BNB holders"
+   - "BNB volume today"
 
 ## Tech Stack
 
-- Nextjs 15 / App Router
-- Tailwind 4
-- shadcn/ui
+- Next.js 15 / App Router
+- Tailwind CSS 4
+- Wagmi v2 (wallet integration)
+- React Query (data fetching)
+- WalletConnect v2 (mobile wallets)
+- shadcn/ui components
+
+## Documentation
+
+- [Wallet Setup Guide](./WALLET-SETUP.md)
+- [Implementation Details](./IMPLEMENTATION-COMPLETE.md)
+- [API Setup Guide](./API-SETUP-GUIDE.md)
 
 ## Contributors
 
-This project is maintained by the current development team.
+This project is maintained by the zIRC development team.
 
 ## Deploy on Vercel
 
