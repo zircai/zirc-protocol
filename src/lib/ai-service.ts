@@ -412,7 +412,7 @@ export class AIService {
   private async handleGasQuery(): Promise<AIResponse> {
     try {
       // Try to get real gas price from BSC
-      const response = await fetch('https://api.bscscan.com/api?module=gastracker&action=gasoracle&apikey=' + (process.env.NEXT_PUBLIC_BSC_API_KEY || ''));
+      const response = await fetch('https://api.bscscan.com/api?module=gastracker&action=gasoracle&apikey=' + (process.env.BSC_API_KEY || ''));
       
       if (response.ok) {
         const data = await response.json();

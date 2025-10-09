@@ -298,4 +298,5 @@ export class BSCDataService {
 }
 
 // Create a singleton instance
-export const bscDataService = new BSCDataService(process.env.NEXT_PUBLIC_BSC_API_KEY || 'demo');
+// Updated to use server-side API key (no NEXT_PUBLIC_ prefix)
+export const bscDataService = new BSCDataService(process.env.BSC_API_KEY || 'demo');

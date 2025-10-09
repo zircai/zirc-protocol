@@ -1,26 +1,75 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAccount, useConnect, useDisconnect, useBalance } from 'wagmi';
 import { Wallet, ChevronDown, X, ExternalLink, Copy, Check } from 'lucide-react';
 import { Button } from './button';
+import { SessionSecurity } from '@/lib/session-security';
+import { SecurityLogger } from '@/lib/security-logger';
 
 export function WalletConnectButton() {
   const [showModal, setShowModal] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [sessionWarning, setSessionWarning] = useState(false);
   const { address, isConnected, connector } = useAccount();
   const { connect, connectors, isPending } = useConnect();
   const { disconnect } = useDisconnect();
   const { data: balance } = useBalance({ address });
 
+  // Session security with auto-disconnect
+  useEffect(() => {
+    if (!isConnected || !address) return;
+
+    // Log wallet connection
+    SecurityLogger.walletConnected(address, connector?.name);
+
+    // Run security checks
+    const securityCheck = SessionSecurity.runSecurityChecks(['zirc.ai', 'localhost']);
+    if (!securityCheck.passed) {
+      securityCheck.errors.forEach(error => {
+        console.error(error);
+        alert(error); // Show critical warnings to user
+      });
+    }
+
+    // Start session timeout
+    const cleanup = SessionSecurity.startInactivityTimer(
+      () => {
+        // Auto-disconnect on timeout
+        disconnect();
+        setSessionWarning(false);
+        console.log('[Security] Auto-disconnected due to inactivity');
+      },
+      () => {
+        // Warning before timeout
+        setSessionWarning(true);
+      }
+    );
+
+    return () => {
+      cleanup();
+      SessionSecurity.sanitizeLocalStorage();
+    };
+  }, [isConnected, address, connector, disconnect]);
+
   const handleConnect = (connectorItem: any) => {
-    connect({ connector: connectorItem });
-    setShowModal(false);
+    try {
+      connect({ connector: connectorItem });
+      setShowModal(false);
+    } catch (error) {
+      SecurityLogger.error('wallet_connection_failed', error);
+      console.error('Failed to connect wallet:', error);
+    }
   };
 
   const handleDisconnect = () => {
+    if (address) {
+      SecurityLogger.walletDisconnected(address);
+    }
     disconnect();
     setShowModal(false);
+    setSessionWarning(false);
+    SessionSecurity.clearStorageOnDisconnect(['theme', 'preferences']);
   };
 
   const copyAddress = () => {
@@ -75,6 +124,15 @@ export function WalletConnectButton() {
 
               {/* Content */}
               <div className="p-4 space-y-4">
+                {/* Session Warning */}
+                {sessionWarning && (
+                  <div className="bg-yellow-500/10 border border-yellow-500/40 rounded p-3 mb-2">
+                    <p className="text-yellow-400 text-xs font-mono">
+                      ⚠️ Session expiring soon. Activity will keep you connected.
+                    </p>
+                  </div>
+                )}
+
                 {/* Wallet Info */}
                 <div className="bg-black/60 border border-neon-green/20 rounded p-3 space-y-2">
                   <div className="flex items-center justify-between">

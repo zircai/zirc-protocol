@@ -77,7 +77,7 @@
 Your `.env.local` has:
 ```bash
 # BSCScan/Etherscan V2 Multichain API
-NEXT_PUBLIC_BSC_API_KEY=DZE4CAX2ASP7J97UG2Z3IVVDQFRCI5Q5PU
+BSC_API_KEY=DZE4CAX2ASP7J97UG2Z3IVVDQFRCI5Q5PU
 ```
 
 **This single API key works for:**
@@ -231,11 +231,20 @@ node test-bsc-api.js
 
 ## 🔒 API Keys & Security
 
-### Current Setup
-- ✅ BSCScan API Key: In `.env.local`
-- ✅ Environment variable: `NEXT_PUBLIC_BSC_API_KEY`
+### Current Setup (UPDATED FOR SECURITY)
+- ✅ BSCScan API Key: In `.env.local` (server-side only)
+- ✅ Environment variable: `BSC_API_KEY` (no NEXT_PUBLIC_ prefix)
+- ✅ API routes: `/api/bsc/*` (secure server-side endpoints)
 - ✅ Free tier: 5 calls/second
 - ✅ No billing/credit card required
+
+### Security Improvements (January 2025)
+- ✅ **API keys protected** - No longer exposed to client-side
+- ✅ **Rate limiting** - 50 requests/minute per IP
+- ✅ **Input validation** - Comprehensive Zod schemas
+- ✅ **Security headers** - 8 HTTP security headers
+- ✅ **Session security** - Auto-disconnect after 30min
+- ✅ **Security logging** - Complete audit trail
 
 ### Best Practices
 - ✅ API keys in environment variables

@@ -7,7 +7,11 @@ import { injected, coinbaseWallet, walletConnect } from 'wagmi/connectors';
 import { QueryProvider } from './query-provider';
 
 // WalletConnect Project ID
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'demo-project-id';
+// Note: WalletConnect requires this to be public (used in client-side SDK)
+// This is safe because it's not a secret - it's a project identifier
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 
+                  process.env.WALLETCONNECT_PROJECT_ID || 
+                  'demo-project-id';
 
 // Create wagmi config
 const config = createConfig({

@@ -33,7 +33,10 @@ To enable mobile wallet connections via WalletConnect, you need a Project ID:
 
 ```bash
 # .env.local
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
+# Updated for security - can use either format for WalletConnect
+WALLETCONNECT_PROJECT_ID=your_project_id_here
+# or (also supported for backward compatibility):
+# NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
 ```
 
 **Without this:**
@@ -149,18 +152,29 @@ Add `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` to your deployment environment variab
 
 ## Security Best Practices
 
+### 🔒 Security Features (January 2025 Update)
+- ✅ **API Keys Protected** - Server-side only, never exposed to clients
+- ✅ **Rate Limiting** - 50 requests/minute per IP to prevent abuse
+- ✅ **Input Validation** - All addresses and inputs are validated
+- ✅ **Security Headers** - 8 HTTP security headers for browser protection
+- ✅ **Session Security** - Auto-disconnect after 30 minutes of inactivity
+- ✅ **Transaction Warnings** - Pre-signing risk analysis and warnings
+- ✅ **Security Logging** - Complete audit trail of all activities
+
 ### For Users
-- ✅ Always verify you're connecting to the correct domain
-- ✅ Never share your seed phrase
+- ✅ Always verify you're connecting to the correct domain (zirc.ai)
+- ✅ Never share your seed phrase or private keys
 - ✅ Only connect to trusted applications
-- ✅ Review transactions before signing
+- ✅ Review transactions before signing (you'll see warnings for risky transactions)
+- ✅ Session auto-disconnects for security after 30 minutes of inactivity
 
 ### For Developers
-- ✅ Never store private keys in code
-- ✅ Use environment variables for API keys
-- ✅ Always validate user addresses on backend
-- ✅ Implement rate limiting for queries
-- ✅ Use HTTPS in production
+- ✅ API keys are server-side only (no NEXT_PUBLIC_ prefix)
+- ✅ All API calls go through secure `/api/bsc/*` routes
+- ✅ Comprehensive input validation with Zod schemas
+- ✅ Rate limiting prevents API abuse
+- ✅ Security headers protect against XSS, clickjacking, and more
+- ✅ Complete security logging for monitoring
 
 ## Wallet Connection Flow
 

@@ -7,7 +7,7 @@ require('dotenv').config({ path: '.env.local' });
 
 const ETHERSCAN_V2_BASE = 'https://api.etherscan.io/v2/api';
 const BSC_CHAIN_ID = 56; // Binance Smart Chain
-const API_KEY = process.env.NEXT_PUBLIC_BSC_API_KEY;
+const API_KEY = process.env.BSC_API_KEY;
 
 console.log('🔍 Testing Etherscan V2 Multichain API (BSC)...\n');
 console.log(`API Key: ${API_KEY ? API_KEY.slice(0, 10) + '...' : 'NOT FOUND'}\n`);
